@@ -49,7 +49,11 @@ nav ul li a:hover{
     text-decoration: none;
     color: #333;
 }
-
+.header-links a:hover{
+    color: #cc1c0c;
+    font-size: 110%;
+    transition: color 0.3 ease-in-out;
+}
 .banner{
     display: flex;
     align-items: center;
