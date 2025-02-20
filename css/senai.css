@@ -79,10 +79,16 @@ main {
 }
 
 .descricao {
-    font-size: 30px;
-    line-height: 1.7;
+    font-size: 25px;
+    line-height: 45px;
     color: #636363;
-    max-width: 80%;
+    max-width: 74%;
     margin: 0 auto;
     text-align: justify;
+    margin-bottom: 20px;
 }
+font-size: 25px;
+    margin-bottom: 20px;
+    text-align: justify;
+    line-height: ;
+
