@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SENAI Taubaté</title>
     <link rel="stylesheet" href="<?php echo $css_path; ?>">
-    <link rel="stylesheet" href="senai.css">
+    <link rel="stylesheet" href="./css/senai.css">
 </head>
 <body>
     <header>
