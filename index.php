@@ -8,34 +8,30 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@latest/font/bootstrap-icons.min.css">
 
 </head>
 <body>
-
-        <header>
-            <div class="container">
-                <img src="./img/senai_technews.png" alt="SENAI Logo" class="logo">
-                <nav>
-    <ul>
-        <li><a href="senai.php">SENAI TAUBATÉ</a></li> 
-        <li><a href="ds.php">CURSO</a></li>
-        <li><a href="noticias.php">NOTÍCIAS</a></li>
-        <li><a href="projetos.html">PROJETOS</a></li> 
-    </ul>
-</nav>
-                <div class="header-links">
-                    <a href="#">✉ Email</a>
-                    <a href="#" class="login"><i class="bi bi-person"></i>Entrar</a>
-                </div>
+    <header>
+        <div class="container">
+            <img src="./img/senai_technews.png" alt="SENAI Logo" class="logo">
+            <nav>
+                <ul>
+                    <li><a href="senai.php">SENAI TAUBATÉ</a></li> 
+                    <li><a href="ds.php">CURSO</a></li>
+                    <li><a href="noticias.php">NOTÍCIAS</a></li>
+                    <li><a href="projetos.html">PROJETOS</a></li> 
+                </ul>
+            </nav>
+            <div class="header-links">
+                <a href="#">✉ Email</a>
+                <a href="#" class="login"><i class="bi bi-person"></i>Entrar</a>
             </div>
-        </header>
-        
+        </div>
+    </header>
         <div class="banner">
             <img src="./img/bannerDs.png" alt="">
-
         </div>
-
         <main>
             <h1 class="titulo">CURSO TÉCNICO DE DESENVOLVIMENTO DE SISTEMAS</h1>
             <section class="descricao">
@@ -46,19 +42,85 @@
             
             <section class="areas-atuacao">
                 <h2>ÁREAS DE ATUAÇÃO</h2>
-                <div class="grid">
-                    <div class="area"><img src="front-end.png" alt="Front-end"></div>
-                    <div class="area"><img src="mobile.png" alt="Mobile"></div>
-                    <div class="area"><img src="back-end.png" alt="Back-end"></div>
-                    <div class="area"><img src="dba.png" alt="DBA"></div>
-                    <div class="area"><img src="pentester.png" alt="Pentester"></div>
-                    <div class="area"><img src="ciberseguranca.png" alt="Cibersegurança"></div>
-                    <div class="area"><img src="dev-ia.png" alt="Dev IA"></div>
-                    <div class="area"><img src="dev-ops.png" alt="Dev Ops"></div>
-                    <div class="area"><img src="qa-tester.png" alt="QA Tester"></div>
-                    <div class="area"><img src="scrum-master.png" alt="Scrum Master"></div>
-                    <div class="area"><img src="solucoes-ti.png" alt="Soluções TI"></div>
+
+                <div class="card-container">
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img src="./img/web-dev.jpg" alt="Avatar">
+                            </div>
+                            <div class="flip-card-back">
+                                <h1>Web Dev</h1>
+                                <p>Architect & Engineer</p>
+                                <p>We love that guy</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img src="./img/mobile-dev.png" alt="Avatar">
+                            </div>
+                            <div class="flip-card-back">
+                                <h1>Mobile Dev</h1>
+                                <p>Architect & Engineer</p>
+                                <p>We love that guy</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img src="./img/3.png" alt="Avatar">
+                            </div>
+                            <div class="flip-card-back">
+                                <h1></h1>
+                                <p>Architect & Engineer</p>
+                                <p>We love that guy</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
+                <div class="card-container">
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img src="./img/web-dev.png" alt="Avatar">
+                            </div>
+                            <div class="flip-card-back">
+                                <h1>Web Dev</h1>
+                                <p>Architect & Engineer</p>
+                                <p>We love that guy</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img src="./img/mobile-dev.png" alt="Avatar">
+                            </div>
+                            <div class="flip-card-back">
+                                <h1>Mobile Dev</h1>
+                                <p>Architect & Engineer</p>
+                                <p>We love that guy</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img src="./img/3.png" alt="Avatar">
+                            </div>
+                            <div class="flip-card-back">
+                                <h1></h1>
+                                <p>Architect & Engineer</p>
+                                <p>We love that guy</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </section>
         </main>
         <footer class="footer">
