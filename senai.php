@@ -31,7 +31,6 @@
         </header>
         <div class="banner">
             <img src="./img/bunner_senaitaubate(png).png" alt="Banner" class="banner">
-
         </div>
    
 
