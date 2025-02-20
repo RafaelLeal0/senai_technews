@@ -11,15 +11,30 @@
     <link rel="stylesheet" href="./css/senai.css">
 </head>
 <body>
-    <header>
+<header>
+            <div class="container">
+                <img src="./img/senai_technews.png" alt="SENAI Logo" class="logo">
+                <nav>
+                    <ul>
+                        <li><a href="#">SENAI Taubaté</a></li>
+                        <li><a href="#">CURSO</a></li>
+                        <li><a href="#">NOTÍCIAS</a></li>
+                        <li><a href="#">EVENTOS</a></li>
+                    </ul>
+                </nav>
+                <div class="header-links">
+                    <a href="#">✉ Email</a>
+                    <a href="#" class="login">🔒 Entrar</a>
+                </div>
+            </div>
         </header>
         <img src="./img/bunner_senaitaubate(png).png" alt="Banner SENAI Taubaté" class="banner">
 
     <main>
         <h1 class="titulo">SOBRE O SENAI TAUBATÉ</h1>
         <p class="descricao">O SENAI é um dos cinco maiores complexos de educação profissional do mundo e o maior da América Latina. A rede SENAI-SP engloba 92 unidades fixas, incluindo a escola SENAI Félix Guisard, localizada na cidade de Taubaté.</p>
-        <p class="descricao">Oferecemos cursos para as qualificações de mecânica, metalurgia, eletricidade, eletrônica, automação, segurança do trabalho, logística, gestão, tecnologia da informação, entre outras. Contamos com laboratórios de metrologia, hidráulica, mecânica, impressão 3D, informática industrial, automação, eletrônica, elétrica, ferramentaria e plásticos.</p>
-        <p class="descricao">O SENAI-SP tem a missão de impulsionar o aumento da competitividade da indústria por meio da educação profissional, inovação, tecnologia e desenvolvimento industrial sustentável. Com esse objetivo em mente, o SENAI-SP investe constantemente em laboratórios de última geração e na formação inicial profissional de alta qualidade.</p>
+        <p class="descricao">Oferecemos cursos para as qualificações de mecânica, metalurgia, eletricidade, eletrônica, automação, segurança do trabalho, logística, gestão, tecnologia da informação, em um ambiente de ensino projetado para oferecer capacitação profissional e especialização técnica. Contamos com laboratórios de metrologia, hidráulica, pneumática, impressão 3D, informática e oficinas de automobilística, soldagem, caldeiraria, mecânica geral, ferramentaria e plásticos.</p>
+        <p class="descricao">O SENAI-SP tem a missão de impulsionar o aumento da competitividade da indústria por meio de ações de educação profissional, inovação, tecnologia, e empreendedorismo industrial. Com mais de 80 anos de atuação, o SENAI-SP supera 1 milhão de matrículas anuais, abrangendo desde cursos para a formação inicial profissional até a pós-graduação. São 90 unidades de formação profissional distribuídas em todo o estado de São Paulo, além de 78 escolas móveis, que levam soluções customizadas para a indústria.</p>
     </main>
 </body>
 </html>
