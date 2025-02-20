@@ -65,6 +65,10 @@
             border: 1px solid #800000; 
             border-radius: 5px; 
         }
+        
+        label { 
+           margin-bottom: -10px;
+        }
 
         button {
             width: 100%; 
