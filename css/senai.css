@@ -62,12 +62,9 @@ nav ul li a:hover{
     width: 70%;
     height: auto;
     margin-top: 20px;
-}
 
 
-main {
-    padding: 20px;
-}
+
 
 .titulo {
 
@@ -86,4 +83,7 @@ main {
     max-width: 80%;
     margin: 0 auto;
     text-align: justify;
+}
+main{
+    padding: 20px;
 }
