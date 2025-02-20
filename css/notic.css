@@ -81,7 +81,17 @@ nav ul li a:hover{
             overflow: hidden;
             background: #fff;
         }
+        .news-item2 {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #fff;
+        }
         .news-item img {
+            width: 100%;
+            display: block;
+        }
+        .news-item2 img {
             width: 100%;
             display: block;
         }

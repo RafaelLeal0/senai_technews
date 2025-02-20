@@ -17,13 +17,13 @@
             <div class="container">
                 <img src="./img/senai_technews.png" alt="SENAI Logo" class="logo">
                 <nav>
-                    <ul>
-                        <li><a href="#">SENAI TAUBATÉ</a></li>
-                        <li><a href="#">CURSO</a></li>
-                        <li><a href="#">NOTÍCIAS</a></li>
-                        <li><a href="#">PROJETOS</a></li>
-                    </ul>
-                </nav>
+    <ul>
+        <li><a href="senai.php">SENAI TAUBATÉ</a></li> 
+        <li><a href="ds.php">CURSO</a></li>
+        <li><a href="noticias.php">NOTÍCIAS</a></li>
+        <li><a href="projetos.html">PROJETOS</a></li> 
+    </ul>
+</nav>
                 <div class="header-links">
                     <a href="#">✉ Email</a>
                     <a href="#" class="login"><i class="bi bi-person"></i>Entrar</a>
