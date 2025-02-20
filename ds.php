@@ -12,12 +12,13 @@
 <body>
         <header>
             <div class="container">
-                <img src="logo.png" alt="SENAI Logo" class="logo">
+                <img src="./img/senai_technews.png" alt="SENAI Logo" class="logo">
                 <nav>
                     <ul>
                         <li><a href="#">SENAI Taubaté</a></li>
-                        <li><a href="#">Curso</a></li>
-                        <li><a href="#">Notícias</a></li>
+                        <li><a href="#">CURSO</a></li>
+                        <li><a href="#">NOTÍCIAS</a></li>
+                        <li><a href="#">EVENTOS</a></li>
                     </ul>
                 </nav>
                 <div class="header-links">
@@ -28,7 +29,7 @@
         </header>
         
         <section class="banner">
-            <img src="./img/bannerDs.png" alt="Banner">
+            <img src="./img/bunner_senaitech(canva).png" alt="Banner">
         
 
         </section>
