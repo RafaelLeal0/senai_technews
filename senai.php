@@ -11,7 +11,22 @@
     <link rel="stylesheet" href="./css/senai.css">
 </head>
 <body>
-    <header>
+<header>
+            <div class="container">
+                <img src="./img/senai_technews.png" alt="SENAI Logo" class="logo">
+                <nav>
+                    <ul>
+                        <li><a href="#">SENAI Taubaté</a></li>
+                        <li><a href="#">CURSO</a></li>
+                        <li><a href="#">NOTÍCIAS</a></li>
+                        <li><a href="#">EVENTOS</a></li>
+                    </ul>
+                </nav>
+                <div class="header-links">
+                    <a href="#">✉ Email</a>
+                    <a href="#" class="login">🔒 Entrar</a>
+                </div>
+            </div>
         </header>
         <img src="./img/bunner_senaitaubate(png).png" alt="Banner SENAI Taubaté" class="banner">
 
