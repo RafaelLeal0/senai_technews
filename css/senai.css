@@ -52,19 +52,21 @@ nav ul li a:hover{
     text-decoration: none;
     color: #333;
 }
-.banner {
-    width: 100%; /* O banner ocupará toda a largura da tela */
-    height: auto; /* Mantém a proporção da imagem */
-    display: block; /* Evita espaços extras abaixo da imagem */
-    margin: 0 auto; /* Centraliza a imagem horizontalmente */
-    max-width: 800px; /* Limita o tamanho máximo do banner para 600px */
+
+.banner{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-
-
+.banner img{
+    width: 70%;
+    height: auto;
+    margin-top: 20px;}
 
 main {
     padding: 20px;
 }
+
 
 .titulo {
 
@@ -77,10 +79,16 @@ main {
 }
 
 .descricao {
-    font-size: 30px;
-    line-height: 1.7;
+    font-size: 25px;
+    line-height: 45px;
     color: #636363;
-    max-width: 80%;
+    max-width: 74%;
     margin: 0 auto;
     text-align: justify;
+    margin-bottom: 20px;
 }
+font-size: 25px;
+    margin-bottom: 20px;
+    text-align: justify;
+    line-height: ;
+

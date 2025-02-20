@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 </head>
 
 <body>
@@ -15,16 +16,16 @@
             <div class="container">
                 <img src="./img/senai_technews.png" alt="SENAI Logo" class="logo">
                 <nav>
-                    <ul>
-                        <li><a href="#">SENAI Taubaté</a></li>
-                        <li><a href="#">CURSO</a></li>
-                        <li><a href="#">NOTÍCIAS</a></li>
-                        <li><a href="#">EVENTOS</a></li>
-                    </ul>
-                </nav>
-                <div class="header-links">
+    <ul>
+        <li><a href="senai.php">SENAI TAUBATÉ</a></li> 
+        <li><a href="ds.php">CURSO</a></li>
+        <li><a href="noticias.php">NOTÍCIAS</a></li>
+        <li><a href="projetos.html">PROJETOS</a></li> 
+    </ul>
+</nav>
+<div class="header-links">
                     <a href="#">✉ Email</a>
-                    <a href="#" class="login">🔒 Entrar</a>
+                    <a href="#" class="login"><i class="bi bi-person"></i>Entrar</a>
                 </div>
             </div>
         </header>
@@ -55,8 +56,8 @@
                 </div>
             </div>
             
-            <div class="news-item">
-                <img src="noticia2.jpg" alt="Notícia 2">
+            <div class="news-item2">
+                <img src="./img/dsss.jpg" alt="Notícia 2">
                 <div class="news-content">
                     <h3>O Futuro das Profissões: Técnico em Desenvolvimento de Sistemas na Indústria 4.0</h3>
                     <p>Na Indústria 4.0, a digitalização e a automação tornam o Técnico em Desenvolvimento de Sistemas essencial.</p>

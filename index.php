@@ -17,13 +17,13 @@
             <div class="container">
                 <img src="./img/senai_technews.png" alt="SENAI Logo" class="logo">
                 <nav>
-                    <ul>
-                        <li><a href="#">SENAI TAUBATÉ</a></li>
-                        <li><a href="#">CURSO</a></li>
-                        <li><a href="#">NOTÍCIAS</a></li>
-                        <li><a href="#">PROJETOS</a></li>
-                    </ul>
-                </nav>
+    <ul>
+        <li><a href="senai.php">SENAI TAUBATÉ</a></li> 
+        <li><a href="ds.php">CURSO</a></li>
+        <li><a href="noticias.php">NOTÍCIAS</a></li>
+        <li><a href="projetos.html">PROJETOS</a></li> 
+    </ul>
+</nav>
                 <div class="header-links">
                     <a href="#">✉ Email</a>
                     <a href="#" class="login"><i class="bi bi-person"></i>Entrar</a>
@@ -37,8 +37,9 @@
         </div>
 
         <main>
+            <h1 class="titulo">CURSO TÉCNICO DE DESENVOLVIMENTO DE SISTEMAS</h1>
             <section class="descricao">
-                <h1>CURSO TÉCNICO DE DESENVOLVIMENTO DE SISTEMAS</h1>
+               
                 <p>Este curso tem como objetivo capacitar profissionais para desenvolver, testar e implantar sistemas computacionais, seguindo normas e padrões de qualidade, usabilidade, integridade e segurança da informação. Com uma carga horária de 1.200 horas, o curso aborda temas como lógica de programação, banco de dados, desenvolvimento de aplicativos e internet das coisas. As aulas são presenciais e estão disponíveis em várias unidades do SENAI-SP, incluindo cidades como Bauru, Campinas, Cotia, Diadema, Franca, Guarulhos, entre outras.</p>
                 <p>Para quem busca uma formação de nível superior, o SENAI-SP oferece o curso de Tecnologia em Análise e Desenvolvimento de Sistemas. Com duração de dois anos, o curso prepara o aluno para criar soluções utilizando ferramentas mobile e web, linguagens de programação integradas a bancos de dados, Big Data & Analytics, além de atuar na análise de riscos em cibersegurança. O curso é reconhecido por formar profissionais Full Stack, capazes de atuar em todas as etapas de um projeto, desde o front-end até o back-end, incluindo desenvolvimento, implementação e gestão de tecnologias da Indústria 4.0. As inscrições para a próxima turma estão previstas para o período de 16 de setembro a 21 de novembro de 2024, com início das aulas em 27 de janeiro de 2025. As aulas ocorrem de segunda a sexta-feira, no período noturno.</p>
             </section>

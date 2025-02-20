@@ -1,0 +1,134 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.container {
+    display: flex;
+    align-items: center;
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+.container img {
+    width: 100px;
+    height: 80px;
+}
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+nav ul li {
+    display: inline;
+}
+nav ul li a {
+    
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+    margin-left: 60px;
+}
+nav ul li a:hover{
+    color: #cc1c0c;
+    font-size: 110%;
+    transition: color 0.3 ease-in-out;
+}
+.header-links {
+    margin-left: auto;
+}
+.header-links a {
+    margin-left: 15px;
+    text-decoration: none;
+    color: #333;
+}
+.banner {
+    width: 100%;
+    height: auto;
+    display: block; 
+    margin: 0 auto;
+    max-width: 800px;
+}
+
+h1 {
+    margin: 20px 0;
+    font-size: 2rem;
+    color:rgb(0, 0, 0);
+}
+
+.professores {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding: 40px 20px;
+}
+
+.professor {
+    display: flex;
+    align-items: center;
+    width: 60%;
+    max-width: 800px;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 15px;
+    background: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.professor:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.professor img {
+    width: 180px;
+    height: 180px;
+    border-radius: 30px;
+    margin-right: 20px;
+    border: 3px solidrgb(255, 255, 255);
+}
+
+.info {
+    text-align: left;
+}
+
+.info h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    color:rgb(0, 0, 0);
+}
+
+.info p {
+    margin-top: 5px;
+    font-size: 1rem;
+    color: #555;
+}
+
+@media (max-width: 768px) {
+    .professor {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        width: 90%;
+        padding: 15px;
+    }
+
+    .professor img {
+        margin: 0 0 10px 0;
+    }
+}
