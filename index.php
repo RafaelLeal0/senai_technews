@@ -47,7 +47,7 @@
                     <div class="flip-card">
                         <div class="flip-card-inner">
                             <div class="flip-card-front">
-                                <img src="./img/web-dev.jpg" alt="Avatar">
+                                <img src="./img/IOT-solu.png" alt="Avatar">
                             </div>
                             <div class="flip-card-back">
                                 <h1>Web Dev</h1>
