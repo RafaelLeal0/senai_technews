@@ -18,42 +18,95 @@ header {
     max-width: 1200px;
     margin: auto;
 }
+
 .container img {
     width: 100px;
-    height: 80px;
+    height: 70px;
 }
+
+nav {
+    display: flex;
+    flex-grow: 1; 
+}
+
 nav ul {
     list-style: none;
     display: flex;
-    gap: 30px;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+    justify-content: flex-start;
 }
+
 nav ul li {
-    display: inline;
+    display: inline-block;
 }
+
 nav ul li a {
-    
     text-decoration: none;
     color: #333;
     font-weight: 600;
-    margin-left: 60px;
+    padding: 10px 20px;
+    transition: all 0.3s ease-in-out;
+    position: relative;
 }
-nav ul li a:hover{
+
+nav ul li a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: #cc1c0c;
+    left: 50%;
+    bottom: -5px;
+    transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+}
+
+nav ul li a:hover {
     color: #cc1c0c;
-    font-size: 110%;
-    transition: color 0.3 ease-in-out;
+    font-size: 105%;
 }
+
+nav ul li a:hover::after {
+    width: 100%;
+    left: 0;
+}
+
 .header-links {
     margin-left: auto;
 }
+
 .header-links a {
     margin-left: 15px;
     text-decoration: none;
     color: #333;
+    font-weight: 600;
+    position: relative;
+    transition: color 0.3s ease-in-out, font-size 0.3s ease-in-out;
 }
-.header-links a:hover{
+
+.header-links a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: #cc1c0c;
+    left: 50%;
+    bottom: -5px;
+    transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+}
+
+.header-links a:hover {
     color: #cc1c0c;
     font-size: 110%;
-    transition: color 0.3 ease-in-out;
+}
+
+.header-links a:hover::after {
+    width: 100%;
+    left: 0;
+}
+.itens {
+    margin-left: 200px;
 }
 .banner{
     display: flex;
@@ -110,7 +163,7 @@ nav ul li a:hover{
     font-size: 42px;
     color: #000000;
     text-align: center;
-    margin-top: 20px; /* Ajuste conforme necessário */
+    margin-top: 20px;
     margin-bottom: 20px;
 }
 main {
@@ -189,7 +242,6 @@ ul{
 	background-color: #ffffff;
 }
 
-/*responsive*/
 @media(max-width: 767px){
   .footer-col{
     width: 50%;
@@ -203,8 +255,8 @@ ul{
 }
 .card-container {
     display: flex;
-    gap: 20px; /* Adds space between the cards */
-    justify-content: center; /* Centers the cards horizontally */
+    gap: 20px;
+    justify-content: center; 
     margin-bottom: 35px;
 
 }

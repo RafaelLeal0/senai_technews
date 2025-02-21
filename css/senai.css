@@ -5,6 +5,7 @@ body {
     text-align: center;
     background-color: #ffffff;
 }
+
 header {
     display: flex;
     justify-content: space-between;
@@ -13,6 +14,7 @@ header {
     background-color: #fff;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
+
 .container {
     display: flex;
     align-items: center;
@@ -20,59 +22,119 @@ header {
     max-width: 1200px;
     margin: auto;
 }
+
 .container img {
     width: 100px;
-    height: 80px;
+    height: 70px;
 }
+
+nav {
+    display: flex;
+    flex-grow: 1; /* Faz o menu ocupar o espaço à esquerda */
+}
+
 nav ul {
     list-style: none;
     display: flex;
-    gap: 30px;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+    justify-content: flex-start; /* Alinha os itens à esquerda */
 }
+
 nav ul li {
-    display: inline;
+    display: inline-block;
 }
+
 nav ul li a {
-    
     text-decoration: none;
     color: #333;
     font-weight: 600;
-    margin-left: 60px;
+    padding: 10px 20px;
+    transition: all 0.3s ease-in-out;
+    position: relative;
 }
-nav ul li a:hover{
+
+/* Adiciona um efeito de underline animado */
+nav ul li a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: #cc1c0c;
+    left: 50%;
+    bottom: -5px;
+    transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+}
+
+nav ul li a:hover {
     color: #cc1c0c;
-    font-size: 110%;
-    transition: color 0.3 ease-in-out;
+    font-size: 105%;
 }
+
+nav ul li a:hover::after {
+    width: 100%;
+    left: 0;
+}
+
 .header-links {
     margin-left: auto;
 }
+
 .header-links a {
     margin-left: 15px;
     text-decoration: none;
     color: #333;
+    font-weight: 600;
+    position: relative;
+    transition: color 0.3s ease-in-out, font-size 0.3s ease-in-out;
 }
 
-.banner{
+.header-links a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: #cc1c0c;
+    left: 50%;
+    bottom: -5px;
+    transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+}
+
+.header-links a:hover {
+    color: #cc1c0c;
+    font-size: 110%;
+}
+
+.header-links a:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+.itens {
+    margin-left: 200px;
+}
+
+.banner {
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.banner img{
+
+.banner img {
     width: 70%;
     height: auto;
-    margin-top: 20px;}
+    margin-top: 20px;
+}
 
 main {
     padding: 20px;
 }
 
-
 .titulo {
-
     font-weight: bold;
     margin: 60px 0;
-    font-family: Bahnschrift ;
+    font-family: Bahnschrift;
     font-weight: 400;
     font-size: 42px;
     color: #000000;
@@ -87,8 +149,3 @@ main {
     text-align: justify;
     margin-bottom: 20px;
 }
-font-size: 25px;
-    margin-bottom: 20px;
-    text-align: justify;
-    line-height: ;
-

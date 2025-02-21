@@ -3,6 +3,7 @@ body {
     margin: 0;
     padding: 0;
 }
+
 header {
     display: flex;
     justify-content: space-between;
@@ -11,6 +12,7 @@ header {
     background-color: #fff;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
+
 .container {
     display: flex;
     align-items: center;
@@ -18,87 +20,139 @@ header {
     max-width: 1200px;
     margin: auto;
 }
+
 .container img {
     width: 100px;
-    height: 80px;
+    height: 70px;
 }
+
 nav ul {
     list-style: none;
     display: flex;
     gap: 30px;
+    padding: 0;
+    margin: 0;
 }
+
 nav ul li {
     display: inline;
 }
+
 nav ul li a {
-    
     text-decoration: none;
     color: #333;
     font-weight: 600;
     margin-left: 60px;
+    position: relative;
+    transition: color 0.3s ease-in-out, font-size 0.3s ease-in-out;
 }
-nav ul li a:hover{
+
+nav ul li a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: #cc1c0c;
+    left: 50%;
+    bottom: -5px;
+    transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+}
+
+nav ul li a:hover {
     color: #cc1c0c;
     font-size: 110%;
-    transition: color 0.3 ease-in-out;
 }
+
+nav ul li a:hover::after {
+    width: 100%;
+    left: 0;
+}
+
 .header-links {
     margin-left: auto;
 }
+
 .header-links a {
     margin-left: 15px;
     text-decoration: none;
     color: #333;
+    font-weight: 600;
+    position: relative;
+    transition: color 0.3s ease-in-out, font-size 0.3s ease-in-out;
 }
-        .container2 {
-            width: 90%;
-            max-width: 1200px;
-            margin: auto;
-        }
-        h1 {
-            text-align: center;
-            margin: 20px 0;
-        }
-        .filters {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-        .filters input, .filters select, .filters button {
-            padding: 8px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        .news-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-        }
-        .news-item {
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            overflow: hidden;
-            background: #fff;
-        }
-        .news-item2 {
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            overflow: hidden;
-            background: #fff;
-        }
-        .news-item img {
-            width: 100%;
-            display: block;
-        }
-        .news-item2 img {
-            width: 100%;
-            display: block;
-        }
-        .news-content {
-            padding: 15px;
-        }
-        .news-content h3 {
-            color: #d00;
-            margin-bottom: 10px;
-        }
+
+.header-links a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: #cc1c0c;
+    left: 50%;
+    bottom: -5px;
+    transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+}
+
+.header-links a:hover {
+    color: #cc1c0c;
+    font-size: 110%;
+}
+
+.header-links a:hover::after {
+    width: 100%;
+    left: 0;
+}
+.itens {
+    margin-left: 150px;
+}
+.container2 {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+h1 {
+    text-align: center;
+    margin: 20px 0;
+}
+.filters {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+.filters input, .filters select, .filters button {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+.news-item {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #fff;
+}
+.news-item2 {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #fff;
+}
+.news-item img {
+    width: 100%;
+    display: block;
+}
+.news-item2 img {
+    width: 100%;
+    display: block;
+}
+.news-content {
+    padding: 15px;
+}
+.news-content h3 {
+    color: #d00;
+    margin-bottom: 10px;
+}
