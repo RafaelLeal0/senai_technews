@@ -19,7 +19,7 @@
             <nav>
                 <ul class="itens">
                 <li><a href="senai.php">SENAI TAUBATÉ</a></li> 
-                    <li><a href="ds.php">CURSO</a></li>
+                    <li><a href="index.php">CURSO</a></li>
                     <li><a href="noticias.php">NOTÍCIAS</a></li>
                     <li><a href="projetos.html">PROJETOS</a></li> 
                 </ul>

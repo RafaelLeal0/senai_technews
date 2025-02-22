@@ -18,7 +18,7 @@
             <nav>
                 <ul class="itens">
                 <li><a href="senai.php">SENAI TAUBATÉ</a></li> 
-                    <li><a href="ds.php">CURSO</a></li>
+                    <li><a href="index.php">CURSO</a></li>
                     <li><a href="noticias.php">NOTÍCIAS</a></li>
                     <li><a href="projetos.html">PROJETOS</a></li> 
                 </ul>
@@ -47,7 +47,7 @@
                     <div class="flip-card">
                         <div class="flip-card-inner">
                             <div class="flip-card-front">
-                                <img src="./img/IOT-solu.png" alt="Avatar">
+                                <img src="./img/areas/solucaoiot.png" alt="Avatar">
                             </div>
                             <div class="flip-card-back">
                                 <h1>Web Dev</h1>
@@ -59,7 +59,7 @@
                     <div class="flip-card">
                         <div class="flip-card-inner">
                             <div class="flip-card-front">
-                                <img src="./img/mobile-dev.png" alt="Avatar">
+                                <img src="./img/areas/dba.png" alt="Avatar">
                             </div>
                             <div class="flip-card-back">
                                 <h1>Mobile Dev</h1>
@@ -71,7 +71,7 @@
                     <div class="flip-card">
                         <div class="flip-card-inner">
                             <div class="flip-card-front">
-                                <img src="./img/3.png" alt="Avatar">
+                                <img src="./img/areas/ciberseguranca.png" alt="Avatar">
                             </div>
                             <div class="flip-card-back">
                                 <h1></h1>
@@ -86,7 +86,7 @@
                     <div class="flip-card">
                         <div class="flip-card-inner">
                             <div class="flip-card-front">
-                                <img src="./img/web-dev.png" alt="Avatar">
+                                <img src="./img/areas/backend.png" alt="Avatar">
                             </div>
                             <div class="flip-card-back">
                                 <h1>Web Dev</h1>
@@ -98,7 +98,7 @@
                     <div class="flip-card">
                         <div class="flip-card-inner">
                             <div class="flip-card-front">
-                                <img src="./img/mobile-dev.png" alt="Avatar">
+                                <img src="./img/areas/devia.png" alt="Avatar">
                             </div>
                             <div class="flip-card-back">
                                 <h1>Mobile Dev</h1>
@@ -110,7 +110,7 @@
                     <div class="flip-card">
                         <div class="flip-card-inner">
                             <div class="flip-card-front">
-                                <img src="./img/3.png" alt="Avatar">
+                                <img src="./img/areas/frontend.png" alt="Avatar">
                             </div>
                             <div class="flip-card-back">
                                 <h1></h1>
@@ -120,7 +120,42 @@
                         </div>
                     </div>
                 </div>
-
+                <div class="card-container">
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+                <img src="./img/areas/pentester.png" alt="Data Science">
+            </div>
+            <div class="flip-card-back">
+                <h1>Data Science</h1>
+                <p>Análise de dados e inteligência artificial.</p>
+            </div>
+        </div>
+    </div>
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+                <img src="./img/areas/mobile.png" alt="Game Development">
+            </div>
+            <div class="flip-card-back">
+                <h1>Game Dev</h1>
+                <p>Desenvolvimento de jogos para diversas plataformas.</p>
+            </div>
+        </div>
+    </div>
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+                <img src="./img/areas/qatester.png" alt="Cloud Computing">
+            </div>
+            <div class="flip-card-back">
+                <h1>Cloud Computing</h1>
+                <p>Computação em nuvem e infraestrutura de servidores.</p>
+            </div>
+        </div>
+    </div>
+</div>
+            
             </section>
         </main>
         <footer class="footer">

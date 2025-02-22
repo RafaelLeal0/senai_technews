@@ -26,16 +26,31 @@ header {
     height: 70px;
 }
 
+nav {
+    display: flex;
+    flex-grow: 1; /* Faz o menu ocupar o espaço à esquerda */
+}
+
 nav ul {
     list-style: none;
     display: flex;
-    gap: 30px;
+    gap: 20px; /* Define um espaçamento uniforme */
     padding: 0;
     margin: 0;
+    justify-content: flex-start; /* Alinha os itens à esquerda */
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+    padding: 10px 20px;
+    transition: all 0.3s ease-in-out;
+    position: relative;
 }
 
 nav ul li {
-    display: inline;
+    display: inline-block;
 }
 
 nav ul li a {
@@ -47,6 +62,7 @@ nav ul li a {
     transition: color 0.3s ease-in-out, font-size 0.3s ease-in-out;
 }
 
+/* Adiciona um efeito de underline animado */
 nav ul li a::after {
     content: "";
     position: absolute;
@@ -60,7 +76,7 @@ nav ul li a::after {
 
 nav ul li a:hover {
     color: #cc1c0c;
-    font-size: 110%;
+    font-size: 105%;
 }
 
 nav ul li a:hover::after {
@@ -101,6 +117,7 @@ nav ul li a:hover::after {
     width: 100%;
     left: 0;
 }
+
 .itens {
     margin-left: 150px;
 }
