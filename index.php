@@ -50,9 +50,10 @@
                                 <img src="./img/areas/solucaoiot.png" alt="Avatar">
                             </div>
                             <div class="flip-card-back">
-                                <h1>Web Dev</h1>
-                                <p>Architect & Engineer</p>
-                                <p>We love that guy</p>
+                                <h1>Solução IoT</h1>
+                                <p>• Conceitos básicos de IoT e suas aplicações</p>
+                                <p>• Sensores, atuadores e comunicação entre dispositivos</p>
+                                <p>• Protocolos de IoT (MQTT, HTTP, CoAP)</p>
                             </div>
                         </div>
                     </div>
@@ -62,9 +63,11 @@
                                 <img src="./img/areas/dba.png" alt="Avatar">
                             </div>
                             <div class="flip-card-back">
-                                <h1>Mobile Dev</h1>
-                                <p>Architect & Engineer</p>
-                                <p>We love that guy</p>
+                                <h1>DBA</h1>
+                                <p>• Modelagem de dados (MER, DER)</p>
+                                <p>• SQL (consultas, joins, procedures, triggers)</p>
+                                <p>• NoSQL (MongoDB, Firebase)</p>
+                                <p>• Otimização e indexação de bancos de dados</p>   
                             </div>
                         </div>
                     </div>
@@ -74,9 +77,11 @@
                                 <img src="./img/areas/ciberseguranca.png" alt="Avatar">
                             </div>
                             <div class="flip-card-back">
-                                <h1></h1>
-                                <p>Architect & Engineer</p>
-                                <p>We love that guy</p>
+                                <h1>Cibersegurança</h1>
+                                <p>• Princípios de segurança da informação</p>
+                                <p>• Criptografia e proteção de dados</p>
+                                <p>• Autenticação e controle de acesso</p>
+                                <p>• Segurança em APIs e aplicações web</p>
                             </div>
                         </div>
                     </div>
@@ -89,9 +94,11 @@
                                 <img src="./img/areas/backend.png" alt="Avatar">
                             </div>
                             <div class="flip-card-back">
-                                <h1>Web Dev</h1>
-                                <p>Architect & Engineer</p>
-                                <p>We love that guy</p>
+                                <h1>Back-end</h1>
+                                <p>• Linguagens como Java, Python, C# ou Node.js</p>
+                                <p>• Frameworks (Spring Boot, Django, Express.js)</p>
+                                <p>• Criação e consumo de APIs REST e GraphQL</p>
+                                <p>• Segurança e autenticação (JWT, OAuth)</p>
                             </div>
                         </div>
                     </div>
@@ -101,9 +108,11 @@
                                 <img src="./img/areas/devia.png" alt="Avatar">
                             </div>
                             <div class="flip-card-back">
-                                <h1>Mobile Dev</h1>
-                                <p>Architect & Engineer</p>
-                                <p>We love that guy</p>
+                                <h1>Dev IA</h1>
+                                <p>• Chatbots e assistentes virtuais</p>
+                                <p>• Aplicações de IA em automação</p>
+                                <p>• Treinamento de modelos básicos</p>
+                                <p>• Bibliotecas (TensorFlow, PyTorch, Scikit-learn)</p>
                             </div>
                         </div>
                     </div>
@@ -113,9 +122,11 @@
                                 <img src="./img/areas/frontend.png" alt="Avatar">
                             </div>
                             <div class="flip-card-back">
-                                <h1></h1>
-                                <p>Architect & Engineer</p>
-                                <p>We love that guy</p>
+                                <h1>Front-end</h1>
+                                <p>• HTML, CSS e JavaScript</p>
+                                <p>• Frameworks e bibliotecas (React, Vue, Angular)</p>
+                                <p>• Performance e acessibilidade</p>
+                                <p>• Design responsivo (Bootstrap, Tailwind)</p>
                             </div>
                         </div>
                     </div>
@@ -127,8 +138,11 @@
                 <img src="./img/areas/pentester.png" alt="Data Science">
             </div>
             <div class="flip-card-back">
-                <h1>Data Science</h1>
-                <p>Análise de dados e inteligência artificial.</p>
+                <h1>Pentester</h1>
+                <p>• Conceitos de hacking ético</p>
+                <p>• Engenharia social e phishing</p>
+                <p>• Relatórios de vulnerabilidades</p>
+                <p>• Ferramentas de pentest</p>
             </div>
         </div>
     </div>
@@ -138,8 +152,11 @@
                 <img src="./img/areas/mobile.png" alt="Game Development">
             </div>
             <div class="flip-card-back">
-                <h1>Game Dev</h1>
-                <p>Desenvolvimento de jogos para diversas plataformas.</p>
+                <h1>Mobile</h1>
+                <p>• Desenvolvimento Android (Kotlin, Java)</p>
+                <p>• Desenvolvimento iOS (Swift)</p>
+                <p>• Consumo de APIs em aplicativos móveis</p>
+                <p>• Publicação de apps na Play Store/App Store</p>
             </div>
         </div>
     </div>
@@ -149,8 +166,11 @@
                 <img src="./img/areas/qatester.png" alt="Cloud Computing">
             </div>
             <div class="flip-card-back">
-                <h1>Cloud Computing</h1>
-                <p>Computação em nuvem e infraestrutura de servidores.</p>
+                <h1>QA Tester</h1>
+                <p>• Testes em aplicações web e mobile</p>
+                <p>• Gerenciamento de bugs e relatórios</p>
+                <p>• CI/CD e testes contínuos</p>
+                <p>• Tipos de testes (unitário, funcional, regressão, carga)</p>
             </div>
         </div>
     </div>
