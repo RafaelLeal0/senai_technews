@@ -34,10 +34,10 @@ nav {
 nav ul {
     list-style: none;
     display: flex;
-    gap: 20px; /* Define um espaçamento uniforme */
+    gap: 10px; 
     padding: 0;
     margin: 0;
-    justify-content: flex-start; /* Alinha os itens à esquerda */
+    justify-content: flex-start;
 }
 
 nav ul li a {
@@ -62,7 +62,6 @@ nav ul li a {
     transition: color 0.3s ease-in-out, font-size 0.3s ease-in-out;
 }
 
-/* Adiciona um efeito de underline animado */
 nav ul li a::after {
     content: "";
     position: absolute;
