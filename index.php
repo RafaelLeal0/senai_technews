@@ -132,49 +132,49 @@
                     </div>
                 </div>
                 <div class="card-container">
-    <div class="flip-card">
-        <div class="flip-card-inner">
-            <div class="flip-card-front">
-                <img src="./img/areas/pentester.png" alt="Data Science">
-            </div>
-            <div class="flip-card-back">
-                <h1>Pentester</h1>
-                <p>• Conceitos de hacking ético</p>
-                <p>• Engenharia social e phishing</p>
-                <p>• Relatórios de vulnerabilidades</p>
-                <p>• Ferramentas de pentest</p>
-            </div>
-        </div>
-    </div>
-    <div class="flip-card">
-        <div class="flip-card-inner">
-            <div class="flip-card-front">
-                <img src="./img/areas/mobile.png" alt="Game Development">
-            </div>
-            <div class="flip-card-back">
-                <h1>Mobile</h1>
-                <p>• Desenvolvimento Android (Kotlin, Java)</p>
-                <p>• Desenvolvimento iOS (Swift)</p>
-                <p>• Consumo de APIs em aplicativos móveis</p>
-                <p>• Publicação de apps na Play Store/App Store</p>
-            </div>
-        </div>
-    </div>
-    <div class="flip-card">
-        <div class="flip-card-inner">
-            <div class="flip-card-front">
-                <img src="./img/areas/qatester.png" alt="Cloud Computing">
-            </div>
-            <div class="flip-card-back">
-                <h1>QA Tester</h1>
-                <p>• Testes em aplicações web e mobile</p>
-                <p>• Gerenciamento de bugs e relatórios</p>
-                <p>• CI/CD e testes contínuos</p>
-                <p>• Tipos de testes (unitário, funcional, regressão, carga)</p>
-            </div>
-        </div>
-    </div>
-</div>
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img src="./img/areas/pentester.png" alt="Data Science">
+                            </div>
+                            <div class="flip-card-back">
+                                <h1>Pentester</h1>
+                                <p>• Conceitos de hacking ético</p>
+                                <p>• Engenharia social e phishing</p>
+                                <p>• Relatórios de vulnerabilidades</p>
+                                <p>• Ferramentas de pentest</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img src="./img/areas/mobile.png" alt="Game Development">
+                            </div>
+                            <div class="flip-card-back">
+                                <h1>Mobile</h1>
+                                <p>• Desenvolvimento Android (Kotlin, Java)</p>
+                                <p>• Desenvolvimento iOS (Swift)</p>
+                                <p>• Consumo de APIs em aplicativos móveis</p>
+                                <p>• Publicação de apps na Play Store/App Store</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img src="./img/areas/qatester.png" alt="Cloud Computing">
+                            </div>
+                            <div class="flip-card-back">
+                                <h1>QA Tester</h1>
+                                <p>• Testes em aplicações web e mobile</p>
+                                <p>• Gerenciamento de bugs e relatórios</p>
+                                <p>• CI/CD e testes contínuos</p>
+                                <p>• Tipos de testes (unitário, funcional, regressão, carga)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             
             </section>
         </main>

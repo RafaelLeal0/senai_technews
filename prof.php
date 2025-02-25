@@ -11,31 +11,32 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@latest/font/bootstrap-icons.min.css">
 </head>
 <body>
-<header>
+    <header>
         <div class="container">
             <img src="./img/senai_technews.png" alt="SENAI Logo" class="logo">
             <nav>
                 <ul class="itens">
-                <li><a href="senai.php">SENAI TAUBATÉ</a></li> 
+                    <li><a href="senai.php">SENAI TAUBATÉ</a></li> 
                     <li><a href="index.php">CURSO</a></li>
                     <li><a href="noticias.php">NOTÍCIAS</a></li>
                     <li><a href="projetos.html">PROJETOS</a></li> 
                 </ul>
             </nav>
             <div class="header-links">
-            <a href="#">✉ Email</a>
-            <a href="#" class="login"><i class="bi bi-person"></i> Entrar</a>
+                <a href="#">✉ Email</a>
+                <a href="#" class="login"><i class="bi bi-person"></i> Entrar</a>
             </div>
         </div>
-</header>
+    </header>
     <main>
         <h1>PROFESSORES</h1>
-        <section class="professores">
+        <div class="professores">
             <div class="professor">
                 <img src="./img/prof/wesleyfioreze.png" alt="Wesley Fioreze">
                 <div class="info">
                     <h2>Wesley Fioreze</h2>
-                    <p>Estou mestrando na UNIFESP-ICT, pesquisando Cibersegurança e Blockchain em ambientes IIoT. Pós-graduado em Segurança da Informação e especialista em Banco de Dados e BI, é Analista e Desenvolvedor de Sistemas pelo IFSP. Atualmente, atua como Instrutor no SENAI Taubaté/SP, com foco em segurança, banco de dados e desenvolvimento. Seus interesses incluem Cibersegurança, Blockchain e Indústria 4.0, destacando-se por ética, comunicação, adaptabilidade e criatividade.<p></div>
+                    <p>Estou mestrando na UNIFESP-ICT, pesquisando Cibersegurança e Blockchain em ambientes IIoT. Pós-graduado em Segurança da Informação e especialista em Banco de Dados e BI, é Analista e Desenvolvedor de Sistemas pelo IFSP. Atualmente, atua como Instrutor no SENAI Taubaté/SP, com foco em segurança, banco de dados e desenvolvimento. Seus interesses incluem Cibersegurança, Blockchain e Indústria 4.0, destacando-se por ética, comunicação, adaptabilidade e criatividade.<p>
+                </div>
             </div>
             <div class="professor">
                 <img src="./img/prof/greggori.jpeg" alt="Greggori Bossolan">
@@ -52,6 +53,7 @@
                     Minhas principais competências incluem React Native, JavaScript, HTML, CSS, React, PHP, BD MySQL desenvolvimento de front-end, desenvolvimento de software, manutenção de sistemas e redes, gestão de conteúdo digital e ensino de informática.</p>
                 </div>
             </div>
+        </div>
         </section>
     </main>
 </body>
