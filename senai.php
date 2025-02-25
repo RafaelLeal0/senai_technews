@@ -16,18 +16,18 @@
 </head>
 
 <body>
-    <header>
-            <div class="container">
-                <img src="./img/senai_technews.png" alt="SENAI Logo" class="logo">
-                <nav>
-                    <ul class="itens">
-                        <li><a href="senai.php">SENAI TAUBATÉ</a></li> 
-                        <li><a href="index.php">CURSO</a></li>
-                        <li><a href="noticias.php">NOTÍCIAS</a></li>
-                        <li><a href="projetos.html">PROJETOS</a></li> 
-                    </ul>
-                </nav>
-            </div>
+<header>
+        <div class="container">
+            <img src="./img/senai_technews.png" alt="SENAI Logo" class="logo">
+            <nav>
+                <ul class="itens">
+                <li><a href="senai.php">SENAI TAUBATÉ</a></li> 
+                    <li><a href="index.php">CURSO</a></li>
+                    <li><a href="noticias.php">NOTÍCIAS</a></li>
+                    <li><a href="projetos.html">PROJETOS</a></li> 
+                </ul>
+            </nav>
+        </div>
     </header>
         <div class="banner">
             <img src="./img/bunner_senaitaubate(png).png" alt="Banner" class="banner">

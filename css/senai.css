@@ -14,7 +14,6 @@ header {
     background-color: #fff;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
-
 .container {
     display: flex;
     align-items: center;
@@ -22,7 +21,6 @@ header {
     max-width: 1200px;
     margin: auto;
 }
-
 .container img {
     width: 100px;
     height: 70px;
@@ -30,7 +28,7 @@ header {
 
 nav {
     display: flex;
-    flex-grow: 1; /* Faz o menu ocupar o espaço à esquerda */
+    flex-grow: 1; 
 }
 
 nav ul {
@@ -39,7 +37,7 @@ nav ul {
     gap: 20px;
     padding: 0;
     margin: 0;
-    justify-content: flex-start; /* Alinha os itens à esquerda */
+    justify-content: flex-start;
 }
 
 nav ul li {
@@ -55,7 +53,6 @@ nav ul li a {
     position: relative;
 }
 
-/* Adiciona um efeito de underline animado */
 nav ul li a::after {
     content: "";
     position: absolute;
@@ -148,6 +145,13 @@ main {
     margin: 0 auto;
     text-align: justify;
     margin-bottom: 20px;
+}
+.row{
+	display: flex;
+	flex-wrap: wrap;
+}
+ul{
+	list-style: none;
 }
 .footer{
 	background-color: #A01308;
