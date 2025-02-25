@@ -23,10 +23,6 @@
                     <li><a href="projetos.html">PROJETOS</a></li> 
                 </ul>
             </nav>
-            <div class="header-links">
-                <a href="#">✉ Email</a>
-                <a href="#" class="login"><i class="bi bi-person"></i> Entrar</a>
-            </div>
         </div>
     </header>
     <main class="container2">
