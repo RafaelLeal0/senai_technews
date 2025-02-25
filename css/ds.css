@@ -21,6 +21,7 @@ header {
 .container img {
     width: 100px;
     height: 70px;
+    margin-left: -15px;
 }
 
 nav {
