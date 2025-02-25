@@ -20,7 +20,8 @@
                 <li><a href="senai.php">SENAI TAUBATÉ</a></li> 
                     <li><a href="index.php">CURSO</a></li>
                     <li><a href="noticias.php">NOTÍCIAS</a></li>
-                    <li><a href="projetos.html">PROJETOS</a></li> 
+                    <li><a href="projetos.php">PROJETOS</a></li> 
+                    <li><a href="prof.php">PROFESSORES</a></li> 
                 </ul>
             </nav>
         </div>
