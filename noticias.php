@@ -12,24 +12,19 @@
 </head>
 
 <body>
-<header>
-            <div class="container">
-                <img src="./img/senai_technews.png" alt="SENAI Logo" class="logo">
-                <nav>
-    <ul>
-        <li><a href="senai.php">SENAI TAUBATÉ</a></li> 
-        <li><a href="ds.php">CURSO</a></li>
-        <li><a href="noticias.php">NOTÍCIAS</a></li>
-        <li><a href="projetos.html">PROJETOS</a></li> 
-    </ul>
-</nav>
-<div class="header-links">
-                    <a href="#">✉ Email</a>
-                    <a href="#" class="login"><i class="bi bi-person"></i>Entrar</a>
-                </div>
-            </div>
-        </header>
-    
+    <header>
+        <div class="container">
+            <img src="./img/senai_technews.png" alt="SENAI Logo" class="logo">
+            <nav>
+                <ul class="itens">
+                    <li><a href="senai.php">SENAI TAUBATÉ</a></li> 
+                    <li><a href="index.php">CURSO</a></li>
+                    <li><a href="noticias.php">NOTÍCIAS</a></li>
+                    <li><a href="projetos.html">PROJETOS</a></li> 
+                </ul>
+            </nav>
+        </div>
+    </header>
     <main class="container2">
         <h1>NOTÍCIAS</h1>
         
