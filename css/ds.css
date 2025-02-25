@@ -124,13 +124,13 @@ nav ul li a:hover::after {
     padding: 40px 0;
 }
 .descricao h1 {
-    font-size: 50px;
+    font-size: 30px;
     margin-bottom: 50px;
     font-weight: normal;
     
 }
 .descricao p{
-    font-size: 25px;
+    font-size: 20px;
     margin-bottom: 20px;
     text-align: justify;
     line-height: 45px;
@@ -159,7 +159,7 @@ nav ul li a:hover::after {
     margin: 60px 0;
     font-family: Bahnschrift ;
     font-weight: 400;
-    font-size: 42px;
+    font-size: 35px;
     color: #000000;
     text-align: center;
     margin-top: 20px;
