@@ -18,7 +18,6 @@ header {
     max-width: 1200px;
     margin: auto;
 }
-
 .container img {
     width: 100px;
     height: 70px;
@@ -155,8 +154,6 @@ nav ul li a:hover::after {
     border-radius: 8px;
 }
 .titulo {
-<<<<<<< HEAD
-=======
 
     font-weight: bold;
     margin: 60px 0;
@@ -260,13 +257,8 @@ ul{
     gap: 20px;
     justify-content: center; 
     margin-bottom: 35px;
->>>>>>> 51ada7b6c8936ceb4467389abbdcc8fa63c36037
 
 }
-<<<<<<< HEAD
-main {
-    padding: 20px;
-=======
 
 .flip-card {
     background-color: transparent;
@@ -315,5 +307,4 @@ main {
     background-color:rgb(105 105 105);
     color: white;
     transform: rotateY(180deg);
->>>>>>> 51ada7b6c8936ceb4467389abbdcc8fa63c36037
 }
