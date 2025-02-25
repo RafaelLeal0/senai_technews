@@ -117,16 +117,25 @@ h1 {
     text-align: center;
     margin: 20px 0;
 }
-.filters {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 20px;
+.filtros {
+display: flex;
+justify-content: center;
+gap: 10px;
+margin: 20px 0;
 }
-.filters input, .filters select, .filters button {
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+
+.filtros button, .filtros input {
+padding: 10px;
+border: 1px solid #ccc;
+border-radius: 20px;
+outline: none;
+}
+
+.pesquisar {
+background-color: #cc1c0c;
+color: white;
+border: none;
+cursor: pointer;
 }
 .news-grid {
     display: grid;

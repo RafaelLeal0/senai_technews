@@ -23,8 +23,6 @@
     <h1>PROJETOS</h1>
     <div class="filtros">
         <button> TODAS AS DATAS </button>
-        <button> TODAS UNIDADES </button>
-        <input type="text" placeholder="Categorias">
         <input type="text" placeholder="Busca rápida">
         <button class="pesquisar">Pesquisar</button>
     </div>

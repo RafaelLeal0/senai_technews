@@ -17,32 +17,20 @@
             <img src="./img/senai_technews.png" alt="SENAI Logo" class="logo">
             <nav>
                 <ul class="itens">
-                <li><a href="senai.php">SENAI TAUBATÉ</a></li> 
+                    <li><a href="senai.php">SENAI TAUBATÉ</a></li> 
                     <li><a href="index.php">CURSO</a></li>
                     <li><a href="noticias.php">NOTÍCIAS</a></li>
                     <li><a href="projetos.php">PROJETOS</a></li> 
-                    <li><a href="prof.php">PROFESSORES</a></li> 
                 </ul>
             </nav>
         </div>
     </header>
-    <main class="container2">
-        <h1>NOTÍCIAS</h1>
-        
-        <div class="filters">
-            <select>
-                <option>TODAS AS DATAS</option>
-            </select>
-            <select>
-                <option>TODAS UNIDADES</option>
-            </select>
-            <select>
-                <option>Categorias</option>
-            </select>
-            <input type="text" placeholder="Busca rápida">
-            <button>Pesquisar</button>
-        </div>
-        
+    <h1>NOTÍCIAS</h1>
+    <div class="filtros">
+        <button> TODAS AS DATAS </button>
+        <input type="text" placeholder="Busca rápida">
+        <button class="pesquisar">Pesquisar</button>
+    </div>
         <section class="news-grid">
             <div class="news-item">
                 <img src="./img/dss.jpg" alt="Notícia 1">
