@@ -12,8 +12,8 @@
             <img src="./img/senai_technews.png" alt="SENAI Logo" class="logo">
             <nav>
                 <ul class="itens">
+                <li><a href="index.php">CURSO</a></li>
                     <li><a href="senai.php">SENAI TAUBATÉ</a></li> 
-                    <li><a href="index.php">CURSO</a></li>
                     <li><a href="noticias.php">NOTÍCIAS</a></li>
                     <li><a href="projetos.php">PROJETOS</a></li> 
                 </ul>
