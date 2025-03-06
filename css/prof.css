@@ -30,7 +30,7 @@ header {
 
 nav {
     display: flex;
-    flex-grow: 1; /* Faz o menu ocupar o espaço à esquerda */
+    flex-grow: 1;
 }
 
 nav ul {
@@ -39,7 +39,7 @@ nav ul {
     gap: 20px;
     padding: 0;
     margin: 0;
-    justify-content: flex-start; /* Alinha os itens à esquerda */
+    justify-content: flex-start;
 }
 
 nav ul li {
@@ -55,7 +55,6 @@ nav ul li a {
     position: relative;
 }
 
-/* Adiciona um efeito de underline animado */
 nav ul li a::after {
     content: "";
     position: absolute;
@@ -155,7 +154,6 @@ h1 {
 .professor img {
     width: 180px;
     height: 180px;
-    border-radius: 30px;
     margin-right: 20px;
     border: 3px solid rgb(255, 255, 255);
 }
@@ -179,3 +177,40 @@ h1 {
 .itens {
     margin-left: 200px;
 }
+
+.professor {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.professor {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.prof img{
+    border-radius: 30px;
+}
+
+.link {
+    margin-top: 10px;
+    display: flex;
+    gap: -20px;
+    justify-content: flex-start; 
+    align-items: center;
+}
+
+.link img {
+    width: 30px;
+    height: 30px;
+    margin: 0; 
+    transition: transform 0.3s ease;
+    margin-left: 20px;
+}
+
+.link img:hover {
+    transform: scale(1.2); 
+}
+
