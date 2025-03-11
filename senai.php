@@ -13,6 +13,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@latest/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
 </head>
 
 <body>
@@ -45,48 +47,53 @@
         <p class="descricao">O SENAI-SP tem a missão de impulsionar o aumento da competitividade da indústria por meio de ações de educação profissional, inovação, tecnologia, e empreendedorismo industrial. Com mais de 80 anos de atuação, o SENAI-SP supera 1 milhão de matrículas anuais, abrangendo desde cursos para a formação inicial profissional até a pós-graduação. São 90 unidades de formação profissional distribuídas em todo o estado de São Paulo, além de 78 escolas móveis, que levam soluções customizadas para a indústria.</p>
     </main>
 
-    <footer class="footer">
-            <div class="container">
-                <div class="row">
-                    <div class="footer-col">
-                        <h4>company</h4>
-                        <ul>
-                            <li><a href="#">about us</a></li>
-                            <li><a href="#">our services</a></li>
-                            <li><a href="#">privacy policy</a></li>
-                            <li><a href="#">affiliate program</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-col">
-                        <h4>get help</h4>
-                        <ul>
-                            <li><a href="#">FAQ</a></li>
-                            <li><a href="#">shipping</a></li>
-                            <li><a href="#">returns</a></li>
-                            <li><a href="#">order status</a></li>
-                            <li><a href="#">payment options</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-col">
-                        <h4>online shop</h4>
-                        <ul>
-                            <li><a href="#">watch</a></li>
-                            <li><a href="#">bag</a></li>
-                            <li><a href="#">shoes</a></li>
-                            <li><a href="#">dress</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-col">
-                        <h4>follow us</h4>
-                        <div class="social-links">
-                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                        </div>
-                    </div>
+    <footer>
+    <div class="social-bar">
+        <a href="https://www.facebook.com/senaisaopaulo"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://twitter.com/senaisaopaulo"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.youtube.com/channel/UCaz1BMUVug86pd_uS598X1A"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.linkedin.com/school/senai-sp/"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://www.instagram.com/senai.sp"><i class="fab fa-instagram"></i></a>
+        <a href="https://api.whatsapp.com/send?phone=551133220050"><i class="fab fa-whatsapp"></i></a>
+    </div>
+
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col">
+                    <h4>Equipe</h4>
+                    <ul>
+                        <li><a href="https://www.linkedin.com/in/andrey-montibeller/">Andrey Montibeller</a></li>
+                        <li><a href="https://www.linkedin.com/in/samuel-boaz-gon%C3%A7alves/">Samoel Boaz</a></li>
+                        <li><a href="https://www.linkedin.com/in/gustavo-henrique-a538592b7/">Gustavo Henrique</a></li>
+                        <li><a href="https://www.linkedin.com/in/rian-eduardo-9287512b7/">Rian Eduardo</a></li>
+                        <li><a href="https://www.linkedin.com/in/rafael-leal-6569252b8/">Rafael Leal</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Professores</h4>
+                    <ul>
+                        <li><a href="./prof.php">Wesley Fiorese</a></li>
+                        <li><a href="./prof.php#">Greggori Bossolan</a></li>
+                        <li><a href="./prof.php">Luis Cardoso</a></li>
+                        <li><a href="#"></a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Gerenciamento</h4>
+                    <ul>
+                        <li><a href="./login.php">Entrar</a></li>
+                    </ul>
+
                 </div>
             </div>
-        </footer>
+        </div>
+    </div>
+    <div class="social-bar">
+    <a>Copyright 2025 © Todos os direitos reservados.</a>
+    </div>
+</footer>
+
 
 </body>
 </html>
