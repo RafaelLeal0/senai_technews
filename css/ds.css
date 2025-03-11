@@ -304,12 +304,24 @@ ul{
 }
 
 .flip-card-back {
-    background-color:rgb(105 105 105);
+    background-color:rgb(180, 0, 0);
     color: white;
     transform: rotateY(180deg);
 }
 
-/*Daqui pra baixo é so footer!!!!*/
+.flip-card-back p {
+    text-align: left;
+    margin-left: 30px;
+}
+
+.back{
+    margin-left: -20px;
+}
+
+.pen{
+    margin-left: 45px;
+}
+
 .footer{
 	background-color: #B91D32;
     padding: 30px 0;
@@ -399,5 +411,3 @@ ul{
     color: #f1f1f1;
 }
 
-
-/* Fim do footer!!! */
