@@ -1,9 +1,9 @@
 body {
-    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     text-align: center;
     background-color: #ffffff;
+    font-family: 'Inter', sans-serif;
 }
 
 header {
@@ -154,7 +154,31 @@ ul{
 	list-style: none;
 }
 
-/*Daqui pra baixo é so footer!!!!*/
+#topBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #d32f2f;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 20px;
+}
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.descricao, .titulo {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
 .footer{
 	background-color: #B91D32;
     padding: 30px 0;
