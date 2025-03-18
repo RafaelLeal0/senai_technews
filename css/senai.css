@@ -202,6 +202,7 @@ ul{
 }
 .footer-col{
    padding: 0 40px;
+   text-align: left;
 }
 .footer-col h4{
 	font-size: 18px;
@@ -225,6 +226,16 @@ ul{
 .footer-col ul li:not(:last-child){
 	margin-bottom: 10px;
 }
+.footer-col ul {
+    text-align: left;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-col ul li {
+    text-align: left;
+}
+
 .footer-col ul li a{
 	font-size: 16px;
 	text-transform: capitalize;
@@ -234,7 +245,9 @@ ul{
 	color: #f6f6f6;
 	display: block;
 	transition: all 0.10s ease;
+    text-align: left;
 }
+
 .footer-col ul li a:hover{
 	color: #ffffff;
 	padding-left: 8px;
@@ -284,6 +297,3 @@ ul{
 .social-bar a:hover {
     color: #f1f1f1;
 }
-
-
-/* Fim do footer!!! */
