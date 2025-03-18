@@ -63,13 +63,16 @@
         <div class="container">
             <div class="row">
                 <div class="footer-col">
-                    <h4>Equipe</h4>
+                    <h4>Desenvolvedores</h4>
                     <ul>
                         <li><a href="https://www.linkedin.com/in/andrey-montibeller/">Andrey Montibeller</a></li>
+
                         <li><a href="https://www.linkedin.com/in/samuel-boaz-gon%C3%A7alves/">Samuel Boaz</a></li>
+
                         <li><a href="https://www.linkedin.com/in/gustavo-henrique-a538592b7/">Gustavo Henrique</a></li>
-                        <li><a href="https://www.linkedin.com/in/rian-eduardo-9287512b7/">Rian Eduardo</a></li>
                         <li><a href="https://www.linkedin.com/in/rafael-leal-6569252b8/">Rafael Leal</a></li>
+                        <li><a href="https://www.linkedin.com/in/rian-eduardo-9287512b7/">Rian Eduardo</a></li>
+                        <li><a href="https://www.linkedin.com/in/samuel-boaz-gon%C3%A7alves/">Samuel Boaz</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -82,10 +85,9 @@
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h4>Gerenciamento</h4>
-                    <ul>
-                        <li><a href="./login.php">Entrar</a></li>
-                    </ul>
+                <h4>
+    <a href="./login.php" style="color: white; text-decoration: none;">Entrar</a>
+</h4>
 
                 </div>
             </div>
@@ -95,7 +97,6 @@
     <a>Copyright 2025 © Todos os direitos reservados.</a>
     </div>
 </footer>
-
 
 </body>
 </html>
