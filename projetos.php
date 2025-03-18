@@ -73,10 +73,10 @@
                 <div class="footer-col">
                     <h4>Professores</h4>
                     <ul>
-                        <li><a href="./prof.php">Wesley Fiorese</a></li>
-                        <li><a href="./prof.php#">Greggori Bossolan</a></li>
+                    <li><a href="./prof.php">Wesley Fioreze</a></li>
                         <li><a href="./prof.php">Luis Cardoso</a></li>
-                        <li><a href="#"></a></li>
+                        <li><a href="./prof.php#">Greggori Bossolan</a></li>
+                        <li><a href="./prof.php">Gleise Rosa</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">

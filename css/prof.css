@@ -2,7 +2,6 @@ body {
     font-family: 'Inter', sans-serif;
     margin: 0;
     padding: 0;
-    text-align: center;
     background-color: #f4f4f4;
     color: #333;
 }
@@ -213,7 +212,7 @@ h1 {
 .link img:hover {
     transform: scale(1.2); 
 }
-.foot{
+.container{
 	max-width: 1170px;
 	margin:auto;
 }
@@ -333,7 +332,19 @@ ul{
 	color: #f6f6f6;
 	display: block;
 	transition: all 0.10s ease;
+    text-align: left;
 }
+
+.footer-col ul {
+    text-align: left;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-col ul li {
+    text-align: left;
+}
+
 .footer-col ul li a:hover{
 	color: #ffffff;
 	padding-left: 8px;
@@ -383,4 +394,5 @@ ul{
 .social-bar a:hover {
     color: #f1f1f1;
 }
+
 
