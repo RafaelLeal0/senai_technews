@@ -33,9 +33,8 @@
             <img src="./img/bannerDs.png" alt="">
         </div>
         <main>
-            <h1 class="titulo">CURSO TÉCNICO DE DESENVOLVIMENTO DE SISTEMAS</h1>
-            <section class="descricao">
-               
+            <h1 class="titulo fade-in">CURSO TÉCNICO DE DESENVOLVIMENTO DE SISTEMAS</h1>
+            <section class="descricao fade-in">
                 <p>Este curso tem como objetivo capacitar profissionais para desenvolver, testar e implantar sistemas computacionais, seguindo normas e padrões de qualidade, usabilidade, integridade e segurança da informação. Com uma carga horária de 1.200 horas, o curso aborda temas como lógica de programação, banco de dados, desenvolvimento de aplicativos e internet das coisas. As aulas são presenciais e estão disponíveis em várias unidades do SENAI-SP, incluindo cidades como Bauru, Campinas, Cotia, Diadema, Franca, Guarulhos, entre outras.</p>
                 <p>Para quem busca uma formação de nível superior, o SENAI-SP oferece o curso de Tecnologia em Análise e Desenvolvimento de Sistemas. Com duração de dois anos, o curso prepara o aluno para criar soluções utilizando ferramentas mobile e web, linguagens de programação integradas a bancos de dados, Big Data & Analytics, além de atuar na análise de riscos em cibersegurança. O curso é reconhecido por formar profissionais Full Stack, capazes de atuar em todas as etapas de um projeto, desde o front-end até o back-end, incluindo desenvolvimento, implementação e gestão de tecnologias da Indústria 4.0. As inscrições para a próxima turma estão previstas para o período de 16 de setembro a 21 de novembro de 2024, com início das aulas em 27 de janeiro de 2025. As aulas ocorrem de segunda a sexta-feira, no período noturno.</p>
             </section>
@@ -246,8 +245,39 @@ window.onscroll = function() {
 topBtn.onclick = function() {
     window.scrollTo({ top: 0, behavior: "smooth" });
 };
+
+
 </script>
 <style>
+    @keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 1.5s ease-out;
+}
+
+#topBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #d32f2f;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 20px;
+}
+
 #topBtn {
     display: none;
     position: fixed;
