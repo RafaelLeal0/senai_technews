@@ -40,9 +40,6 @@
                     <a href="https://www.linkedin.com/in/wesley-fioreze/" target="_blank">
                         <img src="./img/logo/logo_linkedin.png"  alt="Linkedin">
                     </a>          
-                    <a href="https://www.instagram.com/fioreze.wesley/" target="_blank">
-                        <img src="./img/logo/logo_insta.png" alt="Instagram">
-                    </a>
                     <a href="https://github.com/fiorezewesley" target="_blank">
                         <img src="./img/logo/logo_git.png" alt="GitHub">
                     </a>
@@ -63,8 +60,6 @@
                     <a href="https://www.linkedin.com/in/greggori-bossolan-candido-a65993180/" target="_blank">
                         <img src="./img/logo/logo_linkedin.png"  alt="Linkedin">
                     </a>
-                    <a href="https://www.instagram.com/greggorib/" target="_blank">
-                        <img src="./img/logo/logo_insta.png" alt="Instagram">
                     </a>
                     <a href="https://github.com/Greggori" target="_blank">
                         <img src="./img/logo/logo_git.png" alt="GitHub">
@@ -83,11 +78,8 @@
                 <img src="./img/prof/luizcardoso.jpeg" alt="Luiz Cardoso">
                 </div>
                 <div class="link">
-                    <a href="https://www.linkedin.com/in/luis-felipe-cardoso-30s/" target="_blank">
+                    <a href="https://www.linkedin.com/in/gleise-fabiane-da-silva-rosa-7826b548/" target="_blank">
                         <img src="./img/logo/logo_linkedin.png"  alt="Linkedin">
-                    </a>
-                    <a href="https://www.instagram.com/lfelipecardoso/" target="_blank">
-                        <img src="./img/logo/logo_insta.png" alt="Instagram">
                     </a>
                     <a href="https://github.com/Cardoso30S" target="_blank">
                         <img src="./img/logo/logo_git.png" alt="GitHub">
@@ -109,8 +101,8 @@
                     <a href="https://www.linkedin.com/in/gleise-fabiane-da-silva-rosa-7826b548/" target="_blank">
                         <img src="./img/logo/logo_linkedin.png"  alt="Linkedin">
                     </a>
-                    <a href="https://www.instagram.com/gleisefabiane/" target="_blank">
-                        <img src="./img/logo/logo_insta.png" alt="Instagram">
+                    <a href="https://github.com/Cardoso30S" target="_blank">
+                        <img src="./img/logo/logo_git.png" alt="GitHub">
                     </a>
                 </div>
             </div>
