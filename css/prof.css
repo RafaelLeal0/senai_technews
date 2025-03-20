@@ -118,10 +118,10 @@ nav ul li a:hover::after {
 }
 
 h1 {
-    margin: 20px 0;
+    margin: 45px 0 20px 0;
     font-size: 2rem;
     color: rgb(0, 0, 0);
-    margin-top: 45px;
+    text-align: center; 
 }
 
 .professores {

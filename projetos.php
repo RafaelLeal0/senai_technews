@@ -41,7 +41,7 @@
             </div>
         </div>
         <div class="projeto">
-            <img src="./img/projetos/projeto2.png" alt="Projeto 2">
+            <img src="./img/projetos.jpg" alt="Projeto 2">
             <div class="overlay">
                 <h2>Projetos de 2024</h2>
                 <button class="saiba-mais">Saiba mais</button>
