@@ -1,59 +1,76 @@
-const API_KEY = "cece4da7fc8c4bb99a87b2c65cafe37e";
-const API_URL = `https://newsapi.org/v2/top-headlines?sources=google-news-br&apiKey=${API_KEY}`;
+// Get the elements from the HTML document
+const searchInput = document.getElementById("search-input");
+const searchButton = document.getElementById("search-button");
+const sourceSelect = document.getElementById("source-select"); // Changed from category-select
+const newsContainer = document.getElementById("news-container");
 
-// Função para buscar notícias
-async function fetchNews() {
+// Define the API key and the base URL
+const apiKey = "25204e69210b41c4971125e26b0db56d"; // Replace with your NewsAPI key
+const baseUrl = "https://newsapi.org/v2/";
+
+// Fetch news articles based on query and source
+const fetchNews = async (query, source) => {
+    newsContainer.innerHTML = "";
+    let url = `${baseUrl}top-headlines?apiKey=${apiKey}&sources=globo`; // Replace 'globo' with your desired Brazilian source ID
+
+    if (query) {
+        url += `&q=${encodeURIComponent(query)}`;
+    }
+
     try {
-        const response = await fetch(API_URL);
+        const response = await fetch(url);
+        if (!response.ok) throw new Error(`Error: ${response.status}`);
         const data = await response.json();
 
-        if (data.articles) {
-            displayNews(data.articles);
+        if (data.articles?.length > 0) {
+            data.articles.forEach(article => createArticleElement(article));
+        } else {
+            newsContainer.innerHTML = "<p>No articles found.</p>";
         }
     } catch (error) {
-        console.error("Erro ao buscar notícias:", error);
+        console.error("Fetch error:", error);
+        newsContainer.innerHTML = "<p>Error fetching news.</p>";
     }
-}
+};
 
-function displayNews(articles) {
-    const newsContainer = document.getElementById("news-container");
-    newsContainer.innerHTML = ""; // Limpa antes de adicionar novas notícias
+// Helper function to create article elements
+const createArticleElement = (article) => {
+    const articleDiv = document.createElement("div");
+    articleDiv.className = "news-article";
 
-    articles.forEach((article, index) => {
-        if (index < 4) { // Limita a 6 notícias
-            const newsItem = document.createElement("div");
-            newsItem.classList.add("news-item");
+    const elements = {
+        img: { src: article.urlToImage, alt: article.title },
+        h3: { text: article.title },
+        p: { text: article.description },
+        a: { href: article.url, text: "Read more" }
+    };
 
-            let imageUrl = article.urlToImage ? article.urlToImage : "./img/default-news.jpg"; // Imagem padrão caso não haja uma
-
-            newsItem.innerHTML = `
-                <img src="${imageUrl}" alt="Imagem da Notícia">
-                <div class="news-content">
-                    <h3>${article.title}</h3>
-                    <p>${article.description ? article.description : "Descrição não disponível."}</p>
-                    <a href="${article.url}" target="_blank">Leia mais</a>
-                </div>
-            `;
-
-            newsContainer.appendChild(newsItem);
+    Object.entries(elements).forEach(([tag, attrs]) => {
+        const el = document.createElement(tag);
+        if (tag === 'img') {
+            el.src = attrs.src;
+            el.alt = attrs.alt;
+        } else if (tag === 'a') {
+            el.href = attrs.href;
+            el.target = "_blank";
+            el.textContent = attrs.text;
+        } else {
+            el.textContent = attrs.text;
         }
+        articleDiv.appendChild(el);
     });
-}
 
-// Chama a função ao carregar a página
-fetchNews();
+    newsContainer.appendChild(articleDiv);
+};
 
-// // Botão de voltar ao topo
-// let topBtn = document.getElementById("topBtn");
+// Event listeners
+searchButton.addEventListener("click", () => {
+    fetchNews(searchInput.value.trim(), sourceSelect.value);
+});
 
-// window.onscroll = function() {
-//     if (document.documentElement.scrollTop > 200) {
-//         topBtn.style.display = "block";
-//     } else {
-//         topBtn.style.display = "none";
-//     }
-// };
+sourceSelect.addEventListener("change", () => {
+    fetchNews(searchInput.value.trim(), sourceSelect.value);
+});
 
-// topBtn.onclick = function() {
-//     window.scrollTo({ top: 0, behavior: "smooth" });
-// };
+// Initial load
+fetchNews("", "globo"); // Default to 'globo' source
