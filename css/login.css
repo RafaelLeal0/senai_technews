@@ -1,0 +1,98 @@
+* {
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+   }
+
+body { 
+   display: flex; 
+   height: 100vh; 
+   font-family: 'Inter', sans-serif;
+   position: relative;
+}
+
+.left { 
+   width: 50%; 
+   background:  linear-gradient(rgba(66, 66, 66, 0.5), rgba(66, 66, 66, 0.5)),  url('../img/senai-image.png') no-repeat center center/cover; 
+   display: flex; 
+   align-items: center; 
+   justify-content: center; 
+   color: white; 
+   text-align: center; 
+}
+
+.left h1 { 
+   font-size: 24px; 
+}
+
+.left span { 
+   color: #C4170C; 
+   font-weight: bold; 
+}
+
+.right { 
+   width: 50%; 
+   display: flex; 
+   align-items: center; 
+   justify-content: center; 
+   background: white; 
+   flex-direction: column; 
+}
+
+.logo { 
+   margin-top: -100px;
+   margin-bottom: 60px;
+   width: 220px;
+   height: auto;
+}
+
+form { 
+   width: 80%; 
+   max-width: 400px;
+   display: flex;
+   flex-direction: column;
+   gap: 15px;
+}
+
+input { 
+   width: 100%;
+   padding: 10px; 
+   margin-bottom: 10px; 
+   border: 1px solid #800000; 
+   border-radius: 5px; 
+}
+
+label { 
+  margin-bottom: -10px;
+}
+
+button {
+   width: 100%; 
+   padding: 10px; 
+   background: #800000; 
+   color: white; 
+   border: none; 
+   border-radius: 5px; 
+   cursor: pointer; 
+}
+
+button:hover { 
+   background: #600000; 
+}
+
+.error { 
+   color: red; 
+}
+
+.back-arrow {
+   position: absolute;
+   margin-left: 800px;
+   top: 20px;
+   left: 20px;
+   font-size: 24px;
+   color: #740904;
+   text-decoration: none;
+   padding: 10px;
+   font-size: 30px;
+   font-weight: bold;
+}

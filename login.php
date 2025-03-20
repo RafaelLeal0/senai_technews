@@ -7,90 +7,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-             margin: 0; 
-             padding: 0; 
-             box-sizing: border-box; 
-            }
-
-        body { 
-            display: flex; 
-            height: 100vh; 
-            font-family: 'Inter', sans-serif;
-        }
-
-        .left { 
-            width: 50%; 
-            background:  linear-gradient(rgba(66, 66, 66, 0.5), rgba(66, 66, 66, 0.5)),  url('./img/senai-image.png') no-repeat center center/cover; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            color: white; 
-            text-align: center; 
-        }
-        
-        .left h1 { 
-            font-size: 24px; 
-        }
-
-        .left span { 
-            color: red; 
-            font-weight: bold; 
-        }
-        
-        .right { 
-            width: 50%; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            background: white; 
-            flex-direction: column; }
-        
-        .logo { 
-            margin-top: -100px;
-            margin-bottom:60px;
-            width: 220px;
-            height: auto;
-        }
-
-        form { 
-            width: 80%; 
-            max-width: 400px;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        input { 
-            width: 100%;
-            padding: 10px; 
-            margin-bottom: 10px; 
-            border: 1px solid #800000; 
-            border-radius: 5px; 
-        }
-        
-        label { 
-           margin-bottom: -10px;
-        }
-
-        button {
-            width: 100%; 
-            padding: 10px; 
-            background: #800000; 
-            color: white; 
-            border: none; 
-            border-radius: 5px; 
-            cursor: pointer; }
-
-        button:hover { 
-            background: #600000; 
-        }
-
-        .error { 
-            color: red; 
-        }
-    </style>
+    <link rel="icon" type="image/png" href="./img/logo/logotop.png">
+    <link rel="stylesheet" href="./css/login.css">
 </head>
 <body>
     <div class="left">
@@ -106,5 +24,8 @@
             <button type="submit">Entrar</button>
         </form>
     </div>
+    
+    <a href="index.php" class="back-arrow">&#8592;</a>
 </body>
 </html>
+
