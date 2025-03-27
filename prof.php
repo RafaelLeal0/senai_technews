@@ -148,9 +148,8 @@
                 </div>
                 <div class="footer-col">
                 <h4>
-    <a href="./login.php" style="color: white; text-decoration: none;">Entrar</a>
-</h4>
-
+                    <a href="./login.php" style="color: white; text-decoration: none;">Entrar</a>
+                </h4>
                 </div>
             </div>
         </div>
@@ -161,35 +160,3 @@
 </footer>
 </body>
 </html>
-
-<button id="topBtn"><i class="fa-solid fa-arrow-up"></i></button>
-<script>
-let topBtn = document.getElementById("topBtn");
-
-window.onscroll = function() {
-    if (document.documentElement.scrollTop > 200) {
-        topBtn.style.display = "block";
-    } else {
-        topBtn.style.display = "none";
-    }
-};
-
-topBtn.onclick = function() {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-};
-</script>
-<style>
-#topBtn {
-    display: none;
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: #d32f2f;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 20px;
-}
-</style>

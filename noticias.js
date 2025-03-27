@@ -1,76 +1,96 @@
-// Get the elements from the HTML document
-const searchInput = document.getElementById("search-input");
-const searchButton = document.getElementById("search-button");
-const sourceSelect = document.getElementById("source-select"); // Changed from category-select
-const newsContainer = document.getElementById("news-container");
+document.addEventListener('DOMContentLoaded', function() {
+    // Elementos
+    const searchInput = document.getElementById("search-input");
+    const searchButton = document.getElementById("search-button");
+    const sourceSelect = document.getElementById("source-select");
+    const newsContainer = document.getElementById("news-container");
 
-// Define the API key and the base URL
-const apiKey = "25204e69210b41c4971125e26b0db56d"; // Replace with your NewsAPI key
-const baseUrl = "https://newsapi.org/v2/";
+    const apiKey = "25204e69210b41c4971125e26b0db56d";
+    const baseUrl = "https://newsapi.org/v2/";
 
-// Fetch news articles based on query and source
-const fetchNews = async (query, source) => {
-    newsContainer.innerHTML = "";
-    let url = `${baseUrl}top-headlines?apiKey=${apiKey}&sources=globo`; // Replace 'globo' with your desired Brazilian source ID
+    const fetchNews = async (query, source) => {
+        newsContainer.innerHTML = '<div class="loading">Carregando notícias...</div>';
+        
+        let url = `${baseUrl}top-headlines?apiKey=${apiKey}&country=br`;
 
-    if (query) {
-        url += `&q=${encodeURIComponent(query)}`;
-    }
-
-    try {
-        const response = await fetch(url);
-        if (!response.ok) throw new Error(`Error: ${response.status}`);
-        const data = await response.json();
-
-        if (data.articles?.length > 0) {
-            data.articles.forEach(article => createArticleElement(article));
-        } else {
-            newsContainer.innerHTML = "<p>No articles found.</p>";
+        if (source && source !== "all") {
+            url = `${baseUrl}top-headlines?apiKey=${apiKey}&sources=${source}`;
         }
-    } catch (error) {
-        console.error("Fetch error:", error);
-        newsContainer.innerHTML = "<p>Error fetching news.</p>";
-    }
-};
+        
+        if (query) {
+            url += `&q=${encodeURIComponent(query)}`;
+        }
 
-// Helper function to create article elements
-const createArticleElement = (article) => {
-    const articleDiv = document.createElement("div");
-    articleDiv.className = "news-article";
+        try {
+            const response = await fetch(url);
+            if (!response.ok) throw new Error(`Erro: ${response.status}`);
+            const data = await response.json();
 
-    const elements = {
-        img: { src: article.urlToImage, alt: article.title },
-        h3: { text: article.title },
-        p: { text: article.description },
-        a: { href: article.url, text: "Read more" }
+            newsContainer.innerHTML = '';
+            
+            if (data.articles?.length > 0) {
+                data.articles.forEach(article => createNewsCard(article));
+                initMasonry();
+            } else {
+                newsContainer.innerHTML = "<p class='no-results'>Nenhuma notícia encontrada.</p>";
+            }
+        } catch (error) {
+            console.error("Erro ao buscar notícias:", error);
+            newsContainer.innerHTML = `<p class="error">Erro ao carregar notícias: ${error.message}</p>`;
+        }
     };
 
-    Object.entries(elements).forEach(([tag, attrs]) => {
-        const el = document.createElement(tag);
-        if (tag === 'img') {
-            el.src = attrs.src;
-            el.alt = attrs.alt;
-        } else if (tag === 'a') {
-            el.href = attrs.href;
-            el.target = "_blank";
-            el.textContent = attrs.text;
-        } else {
-            el.textContent = attrs.text;
+    const createNewsCard = (article) => {
+        const card = document.createElement("div");
+        card.className = "news-card";
+
+        card.innerHTML = `
+            <img src="${article.urlToImage || 'https://via.placeholder.com/400x250?text=Sem+Imagem'}" 
+                 alt="${article.title}"
+                 onerror="this.src='https://via.placeholder.com/400x250?text=Imagem+Não+Disponível'">
+            <div class="news-content">
+                <h3>${article.title}</h3>
+                <span class="source">${article.source?.name || 'Fonte desconhecida'}</span>
+                <p>${article.description || 'Sem descrição disponível.'}</p>
+                <a href="${article.url}" target="_blank" class="read-more">Leia mais →</a>
+            </div>
+        `;
+
+        newsContainer.appendChild(card);
+    };
+
+    const initMasonry = () => {
+        newsContainer.style.columns = "3 300px";
+        newsContainer.style.columnGap = "20px";
+        
+        Array.from(newsContainer.children).forEach(item => {
+            item.style.breakInside = "avoid";
+            item.style.marginBottom = "20px";
+        });
+    };
+
+    const populateSources = async () => {
+        try {
+            const response = await fetch(`${baseUrl}top-headlines/sources?country=br&apiKey=${apiKey}`);
+            const data = await response.json();
+            
+            if (data.sources?.length > 0) {
+                data.sources.forEach(source => {
+                    const option = new Option(source.name, source.id);
+                    sourceSelect.add(option);
+                });
+            }
+        } catch (error) {
+            console.error("Erro ao carregar fontes:", error);
         }
-        articleDiv.appendChild(el);
-    });
+    };
 
-    newsContainer.appendChild(articleDiv);
-};
+    searchButton.addEventListener("click", () => fetchNews(searchInput.value.trim(), sourceSelect.value));
+    searchInput.addEventListener("keypress", (e) => e.key === "Enter" && fetchNews(searchInput.value.trim(), sourceSelect.value));
+    sourceSelect.addEventListener("change", () => fetchNews(searchInput.value.trim(), sourceSelect.value));
 
-// Event listeners
-searchButton.addEventListener("click", () => {
-    fetchNews(searchInput.value.trim(), sourceSelect.value);
+    (async () => {
+        await populateSources();
+        fetchNews("", "globo");
+    })();
 });
-
-sourceSelect.addEventListener("change", () => {
-    fetchNews(searchInput.value.trim(), sourceSelect.value);
-});
-
-// Initial load
-fetchNews("", "globo"); // Default to 'globo' source

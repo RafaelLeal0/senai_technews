@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Notícias - Layout Pinterest</title>
     <link rel="stylesheet" href="./css/notic.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,84 +13,80 @@
 </head>
 
 <body>
-
-<header>
-    <div class="container">
-        <img src="./img/senai_technews.png" alt="SENAI Logo" class="logo">
-        <nav>
-            <ul class="itens">
-                <li><a href="index.php">CURSO</a></li>
-                <li><a href="senai.php">SENAI TAUBATÉ</a></li> 
-                <li><a href="noticias.php">NOTÍCIAS</a></li>
-                <li><a href="projetos.php">PROJETOS</a></li> 
-            </ul>
-        </nav>
-    </div>
-</header>
+    <header>
+        <div class="container">
+            <img src="./img/senai_technews.png" alt="SENAI Logo" class="logo">
+            <nav>
+                <ul class="itens">
+                    <li><a href="index.php">CURSO</a></li>
+                    <li><a href="senai.php">SENAI TAUBATÉ</a></li> 
+                    <li><a href="noticias.php">NOTÍCIAS</a></li>
+                    <li><a href="projetos.php">PROJETOS</a></li> 
+                </ul>
+            </nav>
+        </div>
+    </header>
 
     <div class="container-news">
-        <h1>Notícias</h1>
-    <div class="search-bar">
-        <input type="text" id="search-input" placeholder="Search for news...">
-        <button id="search-button">Search</button>
-    </div>
-    <div class="category-filter">
-        <select id="source-select">
-            <option value="all">All Sources</option>
-        </select>
-    </div>
-    <div class="news-container" id="news-container">
+        <h1>Notícias em Destaque</h1>
+        <div class="search-bar">
+            <input type="text" id="search-input" placeholder="Buscar notícias...">
+            <button id="search-button"><i class="fas fa-search"></i> Buscar</button>
+        </div>
+        <div class="category-filter">
+            <select id="source-select">
+                <option value="all">Todas as Fontes</option>
+            </select>
+        </div>
+        <div class="masonry-container" id="news-container">
             <!-- News articles will be displayed here -->
+        </div>
     </div>
 
-    
-    
-    
-    
     <footer>
-        <div class="social-bar">
-            <a href="https://www.facebook.com/senaisaopaulo"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://twitter.com/senaisaopaulo"><i class="fab fa-twitter"></i></a>
-            <a href="https://www.youtube.com/channel/UCaz1BMUVug86pd_uS598X1A"><i class="fab fa-youtube"></i></a>
-            <a href="https://www.linkedin.com/school/senai-sp/"><i class="fab fa-linkedin-in"></i></a>
-            <a href="https://www.instagram.com/senai.sp"><i class="fab fa-instagram"></i></a>
-            <a href="https://api.whatsapp.com/send?phone=551133220050"><i class="fab fa-whatsapp"></i></a>
-        </div>
-    
-        <div class="footer">
-            <div class="container">
-                <div class="row">
-                    <div class="footer-col">
-                        <h4>Desenvolvedores</h4>
-                        <ul>
-                            <li><a href="https://www.linkedin.com/in/andrey-montibeller/">Andrey Montibeller</a></li>
-                            <li><a href="https://www.linkedin.com/in/gustavo-henrique-a538592b7/">Gustavo Henrique</a></li>
-                            <li><a href="https://www.linkedin.com/in/rafael-leal-6569252b8/">Rafael Leal</a></li>
-                            <li><a href="https://www.linkedin.com/in/rian-eduardo-9287512b7/">Rian Eduardo</a></li>
-                            <li><a href="https://www.linkedin.com/in/samuel-boaz-gon%C3%A7alves/">Samuel Boaz</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-col">
-                        <h4>Professores</h4>
-                        <ul>
-                        <li><a href="./prof.php">Wesley Fioreze</a></li>
-                            <li><a href="./prof.php">Luis Cardoso</a></li>
-                            <li><a href="./prof.php#">Greggori Bossolan</a></li>
-                            <li><a href="./prof.php">Gleise Rosa</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-col">
-                    <h4>
-        <a href="./login.php" style="color: white; text-decoration: none;">Entrar</a>
-    </h4>
-    
-                    </div>
+    <div class="social-bar">
+        <a href="https://www.facebook.com/senaisaopaulo"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://twitter.com/senaisaopaulo"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.youtube.com/channel/UCaz1BMUVug86pd_uS598X1A"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.linkedin.com/school/senai-sp/"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://www.instagram.com/senai.sp"><i class="fab fa-instagram"></i></a>
+        <a href="https://api.whatsapp.com/send?phone=551133220050"><i class="fab fa-whatsapp"></i></a>
+    </div>
+
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col">
+                    <h4>Desenvolvedores</h4>
+                    <ul>
+                        <li><a href="https://www.linkedin.com/in/andrey-montibeller/">Andrey Montibeller</a></li>
+                        <li><a href="https://www.linkedin.com/in/gustavo-henrique-a538592b7/">Gustavo Henrique</a></li>
+                        <li><a href="https://www.linkedin.com/in/rafael-leal-6569252b8/">Rafael Leal</a></li>
+                        <li><a href="https://www.linkedin.com/in/rian-eduardo-9287512b7/">Rian Eduardo</a></li>
+                        <li><a href="https://www.linkedin.com/in/samuel-boaz-gon%C3%A7alves/">Samuel Boaz</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Professores</h4>
+                    <ul>
+                    <li><a href="./prof.php">Wesley Fioreze</a></li>
+                        <li><a href="./prof.php">Luis Cardoso</a></li>
+                        <li><a href="./prof.php#">Greggori Bossolan</a></li>
+                        <li><a href="./prof.php">Gleise Rosa</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                <h4>
+                    <a href="./login.php" style="color: white; text-decoration: none;">Entrar</a>
+                </h4>
+
                 </div>
             </div>
         </div>
-        <div class="social-bar">
-        <a>Copyright 2025 © Todos os direitos reservados.</a>
-        </div>
-    </footer>
+    </div>
+    <div class="social-bar">
+    <a>Copyright 2025 © Todos os direitos reservados.</a>
+    </div>
+</footer>
 </body>
 </html>
