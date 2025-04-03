@@ -1,3 +1,4 @@
+// noticias
 document.addEventListener('DOMContentLoaded', function() {
     // Elementos
     const searchInput = document.getElementById("search-input");
