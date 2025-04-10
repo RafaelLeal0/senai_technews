@@ -37,7 +37,6 @@
 
         </div>
         <div class="masonry-container" id="news-container">
-            <!-- News articles will be displayed here -->
         </div>
     </div>
 
@@ -71,13 +70,13 @@
                         <li><a href="./prof.php">Luis Cardoso</a></li>
                         <li><a href="./prof.php#">Greggori Bossolan</a></li>
                         <li><a href="./prof.php">Gleise Rosa</a></li>
+                        <li><a href="./prof.php">Lucas Machado</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                 <h4>
                     <a href="./login.php" style="color: white; text-decoration: none;">Entrar</a>
                 </h4>
-
                 </div>
             </div>
         </div>

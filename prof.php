@@ -112,7 +112,28 @@
                 <p>Sou Pedagoga, Analista de Sistemas e Administradora de Empresas, com experiência em educação, tecnologia e gestão. Atualmente, sou Professora de Educação Profissional no Governo do Estado de São Paulo. Atuei como Coordenadora Pedagógica no SESI-SP, professora no Colégio CEMI - COC e em funções administrativas e de suporte em TI na Unicred e Volkswagen do Brasil. Tenho expertise em formação de professores, aprendizagem organizacional e gestão educacional, integrando tecnologia e inovação para otimizar resultados.</p> 
             </div>
         </div>
+        <div class="professor">
+            <div class="foto">
+                <div class="prof">
+                <img src="./img/prof/lucas.jpg" alt="Greggori Bossolan">
+                </div>
+                <div class="link">
+                    <a href="https://www.linkedin.com/in/lucas10/" target="_blank">
+                        <img src="./img/logo/logo_linkedin.png"  alt="Linkedin">
+                    </a>
+                    </a>
+                    <a href="https://github.com/Greggori" target="_blank">
+                        <img src="./img/logo/logo_git.png" alt="GitHub">
+                    </a>
+                </div>
+            </div>
+            <div class="info">
+                <h2>Lucas Machado</h2>
+                <p>Sou um apaixonado por tecnologia e aprendizado contínuo, sempre buscando novas habilidades que possam fazer a diferença no futuro. Recentemente, participei do campeonato estadual SPSkills de Computação em Nuvem, onde alcancei a medalha de prata me consagrando o segundo melhor do estado. Esse desafio reforçou minha determinação e compromisso com a excelência técnica. </p>
+            </div>
+        </div>
     </div>
+    
 </main>
 <footer>
     <div class="social-bar">
@@ -144,12 +165,14 @@
                         <li><a href="./prof.php">Luis Cardoso</a></li>
                         <li><a href="./prof.php#">Greggori Bossolan</a></li>
                         <li><a href="./prof.php">Gleise Rosa</a></li>
+                        <li><a href="./prof.php">Lucas Machado</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                 <h4>
-                    <a href="./login.php" style="color: white; text-decoration: none;">Entrar</a>
-                </h4>
+    <a href="./login.php" style="color: white; text-decoration: none;">Entrar</a>
+</h4>
+
                 </div>
             </div>
         </div>

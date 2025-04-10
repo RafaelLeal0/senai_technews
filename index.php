@@ -212,6 +212,7 @@
                         <li><a href="./prof.php">Luis Cardoso</a></li>
                         <li><a href="./prof.php#">Greggori Bossolan</a></li>
                         <li><a href="./prof.php">Gleise Rosa</a></li>
+                        <li><a href="./prof.php">Lucas Machado</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
