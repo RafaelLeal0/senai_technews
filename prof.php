@@ -122,7 +122,7 @@
                         <img src="./img/logo/logo_linkedin.png"  alt="Linkedin">
                     </a>
                     </a>
-                    <a href="https://github.com/Greggori" target="_blank">
+                    <a href="https://github.com/lucasmsdev/lucasmsdev" target="_blank">
                         <img src="./img/logo/logo_git.png" alt="GitHub">
                     </a>
                 </div>
