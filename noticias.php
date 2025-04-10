@@ -34,9 +34,7 @@
             <button id="search-button"><i class="fas fa-search"></i> Buscar</button>
         </div>
         <div class="category-filter">
-            <select id="source-select">
-                <option value="all">Todas as Fontes</option>
-            </select>
+
         </div>
         <div class="masonry-container" id="news-container">
             <!-- News articles will be displayed here -->
