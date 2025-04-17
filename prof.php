@@ -88,7 +88,7 @@
                 </div>
             </div>
             <div class="info">
-                <h2>Luiz Cardoso</h2>
+                <h2>Luis Cardoso</h2>
                 <p>Sou um profissional apaixonado por tecnologia, cristão, tenho experiência em desenvolvimento de software, ensino de informática e gestão de marketing e mídia social. Atualmente, atuo como Instrutor de Formação Profissional na Escola SENAI Taubaté, onde compartilho meu conhecimento em tecnologia com os alunos.
                 Minhas principais competências incluem React Native, JavaScript, HTML, CSS, React, PHP, BD MySQL desenvolvimento de front-end, desenvolvimento de software, manutenção de sistemas e redes, gestão de conteúdo digital e ensino de informática.</p>
             </div>
