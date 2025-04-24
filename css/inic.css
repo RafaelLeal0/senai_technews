@@ -700,4 +700,18 @@ body {
   .content1 p {
     margin-bottom: 20px;
   }
-  
+
+.intro-text h3 {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.tilted-img {
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.tilted-img:hover {
+  transform: translateY(-10px) rotateZ(2deg);
+}
+
