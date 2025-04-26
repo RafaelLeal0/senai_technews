@@ -163,9 +163,10 @@ main {
 }
 
 .projeto-card img {
-    width: 100px;
+    width: 200px;
     height: auto;
     margin-bottom: 15px;
+
 }
 
 .projeto-card ul {
@@ -744,7 +745,7 @@ h1 {
             <h2>Projetos do SENAI - Taubaté</h2>
             <div class="projetos-container">
                 <div class="projeto-card">
-                    <img src="./img/logo/gamehub.png" alt="GameHub">
+                    <img src="./img/2.png" alt="GameHub">
                     <ul>
                         <li>Uma empresa que trabalha na área de games.</li>
                         <li>Nosso foco é oferecer performance e curiosidades.</li>
@@ -752,7 +753,7 @@ h1 {
                     </ul>
                 </div>
                 <div class="projeto-card">
-                    <img src="./img/logo/gardentech.png" alt="GardenTech">
+                    <img src="./img/1.png" alt="GardenTech">
                     <ul>
                         <li>Proporcionar soluções inovadoras e tecnológicas para cultivo.</li>
                         <li>Promover sustentabilidade e eficiência ambiental.</li>
@@ -760,7 +761,7 @@ h1 {
                     </ul>
                 </div>
                 <div class="projeto-card">
-                    <img src="./img/logo/essenza.png" alt="Essenza">
+                    <img src="./img/3.png" alt="Essenza">
                     <ul>
                         <li>Uma marca de moda sofisticada que une elegância e qualidade.</li>
                         <li>Peças exclusivas voltadas para quem valoriza estilo e personalidade.</li>
