@@ -623,7 +623,6 @@ body {
   justify-content: space-between;
   padding: 60px 8%;
   flex-wrap: wrap;
-  background: linear-gradient(to right, #ffffff, #f4f7fb);
   gap: 40px;
 }
 
@@ -869,7 +868,6 @@ nav ul li a {
   border-top-right-radius: 60px;
 }
 
-/* Seção de introdução responsiva */
 .intro-section {
   padding: 40px 5%;
   gap: 30px;
