@@ -1,8 +1,13 @@
+/* Importação de fontes */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Estilos gerais */
 body {
     font-family: 'Inter', sans-serif;
     margin: 0;
     padding: 0;
 }
+
 header {
     display: flex;
     justify-content: space-between;
@@ -11,13 +16,15 @@ header {
     background-color: #fff;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
+
 .container {
-    display: flex;
-    align-items: center;
     width: 90%;
     max-width: 1200px;
     margin: auto;
+    display: flex;
+    align-items: center;
 }
+
 .container img {
     width: 100px;
     height: 70px;
@@ -26,7 +33,7 @@ header {
 
 nav {
     display: flex;
-    flex-grow: 1; 
+    flex-grow: 1;
 }
 
 nav ul {
@@ -47,8 +54,8 @@ nav ul li a {
     color: #333;
     font-weight: 600;
     padding: 10px 20px;
-    transition: all 0.3s ease-in-out;
     position: relative;
+    transition: all 0.3s ease-in-out;
 }
 
 nav ul li a::after {
@@ -82,7 +89,7 @@ nav ul li a:hover::after {
     color: #333;
     font-weight: 600;
     position: relative;
-    transition: color 0.3s ease-in-out, font-size 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
 }
 
 .header-links a::after {
@@ -105,54 +112,23 @@ nav ul li a:hover::after {
     width: 100%;
     left: 0;
 }
+
 .itens {
     margin-left: 200px;
 }
-.banner{
+
+.banner {
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.banner img{
+
+.banner img {
     width: 70%;
     height: auto;
     margin-top: 20px;
-}
-.descricao {
-    width: 90%;
-    max-width: 1200px;
-    margin: auto;
-    padding: 40px 0;
-}
-.descricao h1 {
-    font-size: 30px;
-    margin-bottom: 50px;
-    font-weight: normal;
-    
-}
-.descricao p{
-    font-size: 20px;
-    margin-bottom: 20px;
-    text-align: justify;
-    line-height: 45px;
-    color: #525252;
-
-}
-.areas-atuacao {
-    width: 90%;
-    max-width: 1200px;
-    margin: auto;
-    padding: 40px 0;
-    text-align: center;
-}
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 20px;
-}
-.area img {
-    width: 100%;
-    border-radius: 8px;
+    opacity: 0;
+    animation: zoomIn 1.5s ease-out forwards;
 }
 
 @keyframes zoomIn {
@@ -166,115 +142,65 @@ nav ul li a:hover::after {
     }
 }
 
-.banner img {
-    opacity: 0;
-    animation: zoomIn 1.5s ease-out forwards;
+.descricao {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 40px 0;
+}
+
+.descricao h1 {
+    font-size: 30px;
+    margin-bottom: 50px;
+    font-weight: normal;
+}
+
+.descricao p {
+    font-size: 20px;
+    margin-bottom: 20px;
+    text-align: justify;
+    line-height: 45px;
+    color: #525252;
+}
+
+.areas-atuacao {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+}
+
+.area img {
+    width: 100%;
+    border-radius: 8px;
 }
 
 .titulo {
-
-    font-weight: bold;
-    margin: 60px 0;
-    font-family: Bahnschrift ;
+    font-family: 'Bahnschrift';
     font-weight: 400;
     font-size: 35px;
     color: #000000;
     text-align: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin: 20px 0;
 }
+
 main {
     padding: 20px;
 }
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-.container{
-	max-width: 1170px;
-	margin:auto;
-}
-.row{
-	display: flex;
-}
-ul{
-	list-style: none;
-}
-.footer{
-	background-color: #A01308;
-    padding: 70px 0;
-}
-.footer-col{
-   width: 25%;
-   padding: 0 15px;
-}
-.footer-col h4{
-	font-size: 18px;
-	color: #ffffff;
-	text-transform: capitalize;
-	margin-bottom: 35px;
-	font-weight: 500;
-	position: relative;
-    margin-right: 90px;
-}
-.footer-col h4::before{
-	content: '';
-	position: absolute;
-	left:0;
-	bottom: -10px;
-	background-color: #ffffff;
-	height: 2px;
-	box-sizing: border-box;
-	width: 50px;
-}
-.footer-col ul li:not(:last-child){
-	margin-bottom: 10px;
-}
-.footer-col ul li a{
-	font-size: 16px;
-	text-transform: capitalize;
-	color: #ffffff;
-	text-decoration: none;
-	font-weight: 300;
-	color: #f6f6f6;
-	display: block;
-	transition: all 0.3s ease;
-}
-.footer-col ul li a:hover{
-	color: #ffffff;
-	padding-left: 8px;
-}
-.footer-col .social-links a{
-	display: inline-block;
-	height: 40px;
-	width: 40px;
-	background-color: rgba(255,255,255,0.2);
-	margin:0 10px 10px 0;
-	text-align: center;
-	line-height: 40px;
-	border-radius: 50%;
-	color: #ffffff;
-	transition: all 0.5s ease;
-}
-.footer-col .social-links a:hover{
-	color: #24262b;
-	background-color: #ffffff;
-}
 
-@media(max-width: 767px){
-  .footer-col{
-    width: 50%;
-    margin-bottom: 30px;
-}
-}
-@media(max-width: 574px){
-  .footer-col{
-    width: 100%;
-  }
-}
+/* Card flip */
 .card-container {
     display: flex;
     gap: 20px;
-    justify-content: center; 
+    justify-content: center;
     margin-bottom: 35px;
-
 }
 
 .flip-card {
@@ -283,8 +209,6 @@ ul{
     height: 250px;
     border: 1px solid #f1f1f1;
     perspective: 1000px;
-    margin-left: 15px;
-    margin-right: 15px;
 }
 
 .flip-card-inner {
@@ -304,124 +228,104 @@ ul{
     position: absolute;
     width: 100%;
     height: 100%;
-    -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
 }
 
 .flip-card-front {
     background-color: #bbb;
     color: black;
-    
 }
+
 .flip-card-front img {
     width: 100%;
     height: 100%;
-    object-fit: cover; 
+    object-fit: cover;
     border-radius: 8px;
 }
 
 .flip-card-back {
-    background-color:rgb(180, 0, 0);
+    background-color: rgb(180, 0, 0);
     color: white;
     transform: rotateY(180deg);
+    padding: 20px;
 }
 
 .flip-card-back p {
     text-align: left;
-    margin-left: 30px;
 }
 
-.back{
-    margin-left: -20px;
-}
-
-.pen{
-    margin-left: 45px;
-}
-
-.footer{
-	background-color: #B91D32;
+/* Footer */
+.footer {
+    background-color: #B91D32;
     padding: 30px 0;
 }
-.footer-col{
-   padding: 0 40px;
+
+.footer-col {
+    width: 25%;
+    padding: 0 15px;
 }
-.footer-col h4{
-	font-size: 18px;
-	color: #ffffff;
-	text-transform: capitalize;
-	margin-bottom: 35px;
-	font-weight: 700;
-	position: relative;
-    margin-right: 90px;
+
+.footer-col h4 {
+    font-size: 18px;
+    color: #ffffff;
+    text-transform: capitalize;
+    margin-bottom: 35px;
+    font-weight: 700;
+    position: relative;
 }
-.footer-col h4::before{
-	content: '';
-	position: absolute;
-	left:0;
-	bottom: -10px;
-	background-color: #ffffff;
-	height: 2px;
-	box-sizing: border-box;
-	width: 60px;
-}
-.footer-col ul li:not(:last-child){
-	margin-bottom: 10px;
-}
-.footer-col ul li a{
-	font-size: 16px;
-	text-transform: capitalize;
-	color: #ffffff;
-	text-decoration: none;
-	font-weight: 300;
-	color: #f6f6f6;
-	display: block;
-	transition: all 0.10s ease;
-    text-align: left;
+
+.footer-col h4::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    background-color: #ffffff;
+    height: 2px;
+    width: 60px;
 }
 
 .footer-col ul {
-    text-align: left;
+    list-style: none;
     padding: 0;
-    margin: 0;
 }
 
 .footer-col ul li {
+    margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+    font-size: 16px;
+    color: #f6f6f6;
+    text-decoration: none;
+    display: block;
+    transition: all 0.3s ease;
     text-align: left;
 }
 
-.footer-col ul li a:hover{
-	color: #ffffff;
-	padding-left: 8px;
-}
-.footer-col .social-links a{
-	display: inline-block;
-	height: 40px;
-	width: 40px;
-	background-color: rgba(255,255,255,0.2);
-	margin:0 10px 10px 0;
-	text-align: center;
-	line-height: 0px;
-	border-radius: 30px;
-	color: #ffffff;
-	transition: all 0.10s ease;
-}
-.footer-col .social-links a:hover{
-	color: #24262b;
-	background-color: #ffffff;
+.footer-col ul li a:hover {
+    color: #ffffff;
+    padding-left: 8px;
 }
 
-@media(max-width: 767px){
-  .footer-col{
-    width: 50%;
-    margin-bottom: 30px;
+.footer-col .social-links a {
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    background-color: rgba(255,255,255,0.2);
+    text-align: center;
+    line-height: 40px;
+    border-radius: 30px;
+    color: #ffffff;
+    transition: all 0.3s ease;
+    margin: 0 10px 10px 0;
 }
+
+.footer-col .social-links a:hover {
+    color: #24262b;
+    background-color: #ffffff;
 }
-@media(max-width: 574px){
-  .footer-col{
-    width: 100%;
-  }
-}
+
+/* Social bar */
 .social-bar {
     background-color: #E30613;
     text-align: center;
@@ -440,182 +344,109 @@ ul{
     color: #f1f1f1;
 }
 
-/* Existing CSS remains the same until the end */
+/* Responsividade */
 
-/* Responsive Design */
+/* Para telas grandes até 1200px */
 @media (max-width: 1200px) {
     .container, .descricao, .areas-atuacao {
         width: 95%;
     }
-    
     .banner img {
         width: 85%;
     }
-    
     .flip-card {
         width: 600px;
     }
 }
 
+/* Para tablets grandes até 992px */
 @media (max-width: 992px) {
     .itens {
         margin-left: 100px;
     }
-    
     .flip-card {
         width: 500px;
         height: 220px;
     }
-    
     .card-container {
         flex-direction: column;
         align-items: center;
     }
-    
     .footer-col {
         width: 50%;
         margin-bottom: 30px;
     }
 }
 
+/* Para tablets médios até 768px */
 @media (max-width: 768px) {
     header {
         flex-direction: column;
         padding: 15px;
     }
-    
     .container {
         flex-direction: column;
         align-items: flex-start;
     }
-    
     nav ul {
         flex-direction: column;
         gap: 10px;
         margin-top: 15px;
     }
-    
     .header-links {
         margin-left: 0;
         margin-top: 15px;
     }
-    
     .itens {
         margin-left: 0;
     }
-    
     .banner img {
         width: 95%;
     }
-    
     .descricao h1 {
         font-size: 26px;
-        margin-bottom: 30px;
-    }
-    
-    .descricao p {
-        font-size: 18px;
-        line-height: 35px;
-    }
-    
-    .flip-card {
-        width: 100%;
-        height: 200px;
-        margin: 10px 0;
-    }
-    
-    .footer-col {
-        width: 100%;
-        padding: 0 20px;
-    }
-    
-    .footer-col h4 {
-        margin-right: 0;
     }
 }
 
+/* Para celulares grandes até 576px */
 @media (max-width: 576px) {
-    .container img {
-        width: 80px;
-        height: 56px;
+    .flip-card {
+        width: 90%;
+        height: auto;
     }
-    
-    .descricao h1 {
-        font-size: 22px;
-    }
-    
     .descricao p {
-        font-size: 16px;
+        font-size: 18px;
         line-height: 30px;
     }
-    
     .titulo {
         font-size: 28px;
     }
-    
-    .flip-card-back p {
-        margin-left: 15px;
+}
+
+/* Para celulares pequenos até 480px */
+@media (max-width: 480px) {
+    nav ul {
         font-size: 14px;
     }
-    
-    .footer {
-        padding: 40px 0;
+    .descricao h1 {
+        font-size: 24px;
     }
-    
-    .footer-col {
-        padding: 0 15px;
+    .descricao p {
+        font-size: 16px;
     }
-}
-
-/* Mobile menu toggle for smaller screens */
-.menu-toggle {
-    display: none;
-    cursor: pointer;
-    font-size: 24px;
-}
-
-@media (max-width: 768px) {
-    .menu-toggle {
-        display: block;
-        position: absolute;
-        top: 20px;
-        right: 20px;
+    .titulo {
+        font-size: 24px;
     }
-    
-    nav {
-        display: none;
-        width: 100%;
+    .header-links a {
+        font-size: 14px;
     }
-    
-    nav.active {
-        display: block;
+    /* CORREÇÃO AQUI */
+    .card-container {
+        flex-direction: column;
+        align-items: center;
     }
-    
-    .header-links {
-        display: none;
-        width: 100%;
-    }
-    
-    .header-links.active {
-        display: block;
-    }
-}
-
-/* Ensure images don't overflow on small screens */
-img {
-    max-width: 100%;
-    height: auto;
-}
-
-/* Adjust grid for smaller screens */
-@media (max-width: 600px) {
-    .grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 400px) {
-    .grid {
-        grid-template-columns: 1fr;
+    .flip-card {
+        width: 90%;
+        height: auto;
     }
 }

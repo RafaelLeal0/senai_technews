@@ -1046,3 +1046,108 @@ nav ul li a {
       margin: 0 5px 5px 0;
   }
 }
+/* Media Query para Layout Mobile Otimizado */
+@media (max-width: 768px) {
+  /* Navbar centralizada e alinhada */
+  header {
+    padding: 15px;
+  }
+  
+  .container {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+  
+  nav ul li {
+    width: 100%;
+    text-align: center;
+  }
+  
+  nav ul li a {
+    display: block;
+    padding: 8px;
+  }
+  
+  .header-links {
+    margin: 15px auto 0;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  /* Conteúdo centralizado em coluna única */
+  .professor {
+    width: 90%;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 15px;
+  }
+  
+  .professor img {
+    margin-right: 0;
+    margin-bottom: 15px;
+  }
+  
+  .info {
+    text-align: center;
+    width: 100%;
+  }
+  
+  .link {
+    justify-content: center;
+    margin-left: 0;
+  }
+  
+  .link img {
+    margin: 0 10px;
+  }
+  
+  /* Ajustes para seção de introdução */
+  .intro-section {
+    flex-direction: column;
+    padding: 30px 5%;
+  }
+  
+  .intro-text {
+    max-width: 100%;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .intro-images {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .tilted-img {
+    margin-bottom: 20px;
+    transform: none;
+    height: auto;
+    width: 80%;
+    max-width: 300px;
+  }
+  
+  /* Ajustes para seções de conteúdo */
+  .content, .main-content {
+    padding: 20px;
+    margin: 20px auto;
+    width: 90%;
+  }
+  
+  /* Ajuste para itens com margem específica */
+  .itens {
+    margin-left: 0;
+  }
+  
+  /* Garantir que todas as imagens fiquem responsivas */
+  img:not(.logo) {
+    max-width: 100%;
+    height: auto;
+  }
+}

@@ -721,3 +721,150 @@ background-color: #ffffff;
     font-size: 0.8rem;
   }
 }
+/* Media Queries para Responsividade - Navbar e Footer */
+
+/* Para telas grandes até 1200px */
+@media (max-width: 1200px) {
+  .container, .container-news {
+      width: 95%;
+  }
+  .banner img {
+      width: 85%;
+  }
+}
+
+/* Para tablets grandes até 992px */
+@media (max-width: 992px) {
+  .itens {
+      margin-left: 100px;
+  }
+  .footer-col {
+      width: 50%;
+      margin-bottom: 30px;
+  }
+  
+  /* Ajustes para navbar */
+  header {
+      padding: 15px;
+  }
+  
+  .container img {
+      width: 80px;
+      height: 56px;
+  }
+  
+  nav ul {
+      gap: 15px;
+  }
+  
+  nav ul li a {
+      padding: 8px 15px;
+  }
+}
+
+/* Para tablets médios até 768px */
+@media (max-width: 768px) {
+  /* Navbar */
+  header {
+      flex-direction: column;
+      padding: 15px;
+  }
+  
+  .container {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+  
+  nav ul {
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 15px;
+      width: 100%;
+  }
+  
+  nav ul li {
+      width: 100%;
+  }
+  
+  nav ul li a {
+      padding: 10px 0;
+      display: block;
+  }
+  
+  .header-links {
+      margin-left: 0;
+      margin-top: 15px;
+      width: 100%;
+  }
+  
+  .itens {
+      margin-left: 0;
+  }
+  
+  .banner img {
+      width: 95%;
+  }
+  
+  /* Footer */
+  .footer-col {
+      width: 100%;
+      text-align: center;
+  }
+  
+  .footer-col h4::before {
+      left: 50%;
+      transform: translateX(-50%);
+  }
+  
+  .footer-col ul {
+      text-align: center;
+  }
+  
+  .footer-col ul li {
+      text-align: center;
+  }
+}
+
+/* Para celulares grandes até 576px */
+@media (max-width: 576px) {
+  /* Navbar */
+  nav ul li a {
+      font-size: 14px;
+  }
+  
+  .header-links a {
+      font-size: 14px;
+  }
+  
+  /* Footer */
+  .footer {
+      padding: 40px 0;
+  }
+  
+  .footer-col {
+      padding: 0 20px;
+  }
+}
+
+/* Para celulares pequenos até 480px */
+@media (max-width: 480px) {
+  /* Navbar */
+  .container img {
+      width: 70px;
+      height: 49px;
+  }
+  
+  nav ul li a {
+      padding: 8px 0;
+  }
+  
+  /* Footer */
+  .footer-col h4 {
+      font-size: 16px;
+      margin-bottom: 25px;
+  }
+  
+  .footer-col ul li a {
+      font-size: 14px;
+  }
+}
