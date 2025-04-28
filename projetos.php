@@ -724,6 +724,181 @@ h1 {
     color: #f1f1f1;
   }
   
+  @media screen and (max-width: 1200px) {
+    .section h1 {
+        margin-left: -600px;
+    }
+    .section p {
+        margin-left: -500px;
+    }
+    .section .btn {
+        margin-left: -700px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .section h1 {
+        margin-left: -400px;
+        font-size: 5rem;
+    }
+    .section p {
+        margin-left: -300px;
+    }
+    .section .btn {
+        margin-left: -500px;
+    }
+    
+    .projetos-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .projeto-card {
+        max-width: 80%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .section h1 {
+        margin-left: -200px;
+        font-size: 4rem;
+    }
+    .section p {
+        margin-left: -100px;
+    }
+    .section .btn {
+        margin-left: -300px;
+    }
+    
+    header .container {
+        flex-direction: column;
+        padding: 10px;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        gap: 5px;
+        margin-top: 15px;
+    }
+    
+    .header-links {
+        margin-left: 0;
+        margin-top: 15px;
+    }
+    
+    .itens {
+        margin-left: 0;
+        text-align: center;
+    }
+    
+    .professor {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .projeto img {
+        height: 250px;
+    }
+    
+    .filtros {
+        flex-direction: column;
+    }
+    
+    .filtros input {
+        width: 100%;
+    }
+    
+    #devex {
+        width: 100px;
+        height: 80px;
+    }
+    
+    .footer-col {
+        width: 100%;
+        margin-bottom: 30px;
+        text-align: center;
+    }
+    
+    .footer-col h4::before {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .footer-col ul {
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .section h1 {
+        margin-left: 0;
+        font-size: 3rem;
+        text-align: center;
+    }
+    .section p {
+        margin-left: 0;
+        text-align: center;
+        padding: 0 20px;
+    }
+    .section .btn {
+        margin-left: 0;
+    }
+    
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    .projetos-senai h2 {
+        font-size: 1.5rem;
+    }
+    
+    .projeto-card {
+        max-width: 100%;
+    }
+    
+    .section {
+        padding: 20px;
+    }
+    
+    .section h1 {
+        font-size: 2.5rem;
+    }
+    
+    .section p {
+        font-size: 1.2rem;
+    }
+    
+    .footer-col {
+        padding: 0 15px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .section h1 {
+        font-size: 2rem;
+    }
+    
+    .section p {
+        font-size: 1rem;
+    }
+    
+    .btn {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+    
+    .projeto-card img {
+        width: 150px;
+    }
+    
+    .footer-col h4 {
+        font-size: 16px;
+    }
+    
+    .footer-col ul li a {
+        font-size: 14px;
+    }
+}
 
 </style>
 <body>

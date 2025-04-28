@@ -96,3 +96,81 @@ button:hover {
    font-size: 30px;
    font-weight: bold;
 }
+
+@media (max-width: 1024px) {
+   .left h1 {
+       font-size: 20px;
+       padding: 0 20px;
+   }
+   
+   .logo {
+       width: 180px;
+       margin-top: -80px;
+       margin-bottom: 40px;
+   }
+   
+   .back-arrow {
+       margin-left: 600px;
+       font-size: 26px;
+   }
+}
+
+/* Responsividade para dispositivos móveis */
+@media (max-width: 768px) {
+   body {
+       flex-direction: column;
+       height: auto;
+       min-height: 100vh;
+   }
+   
+   .left, .right {
+       width: 100%;
+   }
+   
+   .left {
+       height: 200px;
+       padding: 20px;
+   }
+   
+   .right {
+       padding: 40px 20px;
+   }
+   
+   .logo {
+       margin-top: 0;
+       margin-bottom: 30px;
+       width: 160px;
+   }
+   
+   .back-arrow {
+       margin-left: 0;
+       right: 20px;
+       left: auto;
+       font-size: 24px;
+   }
+   
+   form {
+       width: 90%;
+       max-width: none;
+   }
+}
+
+/* Ajustes para telas muito pequenas */
+@media (max-width: 480px) {
+   .left h1 {
+       font-size: 18px;
+   }
+   
+   .logo {
+       width: 140px;
+   }
+   
+   input, button {
+       padding: 8px;
+   }
+   
+   .back-arrow {
+       font-size: 20px;
+       padding: 5px;
+   }
+}

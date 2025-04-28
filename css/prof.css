@@ -394,4 +394,162 @@ h1 {
   .social-bar a:hover {
     color: #f1f1f1;
   }
+
+  @media screen and (max-width: 1200px) {
+    .container {
+        width: 95%;
+    }
+    
+    .professor {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .professor {
+        width: 80%;
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .professor img {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+    
+    .info {
+        text-align: center;
+    }
+    
+    .link {
+        justify-content: center;
+        margin-left: 0;
+    }
+    
+    .link img {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 15px;
+    }
+    
+    .container {
+        flex-direction: column;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 20px;
+        align-items: center;
+    }
+    
+    .header-links {
+        margin-left: 0;
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .itens {
+        margin-left: 0;
+    }
+    
+    .professor {
+        width: 90%;
+        padding: 15px;
+    }
+    
+    .professor img {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .footer-col {
+        padding: 0 20px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    h1 {
+        font-size: 1.5rem;
+        margin: 30px 0 15px 0;
+    }
+    
+    .professor {
+        width: 95%;
+    }
+    
+    .professor img {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .info h2 {
+        font-size: 1.3rem;
+    }
+    
+    .info p {
+        font-size: 0.9rem;
+    }
+    
+    .footer-col {
+        width: 100%;
+        text-align: center;
+        padding: 0 15px;
+    }
+    
+    .footer-col h4::before {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .footer-col ul {
+        text-align: center;
+    }
+    
+    .footer-col ul li {
+        text-align: center;
+    }
+    
+    .social-bar a {
+        font-size: 18px;
+        margin: 0 8px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .professor {
+        padding: 10px;
+    }
+    
+    .professor img {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .link img {
+        width: 25px;
+        height: 25px;
+    }
+    
+    .footer {
+        padding: 20px 0;
+    }
+    
+    .footer-col h4 {
+        font-size: 16px;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+    
+    .footer-col ul li a {
+        font-size: 14px;
+    }
+}
   

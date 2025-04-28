@@ -715,3 +715,336 @@ body {
   transform: translateY(-10px) rotateZ(2deg);
 }
 
+/* Reset e estilos base */
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Header responsivo */
+header {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  flex-wrap: wrap;
+}
+
+.container img {
+  width: 100px;
+  height: 70px;
+}
+
+nav {
+  display: flex;
+  flex-grow: 1;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  padding: 0;
+  margin: 0;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+nav ul li {
+  display: inline-block;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+  padding: 8px 15px;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+}
+
+.header-links {
+  margin-left: auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Banner responsivo */
+.banner {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+/* Seção de professores responsiva */
+.professores {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  padding: 40px 20px;
+}
+
+.professor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  max-width: 800px;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 15px;
+  background: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.professor img {
+  width: 150px;
+  height: 150px;
+  margin-bottom: 20px;
+  border: 3px solid rgb(255, 255, 255);
+  border-radius: 30px;
+}
+
+.info {
+  text-align: center;
+}
+
+/* Footer responsivo */
+.footer {
+  background-color: #B91D32;
+  padding: 30px 0;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.footer-col {
+  width: 100%;
+  padding: 0 15px;
+  margin-bottom: 30px;
+}
+
+/* Seção hero responsiva */
+.hero {
+  padding: 40px 20px;
+}
+
+.hero h1 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+}
+
+.hero-images {
+  gap: 20px;
+}
+
+.hero-images img {
+  width: 120px;
+}
+
+/* Seção vermelha responsiva */
+.section-red {
+  padding: 60px 20px 40px;
+  border-top-left-radius: 60px;
+  border-top-right-radius: 60px;
+}
+
+/* Seção de introdução responsiva */
+.intro-section {
+  padding: 40px 5%;
+  gap: 30px;
+}
+
+.intro-text h3 {
+  font-size: 24px;
+}
+
+.tilted-img {
+  height: 280px;
+  width: 180px;
+}
+
+/* Media Queries para diferentes tamanhos de tela */
+
+/* Tablets e telas médias */
+@media (min-width: 768px) {
+  .professor {
+      flex-direction: row;
+      align-items: flex-start;
+      text-align: left;
+  }
+  
+  .professor img {
+      margin-right: 20px;
+      margin-bottom: 0;
+  }
+  
+  .info {
+      text-align: left;
+  }
+  
+  .footer-col {
+      width: 50%;
+  }
+  
+  .hero h1 {
+      font-size: 2rem;
+  }
+  
+  .hero-images img {
+      width: 150px;
+  }
+  
+  .intro-text h3 {
+      font-size: 28px;
+  }
+  
+  .tilted-img {
+      height: 320px;
+      width: 220px;
+  }
+}
+
+/* Desktop e telas grandes */
+@media (min-width: 992px) {
+  .footer-col {
+      width: 25%;
+  }
+  
+  .professor {
+      width: 70%;
+  }
+  
+  .hero h1 {
+      font-size: 2.5rem;
+  }
+  
+  .hero-images img {
+      width: 180px;
+  }
+  
+  .intro-text {
+      flex: 1 1 400px;
+  }
+  
+  .intro-images {
+      flex: 1 1 500px;
+  }
+  
+  .tilted-img {
+      height: 360px;
+      width: 240px;
+  }
+}
+
+/* Telas muito pequenas (mobile) */
+@media (max-width: 480px) {
+  nav ul {
+      justify-content: center;
+      gap: 10px;
+  }
+  
+  nav ul li a {
+      padding: 5px 10px;
+      font-size: 14px;
+  }
+  
+  .header-links a {
+      font-size: 14px;
+      margin-left: 10px;
+  }
+  
+  .container img {
+      width: 80px;
+      height: 56px;
+  }
+  
+  .professor {
+      width: 95%;
+  }
+  
+  .hero h1 {
+      font-size: 1.5rem;
+  }
+  
+  .hero-images img {
+      width: 100px;
+  }
+  
+  .intro-text h3 {
+      font-size: 20px;
+  }
+  
+  .tilted-img {
+      height: 200px;
+      width: 130px;
+  }
+  
+  .section-red {
+      padding: 40px 15px 30px;
+      border-top-left-radius: 40px;
+      border-top-right-radius: 40px;
+  }
+  
+  .section-red h2 {
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+  }
+  
+  .section-red p {
+      font-size: 0.9rem;
+  }
+}
+
+/* Ajustes para navegação em telas pequenas */
+@media (max-width: 600px) {
+  .container {
+      flex-direction: column;
+      align-items: center;
+  }
+  
+  nav {
+      width: 100%;
+      margin-top: 15px;
+  }
+  
+  nav ul {
+      justify-content: center;
+  }
+  
+  .header-links {
+      margin-left: 0;
+      margin-top: 15px;
+      justify-content: center;
+      width: 100%;
+  }
+}
+
+/* Ajustes para links sociais no footer em telas pequenas */
+@media (max-width: 400px) {
+  .footer-col .social-links a {
+      height: 35px;
+      width: 35px;
+      margin: 0 5px 5px 0;
+  }
+}
