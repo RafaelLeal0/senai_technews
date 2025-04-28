@@ -18,7 +18,10 @@
 <body>
 <header>
         <div class="container">
-            <img src="./img/senai_technews.png" alt="SENAI Logo" class="logo">
+        <a href="index.php">
+  <img src="./img/senai_technews.png" alt="SENAI Logo" class="logo">
+</a>
+
             <nav>
                 <ul class="itens">
                     <li><a href="inicio.php">CURSO</a></li>
