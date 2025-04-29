@@ -1,0 +1,126 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    display: flex;
+    height: 100vh;
+    background-color: #f2f2f2;
+}
+
+.left, .right {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.left {
+    background-color: #003865; /* azul escuro SENAI */
+    color: white;
+}
+
+.left h1 {
+    font-size: 2.5rem;
+    line-height: 1.4;
+}
+
+.left span {
+    font-weight: 700;
+    color: #ffcc00; /* destaque */
+}
+
+.right {
+    background-color: #ffffff;
+    align-items: center;
+}
+
+.logo {
+    width: 200px;
+    margin-bottom: 30px;
+}
+
+form {
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    margin-bottom: 5px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #333;
+}
+
+form input {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+form button {
+    padding: 12px;
+    background-color: #003865;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+form button:hover {
+    background-color: #002B50;
+}
+
+.forgot-password {
+    text-align: right;
+    margin-bottom: 10px;
+}
+
+.forgot-password a {
+    font-size: 0.9rem;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.forgot-password a:hover {
+    text-decoration: underline;
+}
+
+.back-arrow {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 24px;
+    text-decoration: none;
+    color: #003865;
+}
+
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+    }
+
+    .left, .right {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .logo {
+        width: 150px;
+    }
+
+    .back-arrow {
+        top: 10px;
+        left: 10px;
+    }
+}
