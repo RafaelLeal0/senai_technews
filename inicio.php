@@ -231,68 +231,14 @@
     <a>Copyright 2025 © Todos os direitos reservados.</a>
     </div>
 </footer>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const fadeElements = document.querySelectorAll(".fade-in");
+    fadeElements.forEach(el => {
+        el.style.opacity = "1";
+        el.style.transform = "translateY(0)";
+    });
+});
+</script>
 </body>
 </html>
-
-<button id="topBtn"><i class="fa-solid fa-arrow-up"></i></button>
-<script>
-let topBtn = document.getElementById("topBtn");
-
-window.onscroll = function() {
-    if (document.documentElement.scrollTop > 200) {
-        topBtn.style.display = "block";
-    } else {
-        topBtn.style.display = "none";
-    }
-};
-
-topBtn.onclick = function() {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-};
-
-
-</script>
-<style>
-    @keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.fade-in {
-    animation: fadeIn 1.5s ease-out;
-}
-
-#topBtn {
-    display: none;
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: #d32f2f;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 20px;
-}
-
-#topBtn {
-    display: none;
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: #d32f2f;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 20px;
-}
-</style>

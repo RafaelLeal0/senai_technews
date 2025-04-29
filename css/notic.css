@@ -168,6 +168,88 @@ ul{
   list-style: none;
 }
 
+/* Estilos dos Cards Modificados */
+.news-card {
+  break-inside: avoid;
+  margin-bottom: 20px;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.news-card:hover {
+  transform: translateY(-5px);
+}
+
+.news-content {
+  padding: 20px 25px 25px 30px; /* Margem esquerda aumentada */
+}
+
+.news-content h3 {
+  margin: 0 0 15px 0;
+  font-size: 1.25rem;
+  line-height: 1.4;
+  color: #1a1a1a;
+}
+
+.source {
+  display: block;
+  font-size: 0.85rem;
+  color: #cc1c0c;
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+
+.news-content p {
+  color: #4a4a4a;
+  line-height: 1.6;
+  margin: 0 0 20px 0;
+}
+
+.read-more {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 25px;
+  background-color: #cc1c0c;
+  color: white !important;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  margin-left: 30px; /* Margem esquerda para o botão */
+}
+
+.read-more:hover {
+  background-color: #b3180a;
+  transform: translateY(-2px);
+  box-shadow: 0 3px 10px rgba(204, 28, 12, 0.2);
+}
+
+/* Ajuste de imagem */
+.news-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-bottom: 3px solid #cc1c0c;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .news-content {
+    padding: 15px 20px 20px;
+  }
+  
+  .read-more {
+    margin-left: 20px;
+    padding: 8px 20px;
+  }
+}
+
 #topBtn {
     display: none;
     position: fixed;

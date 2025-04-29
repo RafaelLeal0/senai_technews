@@ -34,6 +34,10 @@ document.addEventListener('DOMContentLoaded', function() {
         newsContainer.innerHTML = '';
 
         if (data.articles?.length) {
+          // mostra contagem
+          // const header = document.createElement('p');
+          // header.textContent = `Mostrando ${data.articles.length} de ${data.totalResults} artigos relevantes.`;
+          // newsContainer.appendChild(header);
 
           data.articles.forEach(createNewsCard);
           initMasonry();

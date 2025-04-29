@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projetos</title>
-    <link rel="stylesheet" href="./css/projetos.css">
+    <link rel="stylesheet" href="./css/projetocinco.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
@@ -63,14 +63,14 @@
         <h1>2024</h1>
         <p>Projetos feitos pelos alunos do</p> 
         <p>SENAI-Taubaté no ano de 2024</p>
-        <a href="projetoquatro.php" class="btn">Saiba mais</a>
+        <a href="#" class="btn">Saiba mais</a>
     </div>
 
     <div class="section section-2025">
         <h1>2025</h1>
         <p>Projetos feitos pelos alunos do</p> 
         <p>SENAI-Taubaté no ano de 2025</p>
-        <a href="projetocinco.php" class="btn">Saiba mais</a>
+        <a href="#" class="btn">Saiba mais</a>
     </div>
     </main>
     <footer>
