@@ -615,6 +615,9 @@ body {
     .main-content h2 {
         font-size: 1.5rem;
     }
+    .itens{
+      align-items: flex-start;
+    }
 }
 
 .intro-section {
@@ -888,10 +891,12 @@ nav ul li a {
 @media (min-width: 768px) {
   .professor {
       flex-direction: row;
-      align-items: flex-start;
+      align-items:flex-start;
       text-align: left;
   }
-  
+  .itens{
+    align-items: flex-start;
+  }
   .professor img {
       margin-right: 20px;
       margin-bottom: 0;
@@ -928,7 +933,9 @@ nav ul li a {
   .footer-col {
       width: 25%;
   }
-  
+  .itens{
+    align-items: flex-start;
+  }
   .professor {
       width: 70%;
   }
@@ -962,6 +969,10 @@ nav ul li a {
       gap: 10px;
   }
   
+  .itens{
+    align-items: flex-start;
+  }
+
   nav ul li a {
       padding: 5px 10px;
       font-size: 14px;
@@ -1026,6 +1037,10 @@ nav ul li a {
       margin-top: 15px;
   }
   
+  .itens{
+    align-items: flex-start;
+  }
+
   nav ul {
       justify-content: center;
   }
@@ -1045,6 +1060,9 @@ nav ul li a {
       width: 35px;
       margin: 0 5px 5px 0;
   }
+  .itens{
+    align-items: flex-start;
+  }
 }
 /* Media Query para Layout Mobile Otimizado */
 @media (max-width: 768px) {
@@ -1057,7 +1075,9 @@ nav ul li a {
     flex-direction: column;
     text-align: center;
   }
-  
+  .itens{
+    align-items: flex-start;
+  }
   nav ul {
     flex-direction: column;
     gap: 10px;

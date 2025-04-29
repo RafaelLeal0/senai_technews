@@ -8,53 +8,52 @@ body {
   
   header {
     display: flex;
+    justify-content: space-between;
     align-items: center;
     padding: 20px;
     background-color: #fff;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  .container {
+}
+.container {
     display: flex;
     align-items: center;
     width: 90%;
     max-width: 1200px;
     margin: auto;
-  }
-  
-  .container img {
+}
+.container img {
     width: 100px;
     height: 70px;
-  }
-  
-  nav {
+}
+
+nav {
     display: flex;
-    flex-grow: 1;
-  }
-  
-  nav ul {
+    flex-grow: 1; 
+}
+
+nav ul {
     list-style: none;
     display: flex;
     gap: 20px;
     padding: 0;
     margin: 0;
     justify-content: flex-start;
-  }
-  
-  nav ul li {
+}
+
+nav ul li {
     display: inline-block;
-  }
-  
-  nav ul li a {
+}
+
+nav ul li a {
     text-decoration: none;
     color: #333;
     font-weight: 600;
     padding: 10px 20px;
     transition: all 0.3s ease-in-out;
     position: relative;
-  }
-  
-  nav ul li a::after {
+}
+
+nav ul li a::after {
     content: "";
     position: absolute;
     width: 0;
@@ -63,33 +62,32 @@ body {
     left: 50%;
     bottom: -5px;
     transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
-  }
-  
-  nav ul li a:hover {
+}
+
+nav ul li a:hover {
     color: #cc1c0c;
     font-size: 105%;
-  }
-  
-  nav ul li a:hover::after {
+}
+
+nav ul li a:hover::after {
     width: 100%;
     left: 0;
-  }
-  
-  .header-links {
+}
+
+.header-links {
     margin-left: auto;
-    display: flex;
-  }
-  
-  .header-links a {
+}
+
+.header-links a {
     margin-left: 15px;
     text-decoration: none;
     color: #333;
     font-weight: 600;
     position: relative;
     transition: color 0.3s ease-in-out, font-size 0.3s ease-in-out;
-  }
-  
-  .header-links a::after {
+}
+
+.header-links a::after {
     content: "";
     position: absolute;
     width: 0;
@@ -98,18 +96,22 @@ body {
     left: 50%;
     bottom: -5px;
     transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
-  }
-  
-  .header-links a:hover {
+}
+
+.header-links a:hover {
     color: #cc1c0c;
     font-size: 110%;
-  }
-  
-  .header-links a:hover::after {
+}
+
+.header-links a:hover::after {
     width: 100%;
     left: 0;
-  }
-  
+}
+
+.itens {
+    margin-left: 200px;
+}
+
   .banner {
     width: 100%;
     height: auto;
