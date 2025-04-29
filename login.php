@@ -26,7 +26,7 @@
                 <a href="recuperar_senha.php">Esqueceu a senha?</a>
             </div>
 
-            <a href="adicionarNoticia.php" id="botao-entrar">Entrar</a>
+            <a href="adm.php" id="botao-entrar">Entrar</a>
         </form>
     </div>
     
