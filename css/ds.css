@@ -250,11 +250,12 @@ main {
     background-color: rgb(180, 0, 0);
     color: white;
     transform: rotateY(180deg);
-    padding: 20px;
+    padding: 5px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     overflow: auto;
+    min-height: 250px; /* Altura mínima fixa */
 }
 
 .flip-card-back p {
