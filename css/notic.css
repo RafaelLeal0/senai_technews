@@ -14,54 +14,34 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 20px;
+  padding: 20px;
   background-color: #fff;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  position: relative;
 }
-
 .container {
   display: flex;
   align-items: center;
   width: 90%;
   max-width: 1200px;
   margin: auto;
-  justify-content: space-between;
 }
-
 .container img {
   width: 100px;
   height: 70px;
-  transition: transform 0.3s ease;
 }
 
-.container img:hover {
-  transform: scale(1.05);
-}
-
-/* Mobile Menu Button */
-.menu-toggle {
-  display: none;
-  cursor: pointer;
-  font-size: 24px;
-  z-index: 1000;
-}
-
-/* Navigation */
 nav {
   display: flex;
-  flex-grow: 1;
-  transition: all 0.3s ease;
+  flex-grow: 1; 
 }
 
 nav ul {
   list-style: none;
   display: flex;
-  gap: 15px;
+  gap: 20px;
   padding: 0;
   margin: 0;
   justify-content: flex-start;
-  align-items: center;
 }
 
 nav ul li {
@@ -72,10 +52,9 @@ nav ul li a {
   text-decoration: none;
   color: #333;
   font-weight: 600;
-  padding: 8px 15px;
+  padding: 10px 20px;
   transition: all 0.3s ease-in-out;
   position: relative;
-  white-space: nowrap;
 }
 
 nav ul li a::after {
@@ -91,7 +70,7 @@ nav ul li a::after {
 
 nav ul li a:hover {
   color: #cc1c0c;
-  transform: scale(1.05); /* Replace font-size change for better performance */
+  font-size: 105%;
 }
 
 nav ul li a:hover::after {
@@ -100,8 +79,6 @@ nav ul li a:hover::after {
 }
 
 .header-links {
-  display: flex;
-  align-items: center;
   margin-left: auto;
 }
 
@@ -111,8 +88,7 @@ nav ul li a:hover::after {
   color: #333;
   font-weight: 600;
   position: relative;
-  transition: all 0.3s ease-in-out;
-  white-space: nowrap;
+  transition: color 0.3s ease-in-out, font-size 0.3s ease-in-out;
 }
 
 .header-links a::after {
@@ -128,13 +104,18 @@ nav ul li a:hover::after {
 
 .header-links a:hover {
   color: #cc1c0c;
-  transform: scale(1.05);
+  font-size: 110%;
 }
 
 .header-links a:hover::after {
   width: 100%;
   left: 0;
 }
+
+.itens {
+  margin-left: 200px;
+}
+
 
 /* Conteúdo Principal */
 .container-news {
