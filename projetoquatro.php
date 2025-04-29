@@ -30,17 +30,20 @@
         </div>
     </header>
     <main>
+    <section class="projetos-senai">
+        <h2>Projetos de 2024 do SENAI - Taubaté</h2>
+    </section>
         <div class="section section-2024">
         <h1>GardenTech</h1>
         <h2>Projetos feitos pelos alunos: Lanna, Matheus Villar, Murilo Henrique e Rafael Leal</h2> 
-        <h4>Esse projeto foi desenvolvido um site com HTML e CSS, e utilizaram Arduino, onde fizeram um sensor de umidade, onde mostra a porcentagem de umidade do solo</h4>
+        <h4>Este projeto consistiu no desenvolvimento de um site utilizando HTML e CSS, aliado ao uso da plataforma Arduino.<br> Foi criado um sensor de umidade capaz de medir e exibir, em tempo real,<br> a porcentagem de umidade do solo, proporcionando uma visualização clara e eficiente dos dados coletados.</h4>
     </div>
 
     <div class="section section-2025">
-        <h1>2025</h1>
-        <p>Projetos feitos pelos alunos do</p> 
-        <p>SENAI-Taubaté no ano de 2025</p>
-    </div>
+        <h1>GameHub</h1>
+        <h2>Projetos feitos pelos alunos: Andrey Montibeller, Júlia Conconi,<br> Murilo Ferreira, Rafael Leal e Samuel Boaz</h2> 
+        <h4>Esse projeto é uma empresa fictícia que atua na área de games. Seu site é focado em apresentar curiosidades, notícias, plataformas<br> e eventos relacionados ao mundo dos jogos. <br>Busca sempre apresentar dados com fontes confiáveis e seguras para seus clientes.</h4>
+   </div>
     </main>
     <footer>
         <div class="social-bar">

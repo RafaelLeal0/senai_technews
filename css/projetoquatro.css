@@ -244,13 +244,17 @@ main {
     box-sizing: border-box; 
 }
 
-.section h1 {
+.section-2024 h1 {
     font-size: 6rem;
     margin: 0;
     font-weight: bold;
-    margin-left: -800px;
+    margin-left: -705px;
 }
-
+.section-2024 h4{
+    margin: 0;
+    margin-left: -350px;
+    text-align: left;
+}
 .section p {
     font-size: 1.5rem;
     max-width: 600px;
@@ -275,12 +279,32 @@ main {
     color: black;
 }
 
+.projetos-senai h2 {
+    font-size: 2rem;
+    color: #cc1c0c;
+    margin-bottom: 30px;
+    margin-left: 460px;
+    margin-top: 80px;
+}
 .section-2024 {
-    background-image: url('../img/senai-escola.jpg');
+    background-image: url('../img/gardentechh.jpg');
+    margin-top: 100px;
 }
 
 .section-2025 {
-    background-image: url('../img/cod.jpg'); 
+    background-image: url('../img/gamehub.jpg'); 
+}
+
+.section-2025 h1 {
+    font-size: 6rem;
+    margin: 0;
+    font-weight: bold;
+    margin-left: -805px;
+}
+.section-2025 h4{
+    margin: 0;
+    margin-left: -230px;
+    text-align: left;
 }
 
 .section::before {
@@ -290,7 +314,7 @@ main {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.4); 
+    background: rgba(0, 0, 0, 0.6   ); 
     z-index: 0;
 }
 
@@ -307,8 +331,13 @@ body {
     color: #333;
 }
 
-.section h2{
+.section-2024 h2{
     margin-left: -300px;
+}
+
+.section-2025 h2{
+    margin-left: -517px;
+    text-align: left;
 }
 
 header {
