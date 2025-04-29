@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projetos</title>
-    <link rel="stylesheet" href="./css/projetos.css">
+    <link rel="stylesheet" href="./css/projetoquatro.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
@@ -30,47 +30,16 @@
         </div>
     </header>
     <main>
-        <section class="projetos-senai">
-            <h2>Projetos do SENAI - Taubaté</h2>
-            <div class="projetos-container">
-                <div class="projeto-card">
-                    <img src="./img/2.png" alt="GameHub">
-                    <ul>
-                        <li>Uma empresa que trabalha na área de games.</li>
-                        <li>Nosso foco é oferecer performance e curiosidades.</li>
-                        <li>Plataformas e eventos sobre nossos jogos.</li>
-                    </ul>
-                </div>
-                <div class="projeto-card">
-                    <img src="./img/1.png" alt="GardenTech">
-                    <ul>
-                        <li>Proporcionar soluções inovadoras e tecnológicas para cultivo.</li>
-                        <li>Promover sustentabilidade e eficiência ambiental.</li>
-                        <li>Uso de sensores e automação de solo em hortas inteligentes.</li>
-                    </ul>
-                </div>
-                <div class="projeto-card">
-                    <img src="./img/3.png" alt="Essenza">
-                    <ul>
-                        <li>Uma marca de moda sofisticada que une elegância e qualidade.</li>
-                        <li>Peças exclusivas voltadas para quem valoriza estilo e personalidade.</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
         <div class="section section-2024">
-        <h1>2024</h1>
-        <p>Projetos feitos pelos alunos do</p> 
-        <p>SENAI-Taubaté no ano de 2024</p>
-        <a href="projetoquatro.php" class="btn">Saiba mais</a>
+        <h1>GardenTech</h1>
+        <h2>Projetos feitos pelos alunos: Lanna, Matheus Villar, Murilo Henrique e Rafael Leal</h2> 
+        <h4>Esse projeto foi desenvolvido um site com HTML e CSS, e utilizaram Arduino, onde fizeram um sensor de umidade, onde mostra a porcentagem de umidade do solo</h4>
     </div>
 
     <div class="section section-2025">
         <h1>2025</h1>
         <p>Projetos feitos pelos alunos do</p> 
         <p>SENAI-Taubaté no ano de 2025</p>
-        <a href="projetocinco.php" class="btn">Saiba mais</a>
     </div>
     </main>
     <footer>
