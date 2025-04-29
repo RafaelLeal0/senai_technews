@@ -135,10 +135,16 @@ main {
 
 .ano-container:nth-child(1) {
     background-image: url('../img/senai-escola.jpg');
+    width: 100vw;
+    height: 100vh;
+    margin-left: -20px;
 }
 
 .ano-container:nth-child(2) {
     background-image: url('../img/devexperiencefoto.jpg');
+    width: 100vw;
+    height: 100vh;
+    margin-left: -20px;
 }
 
 .ano-container h2 {
@@ -289,10 +295,16 @@ main {
 .section-2024 {
     background-image: url('../img/gardentechh.jpg');
     margin-top: 100px;
+    width: 100vw;
+    height: 100vh;
+    margin-left: -20px;
 }
 
 .section-2025 {
     background-image: url('../img/gamehub.jpg'); 
+    width: 100vw;
+    height: 100vh;
+    margin-left: -20px;
 }
 
 .section-2025 h1 {

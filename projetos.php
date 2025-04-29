@@ -32,33 +32,7 @@
     <main>
         <section class="projetos-senai">
             <h2>Projetos do SENAI - Taubaté</h2>
-            <div class="projetos-container">
-                <div class="projeto-card">
-                    <img src="./img/2.png" alt="GameHub">
-                    <ul>
-                        <li>Uma empresa que trabalha na área de games.</li>
-                        <li>Nosso foco é oferecer performance e curiosidades.</li>
-                        <li>Plataformas e eventos sobre nossos jogos.</li>
-                    </ul>
-                </div>
-                <div class="projeto-card">
-                    <img src="./img/1.png" alt="GardenTech">
-                    <ul>
-                        <li>Proporcionar soluções inovadoras e tecnológicas para cultivo.</li>
-                        <li>Promover sustentabilidade e eficiência ambiental.</li>
-                        <li>Uso de sensores e automação de solo em hortas inteligentes.</li>
-                    </ul>
-                </div>
-                <div class="projeto-card">
-                    <img src="./img/3.png" alt="Essenza">
-                    <ul>
-                        <li>Uma marca de moda sofisticada que une elegância e qualidade.</li>
-                        <li>Peças exclusivas voltadas para quem valoriza estilo e personalidade.</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
+        
         <div class="section section-2024">
         <h1>2024</h1>
         <p>Projetos feitos pelos alunos do</p> 

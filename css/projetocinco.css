@@ -181,10 +181,12 @@ main {
 
 .ano-container:nth-child(1) {
     background-image: url('../img/senai-escola.jpg');
+    
 }
 
 .ano-container:nth-child(2) {
     background-image: url('../img/devexperiencefoto.jpg');
+   
 }
 
 .ano-container h2 {
@@ -323,10 +325,16 @@ main {
 
 .section-2024 {
     background-image: url('../img/senai-escola.jpg');
+    width: 100vw;
+    height: 100vh;
+    margin-left: -20px;
 }
 
 .section-2025 {
     background-image: url('../img/cod.jpg'); 
+    width: 100vw;
+    height: 100vh;
+    margin-left: -20px;
 }
 
 .section::before {

@@ -1,3 +1,4 @@
+/* Reset e Base */
 body {
     font-family: 'Inter', sans-serif;
     margin: 0;
@@ -10,10 +11,11 @@ h1 {
     text-align: center;
     margin-top: 60px;
     font-size: 2.5rem;
-    color:rgb(255, 255, 255);
+    color: white;
     font-weight: 700;
 }
 
+/* Filtros */
 .filtros {
     display: flex;
     justify-content: center;
@@ -56,10 +58,7 @@ h1 {
     background-color: #a50f09;
 }
 
-main {
-    padding: 0 20px 50px;
-}
-
+/* Projeto Cards */
 .projeto {
     position: relative;
     max-width: 600px;
@@ -105,8 +104,11 @@ main {
     display: block;
 }
 
-.saiba-mais {
-    background-color: #740904;
+/* Botões */
+.saiba-mais,
+.section .btn,
+.secao-ano .saiba-mais {
+    background-color: #cc1c0c;
     color: #fff;
     border: none;
     border-radius: 20px;
@@ -114,12 +116,18 @@ main {
     cursor: pointer;
     transition: 0.3s ease;
     font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
 }
 
-.saiba-mais:hover {
-    background-color: #a0100c;
+.saiba-mais:hover,
+.section .btn:hover,
+.secao-ano .saiba-mais:hover {
+    background-color: #a50f09;
+    color: white;
 }
 
+/* Sessões por ano */
 .projetos-senai {
     text-align: center;
     padding: 50px 20px;
@@ -131,6 +139,66 @@ main {
     margin-bottom: 30px;
 }
 
+.section {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 0;
+}
+
+.section * {
+    position: relative;
+    z-index: 1;
+}
+
+.section h1 {
+    font-size: 6rem;
+    margin: 0;
+    font-weight: bold;
+}
+
+.section p {
+    font-size: 1.5rem;
+    max-width: 600px;
+    margin: 10px 0;
+}
+
+.section-2024 {
+    background-image: url('../img/senai-escola.jpg');
+    width: 100vw;
+    height: 100vh;
+    margin-left: -20px;
+}
+
+.section-2025 {
+    background-image: url('../img/cod.jpg');
+    width: 100vw;
+    height: 100vh;
+    margin-left: -20px;
+}
+
+/* Card de projeto simples */
 .projetos-container {
     display: flex;
     justify-content: center;
@@ -151,7 +219,6 @@ main {
     width: 200px;
     height: auto;
     margin-bottom: 15px;
-
 }
 
 .projeto-card ul {
@@ -162,56 +229,7 @@ main {
     color: #555;
 }
 
-.ano-projetos {
-    display: flex;
-    flex-direction: column;
-    gap: 50px;
-    padding: 50px 20px;
-    background-color: #f0f0f0;
-    text-align: center;
-}
-
-.ano-container {
-    background-size: cover;
-    background-position: center;
-    padding: 100px 20px;
-    color: #fff;
-    position: relative;
-}
-
-.ano-container:nth-child(1) {
-    background-image: url('../img/senai-escola.jpg');
-}
-
-.ano-container:nth-child(2) {
-    background-image: url('../img/devexperiencefoto.jpg');
-}
-
-.ano-container h2 {
-    font-size: 3rem;
-    margin-bottom: 10px;
-}
-
-.ano-container p {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-}
-
-.ano-container .saiba-mais {
-    background-color: #cc1c0c;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 20px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.ano-container .saiba-mais:hover {
-    background-color: #a50f09;
-}
-
+/* Seção por ano detalhada */
 .secao-ano {
     background-color: white;
     border-radius: 10px;
@@ -233,23 +251,7 @@ main {
     color: #555;
 }
 
-.secao-ano .saiba-mais {
-    background-color: #cc1c0c;
-    color: white;
-    border: none;
-    padding: 12px 30px;
-    border-radius: 30px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    display: inline-block;
-    margin-top: 20px;
-}
-
-.secao-ano .saiba-mais:hover {
-    background-color: #a50f09;
-}
-
+/* Responsivo */
 @media screen and (max-width: 768px) {
     h1 {
         font-size: 2rem;
@@ -271,100 +273,19 @@ main {
         width: 100px;
         height: 80px;
     }
-}
 
-.section {
-    position: relative;
-    height: 100vh;
-    width: 100%;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background-size: cover;
-    background-position: center;
-    margin: 0; 
-    padding: 0; 
-    box-sizing: border-box; 
-}
+    .section h1 {
+        font-size: 3rem;
+    }
 
-.section h1 {
-    font-size: 6rem;
-    margin: 0;
-    font-weight: bold;
-    margin-left: -800px;
-}
-
-.section p {
-    font-size: 1.5rem;
-    max-width: 600px;
-    margin: 10px 0;
-    margin-left: -700px;
-}
-
-.section .btn {
-    border: 2px solid white;
-    padding: 10px 20px;
-    display: inline-block;
-    margin-top: 20px;
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-    transition: background 0.3s, color 0.3s;
-    margin-left: -920px;
-}
-
-.section .btn:hover {
-    background: white;
-    color: black;
-}
-
-.section-2024 {
-    background-image: url('../img/senai-escola.jpg');
-    background-size: cover;
-    background-position: center;
-    width: 2000px;
-    margin-left: -350px;
-    height: 100vh;
-}
-
-.section-2025 {
-    background-image: url('../img/cod.jpg');
-    background-size: cover;
-    background-position: center;
-    width: 2000px;
-    margin-left: -350px;
-    height: 100vh;
-}
-
-.section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.4); 
-    z-index: 0;
-}
-
-.section * {
-    position: relative;
-    z-index: 1;
-}
-
-body {
-    font-family: 'Inter', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
+    .section p {
+        font-size: 1rem;
+    }
 }
 
 header {
     display: flex;
+    justify-content: space-between;
     align-items: center;
     padding: 20px;
     background-color: #fff;
@@ -387,6 +308,7 @@ header {
 nav {
     display: flex;
     flex-grow: 1;
+    margin-left: 170px; /* Adicionado para alinhar os itens à direita */
 }
 
 nav ul {
@@ -466,81 +388,7 @@ nav ul li a:hover::after {
     left: 0;
 }
 
-.banner {
-    width: 100%;
-    height: auto;
-    display: block; 
-    margin: 0 auto;
-    max-width: 800px;
-}
-
-h1 {
-    margin: 45px 0 20px 0;
-    font-size: 2rem;
-    color: rgb(255, 255, 255);
-    text-align: center; 
-}
-
-.info {
-    text-align: left;
-}
-
-.info h2 {
-    margin: 0;
-    font-size: 1.5rem;
-    color: rgb(0, 0, 0);
-}
-
-.info p {
-    margin-top: 5px;
-    font-size: 1rem;
-    color: #555;
-}
-
-.itens {
-    margin-left: 200px;
-}
-
-.professor {
-    display: flex;
-    align-items: flex-start;
-    gap: 20px;
-}
-
-.professor {
-    display: flex;
-    align-items: flex-start;
-    gap: 20px;
-}
-
-.prof img{
-    border-radius: 30px;
-}
-
-.link {
-    margin-top: 10px;
-    display: flex;
-    gap: -20px;
-    justify-content: flex-start; 
-    align-items: center;
-  }
-  
-  .link img {
-    width: 30px;
-    height: 30px;
-    margin: 0; 
-    transition: transform 0.3s ease;
-    margin-left: 35px;
-  }
-  
-  .link img:hover {
-    transform: scale(1.2); 
-  }
-  .container{
-  max-width: 1170px;
-  margin:auto;
-  }
-  .row{
+.row{
     display: flex;
     flex-wrap: wrap;
   }
