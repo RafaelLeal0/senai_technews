@@ -9,21 +9,19 @@ body {
   
   header {
     display: flex;
+    justify-content: space-between;
     align-items: center;
     padding: 20px;
     background-color: #fff;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   }
-  
   .container {
     display: flex;
     align-items: center;
     width: 90%;
     max-width: 1200px;
     margin: auto;
-    flex-wrap: wrap;
   }
-  
   .container img {
     width: 100px;
     height: 70px;
@@ -31,17 +29,16 @@ body {
   
   nav {
     display: flex;
-    flex-grow: 1;
+    flex-grow: 1; 
   }
   
   nav ul {
     list-style: none;
     display: flex;
-    gap: 15px;
+    gap: 20px;
     padding: 0;
     margin: 0;
     justify-content: flex-start;
-    flex-wrap: wrap;
   }
   
   nav ul li {
@@ -52,7 +49,7 @@ body {
     text-decoration: none;
     color: #333;
     font-weight: 600;
-    padding: 8px 15px;
+    padding: 10px 20px;
     transition: all 0.3s ease-in-out;
     position: relative;
   }
@@ -80,9 +77,42 @@ body {
   
   .header-links {
     margin-left: auto;
-    display: flex;
-    flex-wrap: wrap;
   }
+  
+  .header-links a {
+    margin-left: 15px;
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+    position: relative;
+    transition: color 0.3s ease-in-out, font-size 0.3s ease-in-out;
+  }
+  
+  .header-links a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: #cc1c0c;
+    left: 50%;
+    bottom: -5px;
+    transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+  }
+  
+  .header-links a:hover {
+    color: #cc1c0c;
+    font-size: 110%;
+  }
+  
+  .header-links a:hover::after {
+    width: 100%;
+    left: 0;
+  }
+  
+  .itens {
+    margin-left: 200px;
+  }
+  
   
   /* Banner responsivo */
   .banner {
