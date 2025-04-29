@@ -323,10 +323,20 @@ main {
 
 .section-2024 {
     background-image: url('../img/senai-escola.jpg');
+    background-size: cover;
+    background-position: center;
+    width: 2000px;
+    margin-left: -350px;
+    height: 100vh;
 }
 
 .section-2025 {
-    background-image: url('../img/cod.jpg'); 
+    background-image: url('../img/cod.jpg');
+    background-size: cover;
+    background-position: center;
+    width: 2000px;
+    margin-left: -350px;
+    height: 100vh;
 }
 
 .section::before {
@@ -681,4 +691,3 @@ h1 {
   .social-bar a:hover {
       color: #f1f1f1;
   }
-  
