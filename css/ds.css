@@ -1,4 +1,3 @@
-/* Importação de fontes */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 /* Estilos gerais */
@@ -13,7 +12,7 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    background-color: #fff;
+    background-color: #ffffff;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
@@ -197,10 +196,9 @@ main {
 
 /* Card flip - Versão Atualizada */
 .card-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
     margin-bottom: 35px;
     padding: 0 20px;
 }
@@ -208,13 +206,12 @@ main {
 .flip-card {
     background-color: transparent;
     width: 100%;
-    max-width: 700px;
     height: 250px;
     min-height: 200px;
     border: 1px solid #f1f1f1;
     perspective: 1000px;
-    flex: 1 1 400px;
 }
+
 
 .flip-card-inner {
     position: relative;
