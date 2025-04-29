@@ -66,19 +66,23 @@ label {
   margin-bottom: -10px;
 }
 
-button {
-   width: 100%; 
-   padding: 10px; 
-   background: #800000; 
-   color: white; 
-   border: none; 
-   border-radius: 5px; 
-   cursor: pointer; 
+#botao-entrar {
+   display: block;
+   width: 100%;
+   padding: 10px;
+   background: #800000;
+   color: white;
+   text-align: center;
+   border-radius: 5px;
+   font-weight: bold;
+   text-decoration: none;
+   cursor: pointer;
 }
 
-button:hover { 
-   background: #600000; 
+#botao-entrar:hover {
+   background: #600000;
 }
+
 
 .error { 
    color: red; 
