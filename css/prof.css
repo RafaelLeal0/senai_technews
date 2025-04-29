@@ -4,57 +4,57 @@ body {
     padding: 0;
     background-color: #f4f4f4;
     color: #333;
-}
-
-header {
+  }
+  
+  header {
     display: flex;
     align-items: center;
     padding: 20px;
     background-color: #fff;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.container {
+  }
+  
+  .container {
     display: flex;
     align-items: center;
     width: 90%;
     max-width: 1200px;
     margin: auto;
-}
-
-.container img {
+  }
+  
+  .container img {
     width: 100px;
     height: 70px;
-}
-
-nav {
+  }
+  
+  nav {
     display: flex;
     flex-grow: 1;
-}
-
-nav ul {
+  }
+  
+  nav ul {
     list-style: none;
     display: flex;
     gap: 20px;
     padding: 0;
     margin: 0;
     justify-content: flex-start;
-}
-
-nav ul li {
+  }
+  
+  nav ul li {
     display: inline-block;
-}
-
-nav ul li a {
+  }
+  
+  nav ul li a {
     text-decoration: none;
     color: #333;
     font-weight: 600;
     padding: 10px 20px;
     transition: all 0.3s ease-in-out;
     position: relative;
-}
-
-nav ul li a::after {
+  }
+  
+  nav ul li a::after {
     content: "";
     position: absolute;
     width: 0;
@@ -63,32 +63,33 @@ nav ul li a::after {
     left: 50%;
     bottom: -5px;
     transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
-}
-
-nav ul li a:hover {
+  }
+  
+  nav ul li a:hover {
     color: #cc1c0c;
     font-size: 105%;
-}
-
-nav ul li a:hover::after {
+  }
+  
+  nav ul li a:hover::after {
     width: 100%;
     left: 0;
-}
-
-.header-links {
+  }
+  
+  .header-links {
     margin-left: auto;
-}
-
-.header-links a {
+    display: flex;
+  }
+  
+  .header-links a {
     margin-left: 15px;
     text-decoration: none;
     color: #333;
     font-weight: 600;
     position: relative;
     transition: color 0.3s ease-in-out, font-size 0.3s ease-in-out;
-}
-
-.header-links a::after {
+  }
+  
+  .header-links a::after {
     content: "";
     position: absolute;
     width: 0;
@@ -97,42 +98,42 @@ nav ul li a:hover::after {
     left: 50%;
     bottom: -5px;
     transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
-}
-
-.header-links a:hover {
+  }
+  
+  .header-links a:hover {
     color: #cc1c0c;
     font-size: 110%;
-}
-
-.header-links a:hover::after {
+  }
+  
+  .header-links a:hover::after {
     width: 100%;
     left: 0;
-}
-
-.banner {
+  }
+  
+  .banner {
     width: 100%;
     height: auto;
-    display: block; 
+    display: block;
     margin: 0 auto;
     max-width: 800px;
-}
-
-h1 {
+  }
+  
+  h1 {
     margin: 45px 0 20px 0;
     font-size: 2rem;
-    color: rgb(0, 0, 0);
-    text-align: center; 
-}
-
-.professores {
+    color: #000;
+    text-align: center;
+  }
+  
+  .professores {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 30px;
     padding: 40px 20px;
-}
-
-.professor {
+  }
+  
+  .professor {
     display: flex;
     align-items: center;
     width: 60%;
@@ -143,240 +144,131 @@ h1 {
     background: #ffffff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.professor:hover {
+  }
+  
+  .professor:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-}
-
-.professor img {
+  }
+  
+  .professor img {
     width: 180px;
     height: 180px;
     margin-right: 20px;
-    border: 3px solid rgb(255, 255, 255);
-}
-
-.info {
+    border-radius: 30px;
+    border: 3px solid #ffffff;
+  }
+  
+  .info {
     text-align: left;
-}
-
-.info h2 {
+  }
+  
+  .info h2 {
     margin: 0;
     font-size: 1.5rem;
-    color: rgb(0, 0, 0);
-}
-
-.info p {
+    color: #000;
+  }
+  
+  .info p {
     margin-top: 5px;
     font-size: 1rem;
     color: #555;
-}
-
-.itens {
-    margin-left: 200px;
-}
-
-.professor {
-    display: flex;
-    align-items: flex-start;
-    gap: 20px;
-}
-
-.professor {
-    display: flex;
-    align-items: flex-start;
-    gap: 20px;
-}
-
-.prof img{
-    border-radius: 30px;
-}
-
-.link {
+  }
+  
+  .link {
     margin-top: 10px;
     display: flex;
-    gap: -20px;
-    justify-content: flex-start; 
+    justify-content: flex-start;
     align-items: center;
+    gap: 20px;
   }
   
   .link img {
     width: 30px;
     height: 30px;
-    margin: 0; 
     transition: transform 0.3s ease;
-    margin-left: 35px;
   }
   
   .link img:hover {
-    transform: scale(1.2); 
-  }
-  .container{
-  max-width: 1170px;
-  margin:auto;
-  }
-  .row{
-  display: flex;
-  }
-  ul{
-  list-style: none;
-  }
-  .footer{
-  background-color: #A01308;
-    padding: 70px 0;
-  }
-  .footer-col{
-   width: 25%;
-   padding: 0 15px;
-  }
-  .footer-col h4{
-  font-size: 18px;
-  color: #ffffff;
-  text-transform: capitalize;
-  margin-bottom: 35px;
-  font-weight: 500;
-  position: relative;
-    margin-right: 90px;
-  }
-  .footer-col h4::before{
-  content: '';
-  position: absolute;
-  left:0;
-  bottom: -10px;
-  background-color: #ffffff;
-  height: 2px;
-  box-sizing: border-box;
-  width: 50px;
-  }
-  .footer-col ul li:not(:last-child){
-  margin-bottom: 10px;
-  }
-  .footer-col ul li a{
-  font-size: 16px;
-  text-transform: capitalize;
-  color: #ffffff;
-  text-decoration: none;
-  font-weight: 300;
-  color: #f6f6f6;
-  display: block;
-  transition: all 0.3s ease;
-  }
-  .footer-col ul li a:hover{
-  color: #ffffff;
-  padding-left: 8px;
-  }
-  .footer-col .social-links a{
-  display: inline-block;
-  height: 40px;
-  width: 40px;
-  background-color: rgba(255,255,255,0.2);
-  margin:0 10px 10px 0;
-  text-align: center;
-  line-height: 40px;
-  border-radius: 50%;
-  color: #ffffff;
-  transition: all 0.5s ease;
-  }
-  .footer-col .social-links a:hover{
-  color: #24262b;
-  background-color: #ffffff;
+    transform: scale(1.2);
   }
   
-  @media(max-width: 767px){
-  .footer-col{
-    width: 50%;
-    margin-bottom: 30px;
+  /* Footer */
+  .footer {
+    background-color: #B91D32;
+    padding: 70px 0;
   }
+  
+  .footer .container {
+    display: flex;
+    flex-wrap: wrap;
   }
-  @media(max-width: 574px){
-  .footer-col{
-    width: 100%;
+  
+  .footer-col {
+    width: 25%;
+    padding: 0 15px;
   }
+  
+  .footer-col h4 {
+    font-size: 18px;
+    color: #ffffff;
+    text-transform: capitalize;
+    margin-bottom: 35px;
+    font-weight: 700;
+    position: relative;
   }
-  .footer{
-  background-color: #B91D32;
-    padding: 30px 0;
-  }
-  .footer-col{
-   padding: 0 40px;
-  }
-  .footer-col h4{
-  font-size: 18px;
-  color: #ffffff;
-  text-transform: capitalize;
-  margin-bottom: 35px;
-  font-weight: 700;
-  position: relative;
-    margin-right: 90px;
-  }
-  .footer-col h4::before{
-  content: '';
-  position: absolute;
-  left:0;
-  bottom: -10px;
-  background-color: #ffffff;
-  height: 2px;
-  box-sizing: border-box;
-  width: 60px;
-  }
-  .footer-col ul li:not(:last-child){
-  margin-bottom: 10px;
-  }
-  .footer-col ul li a{
-  font-size: 16px;
-  text-transform: capitalize;
-  color: #ffffff;
-  text-decoration: none;
-  font-weight: 300;
-  color: #f6f6f6;
-  display: block;
-  transition: all 0.10s ease;
-    text-align: left;
+  
+  .footer-col h4::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    background-color: #ffffff;
+    height: 2px;
+    width: 60px;
   }
   
   .footer-col ul {
-    text-align: left;
+    list-style: none;
     padding: 0;
     margin: 0;
   }
   
-  .footer-col ul li {
-    text-align: left;
+  .footer-col ul li:not(:last-child) {
+    margin-bottom: 10px;
   }
   
-  .footer-col ul li a:hover{
-  color: #ffffff;
-  padding-left: 8px;
-  }
-  .footer-col .social-links a{
-  display: inline-block;
-  height: 40px;
-  width: 40px;
-  background-color: rgba(255,255,255,0.2);
-  margin:0 10px 10px 0;
-  text-align: center;
-  line-height: 0px;
-  border-radius: 30px;
-  color: #ffffff;
-  transition: all 0.10s ease;
-  }
-  .footer-col .social-links a:hover{
-  color: #24262b;
-  background-color: #ffffff;
+  .footer-col ul li a {
+    font-size: 16px;
+    color: #f6f6f6;
+    text-decoration: none;
+    font-weight: 300;
+    transition: all 0.3s ease;
   }
   
-  @media(max-width: 767px){
-  .footer-col{
-    width: 50%;
-    margin-bottom: 30px;
+  .footer-col ul li a:hover {
+    color: #ffffff;
+    padding-left: 8px;
   }
+  
+  .footer-col .social-links a {
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin: 0 10px 10px 0;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+    color: #ffffff;
+    transition: all 0.5s ease;
   }
-  @media(max-width: 574px){
-  .footer-col{
-    width: 100%;
+  
+  .footer-col .social-links a:hover {
+    color: #24262b;
+    background-color: #ffffff;
   }
-  }
+  
   .social-bar {
     background-color: #E30613;
     text-align: center;
@@ -394,162 +286,85 @@ h1 {
   .social-bar a:hover {
     color: #f1f1f1;
   }
-
+  
+  /* Responsividade */
   @media screen and (max-width: 1200px) {
     .container {
-        width: 95%;
+      width: 95%;
     }
-    
     .professor {
-        width: 70%;
+      width: 70%;
     }
-}
-
-@media screen and (max-width: 992px) {
-    .professor {
-        width: 80%;
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    .professor img {
-        margin-right: 0;
-        margin-bottom: 20px;
-    }
-    
-    .info {
-        text-align: center;
-    }
-    
-    .link {
-        justify-content: center;
-        margin-left: 0;
-    }
-    
-    .link img {
-        margin-left: 10px;
-        margin-right: 10px;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    header {
-        flex-direction: column;
-        padding: 15px;
-    }
-    
-    .container {
-        flex-direction: column;
-    }
-    
-    nav ul {
-        flex-direction: column;
-        gap: 10px;
-        margin-top: 20px;
-        align-items: center;
-    }
-    
-    .header-links {
-        margin-left: 0;
-        margin-top: 20px;
-        display: flex;
-        justify-content: center;
-    }
-    
-    .itens {
-        margin-left: 0;
-    }
-    
-    .professor {
-        width: 90%;
-        padding: 15px;
-    }
-    
-    .professor img {
-        width: 150px;
-        height: 150px;
-    }
-    
-    .footer-col {
-        padding: 0 20px;
-    }
-}
-
-@media screen and (max-width: 576px) {
-    h1 {
-        font-size: 1.5rem;
-        margin: 30px 0 15px 0;
-    }
-    
-    .professor {
-        width: 95%;
-    }
-    
-    .professor img {
-        width: 120px;
-        height: 120px;
-    }
-    
-    .info h2 {
-        font-size: 1.3rem;
-    }
-    
-    .info p {
-        font-size: 0.9rem;
-    }
-    
-    .footer-col {
-        width: 100%;
-        text-align: center;
-        padding: 0 15px;
-    }
-    
-    .footer-col h4::before {
-        left: 50%;
-        transform: translateX(-50%);
-    }
-    
-    .footer-col ul {
-        text-align: center;
-    }
-    
-    .footer-col ul li {
-        text-align: center;
-    }
-    
-    .social-bar a {
-        font-size: 18px;
-        margin: 0 8px;
-    }
-}
-
-@media screen and (max-width: 400px) {
-    .professor {
-        padding: 10px;
-    }
-    
-    .professor img {
-        width: 100px;
-        height: 100px;
-    }
-    
-    .link img {
-        width: 25px;
-        height: 25px;
-    }
-    
-    .footer {
-        padding: 20px 0;
-    }
-    
-    .footer-col h4 {
-        font-size: 16px;
-        margin-right: 0;
-        margin-bottom: 20px;
-    }
-    
-    .footer-col ul li a {
-        font-size: 14px;
-    }
-}
+  }
   
+  @media screen and (max-width: 992px) {
+    .professor {
+      width: 80%;
+      flex-direction: column;
+      text-align: center;
+    }
+    .professor img {
+      margin: 0 0 20px 0;
+    }
+    .info {
+      text-align: center;
+    }
+    .link {
+      justify-content: center;
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    header {
+      flex-direction: column;
+      padding: 15px;
+      align-items: flex-start;
+    }
+    .container {
+      flex-direction: column;
+    }
+    nav ul {
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 20px;
+      align-items: flex-start;
+      margin-left: -200px;
+    }
+    .header-links {
+      margin-left: 0;
+      margin-top: 20px;
+      justify-content: center;
+    }
+    .professor {
+      width: 90%;
+      padding: 15px;
+    }
+    .professor img {
+      width: 150px;
+      height: 150px;
+    }
+
+    .footer-col{
+        margin-left: -200px;
+    }
+  }
+  
+  @media screen and (max-width: 576px) {
+    h1 {
+      font-size: 1.5rem;
+      margin: 30px 0 15px 0;
+    }
+    .professor {
+      width: 95%;
+    }
+    .professor img {
+      width: 120px;
+      height: 120px;
+    }
+    .info h2 {
+      font-size: 1.3rem;
+    }
+    .info p {
+      font-size: 0.9rem;
+    }
+  }
