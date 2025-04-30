@@ -1,126 +1,185 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+   }
+
+body { 
+   display: flex; 
+   height: 100vh; 
+   font-family: 'Inter', sans-serif;
+   position: relative;
 }
 
-body {
-    display: flex;
-    height: 100vh;
-    background-color: #f2f2f2;
+.left { 
+   width: 50%; 
+   background:  linear-gradient(rgba(66, 66, 66, 0.5), rgba(66, 66, 66, 0.5)),  url('../img/senai-image.png') no-repeat center center/cover; 
+   display: flex; 
+   align-items: center; 
+   justify-content: center; 
+   color: white; 
+   text-align: center; 
 }
 
-.left, .right {
-    flex: 1;
-    padding: 40px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.left h1 { 
+   font-size: 24px; 
 }
 
-.left {
-    background-color: #003865; /* azul escuro SENAI */
-    color: white;
+.left span { 
+   color: #C4170C; 
+   font-weight: bold; 
 }
 
-.left h1 {
-    font-size: 2.5rem;
-    line-height: 1.4;
+.right { 
+   width: 50%; 
+   display: flex; 
+   align-items: center; 
+   justify-content: center; 
+   background: white; 
+   flex-direction: column; 
 }
 
-.left span {
-    font-weight: 700;
-    color: #ffcc00; /* destaque */
+.logo { 
+   margin-top: -100px;
+   margin-bottom: 60px;
+   width: 220px;
+   height: auto;
 }
 
-.right {
-    background-color: #ffffff;
-    align-items: center;
+form { 
+   width: 80%; 
+   max-width: 400px;
+   display: flex;
+   flex-direction: column;
+   gap: 15px;
 }
 
-.logo {
-    width: 200px;
-    margin-bottom: 30px;
+input { 
+   width: 100%;
+   padding: 10px; 
+   margin-bottom: 10px; 
+   border: 1px solid #800000; 
+   border-radius: 5px; 
 }
 
-form {
-    width: 100%;
-    max-width: 400px;
-    display: flex;
-    flex-direction: column;
+label { 
+  margin-bottom: -10px;
 }
 
-form label {
-    margin-bottom: 5px;
-    font-weight: 600;
-    font-size: 14px;
-    color: #333;
+#botao-cadastrar {
+   display: block;
+   width: 100%;
+   padding: 10px;
+   background: #800000;
+   color: white;
+   text-align: center;
+   border-radius: 5px;
+   font-weight: bold;
+   text-decoration: none;
+   cursor: pointer;
 }
 
-form input {
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 14px;
+#botao-cadastrar:hover {
+   background: #600000;
 }
 
-form button {
-    padding: 12px;
-    background-color: #003865;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
 
-form button:hover {
-    background-color: #002B50;
-}
-
-.forgot-password {
-    text-align: right;
-    margin-bottom: 10px;
-}
-
-.forgot-password a {
-    font-size: 0.9rem;
-    color: #007bff;
-    text-decoration: none;
-}
-
-.forgot-password a:hover {
-    text-decoration: underline;
+.error { 
+   color: red; 
 }
 
 .back-arrow {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    font-size: 24px;
-    text-decoration: none;
-    color: #003865;
+   position: absolute;
+   margin-left: 800px;
+   top: 20px;
+   left: 20px;
+   font-size: 24px;
+   color: #740904;
+   text-decoration: none;
+   padding: 10px;
+   font-size: 30px;
+   font-weight: bold;
 }
 
+.forgot-password a {
+   color: black;
+   text-decoration: none;
+}
+
+@media (max-width: 1024px) {
+   .left h1 {
+       font-size: 20px;
+       padding: 0 20px;
+   }
+   
+   .logo {
+       width: 180px;
+       margin-top: -80px;
+       margin-bottom: 40px;
+   }
+   
+   .back-arrow {
+       margin-left: 600px;
+       font-size: 26px;
+   }
+}
+
+/* Responsividade para dispositivos móveis */
 @media (max-width: 768px) {
-    body {
-        flex-direction: column;
-    }
+   body {
+       flex-direction: column;
+       height: auto;
+       min-height: 100vh;
+   }
+   
+   .left, .right {
+       width: 100%;
+   }
+   
+   .left {
+       height: 200px;
+       padding: 20px;
+   }
+   
+   .right {
+       padding: 40px 20px;
+   }
+   
+   .logo {
+       margin-top: 0;
+       margin-bottom: 30px;
+       width: 160px;
+   }
+   
+   .back-arrow {
+       margin-left: 0;
+       right: 20px;
+       left: auto;
+       font-size: 24px;
+   }
+   
+   form {
+       width: 90%;
+       max-width: none;
+   }
+}
 
-    .left, .right {
-        width: 100%;
-        padding: 20px;
-    }
-
-    .logo {
-        width: 150px;
-    }
-
-    .back-arrow {
-        top: 10px;
-        left: 10px;
-    }
+/* Ajustes para telas muito pequenas */
+@media (max-width: 480px) {
+   .left h1 {
+       font-size: 18px;
+   }
+   
+   .logo {
+       width: 140px;
+   }
+   
+   input, button {
+       padding: 8px;
+   }
+   
+   .back-arrow {
+       font-size: 20px;
+       padding: 5px;
+   }
 }

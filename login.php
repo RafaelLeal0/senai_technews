@@ -1,3 +1,37 @@
+<?php
+session_start();
+
+require_once "conexao.php";
+$pdo = conectarBanco();
+
+// Processar formulário de login
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $email = $_POST['email'] ?? '';
+    $senha = $_POST['senha'] ?? '';
+    $codigo_acesso = $_POST['codigo_acesso'] ?? '';
+
+    try {
+        $stmt = $pdo->prepare("SELECT * FROM professores WHERE email = ? AND senha = ? AND codigo_acesso = ?");
+        $stmt->execute([$email, $senha, $codigo_acesso]);
+        $professor = $stmt->fetch();
+
+        if ($professor) {
+            $_SESSION['professor'] = [
+                'id' => $professor['id_professor'],
+                'nome' => $professor['nome'],
+                'email' => $professor['email']
+            ];
+            header('Location: adm.php');
+            exit();
+        } else {
+            $erro = "Credenciais inválidas! Verifique email, senha e código de acesso.";
+        }
+    } catch (PDOException $e) {
+        $erro = "Erro no login: " . $e->getMessage();
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -17,16 +51,24 @@
     <div class="right">
         <img src="./img/senai_technews.png" class="logo" alt="SENAI Logo">
         <form method="POST" action="">
+            <?php if (isset($erro)): ?>
+                <div class="erro"><?= $erro ?></div>
+            <?php endif; ?>
+
             <label>Email</label>
             <input type="email" name="email" required placeholder="Coloque seu email">
+            
             <label>Senha</label>
             <input type="password" name="senha" required placeholder="Coloque sua senha">
             
+            <label>Código de Acesso</label>
+            <input type="text" name="codigo_acesso" required placeholder="Insira o código de acesso">
+
             <div class="forgot-password">
                 <a href="recuperar_senha.php">Esqueceu a senha?</a>
             </div>
 
-            <a href="adm.php" id="botao-entrar">Entrar</a>
+            <button type="submit" id="botao-entrar">Entrar</button>
         </form>
     </div>
     

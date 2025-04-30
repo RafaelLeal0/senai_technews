@@ -1,3 +1,25 @@
+<?php
+// Inclui e captura a conexão PDO
+$pdo = include 'conexao.php';
+
+// Verifica se a conexão foi estabelecida
+if (!$pdo) {
+    die("Erro: Não foi possível conectar ao banco de dados");
+}
+
+try {
+    $stmt = $pdo->query("
+        SELECT n.*, p.nome as autor 
+        FROM noticias n
+        INNER JOIN professores p ON n.autor_id = p.id_professor
+        ORDER BY data_publicacao DESC
+    ");
+    $noticias = $stmt->fetchAll();
+} catch (PDOException $e) {
+    die("Erro ao buscar notícias: " . $e->getMessage());
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,8 +39,8 @@
     <header>
         <div class="container">
         <a href="index.php">
-  <img src="./img/senai_technews.png" alt="SENAI Logo" class="logo">
-</a>
+            <img src="./img/senai_technews.png" alt="SENAI Logo" class="logo">
+        </a>
 
             <nav>
                 <ul class="itens">
@@ -30,6 +52,24 @@
             </nav>
         </div>
     </header>
+
+    <session id="noticias-manuais">
+        <div class="masonry-layout">
+            <?php foreach ($noticias as $noticia): ?>
+                <div class="card-noticia">
+                    <div class="categoria <?= strtolower(str_replace(' ', '-', $noticia['categoria'])) ?>">
+                        <?= $noticia['categoria'] ?>
+                    </div>
+                    <h3><?= htmlspecialchars($noticia['titulo']) ?></h3>
+                    <p><?= nl2br(htmlspecialchars($noticia['conteudo'])) ?></p>
+                    <div class="rodape-card">
+                        <span class="autor"><?= $noticia['professor_id'] ?></span>
+                        <span class="data"><?= date('d/m/Y H:i', strtotime($noticia['data_publicacao'])) ?></span>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </section>
 
     <div class="container-news">
         <h1>Notícias em Destaque</h1>
