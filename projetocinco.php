@@ -1,3 +1,16 @@
+<?php
+require_once 'conexao.php';
+
+// Buscar projetos de 2025
+$projetos2025 = [];
+try {
+    $stmt = $conn->query("SELECT * FROM projetos2025");
+    $projetos2025 = $stmt->fetchAll();
+} catch (PDOException $e) {
+    echo "Erro ao carregar projetos: " . $e->getMessage();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -15,13 +28,12 @@
 <body>
     <header>
         <div class="container">
-        <a href="index.php">
-  <img src="./img/senai_technews.png" alt="SENAI Logo" class="logo">
-</a>
-
+            <a href="index.php">
+                <img src="./img/senai_technews.png" alt="SENAI Logo" class="logo">
+            </a>
             <nav>
                 <ul class="itens">
-                <li><a href="inicio.php">CURSO</a></li>
+                    <li><a href="inicio.php">CURSO</a></li>
                     <li><a href="senai.php">SENAI TAUBATÉ</a></li> 
                     <li><a href="noticias.php">NOTÍCIAS</a></li>
                     <li><a href="projetos.php">PROJETOS</a></li> 
@@ -30,49 +42,32 @@
         </div>
     </header>
     <main>
-        <section class="projetos-senai">
-            <h2>Projetos do SENAI - Taubaté</h2>
-            <div class="projetos-container">
-                <div class="projeto-card">
-                    <img src="./img/2.png" alt="GameHub">
-                    <ul>
-                        <li>Uma empresa que trabalha na área de games.</li>
-                        <li>Nosso foco é oferecer performance e curiosidades.</li>
-                        <li>Plataformas e eventos sobre nossos jogos.</li>
-                    </ul>
-                </div>
-                <div class="projeto-card">
-                    <img src="./img/1.png" alt="GardenTech">
-                    <ul>
-                        <li>Proporcionar soluções inovadoras e tecnológicas para cultivo.</li>
-                        <li>Promover sustentabilidade e eficiência ambiental.</li>
-                        <li>Uso de sensores e automação de solo em hortas inteligentes.</li>
-                    </ul>
-                </div>
-                <div class="projeto-card">
-                    <img src="./img/3.png" alt="Essenza">
-                    <ul>
-                        <li>Uma marca de moda sofisticada que une elegância e qualidade.</li>
-                        <li>Peças exclusivas voltadas para quem valoriza estilo e personalidade.</li>
-                    </ul>
-                </div>
+        <!-- Nova seção de projetos 2025 -->
+        <section class="projetos-2025-db">
+            <div class="header-projetos">
+                <h2>2025</h2>
+                <p>Projetos desenvolvidos pelos alunos do SENAI Taubaté</p>
+            </div>
+            
+            <div class="projetos-grid">
+                <?php foreach ($projetos2025 as $projeto): ?>
+                    <?php
+                        $finfo = new finfo(FILEINFO_MIME_TYPE);
+                        $mime = $finfo->buffer($projeto['imagem_projeto']);
+                        $base64 = base64_encode($projeto['imagem_projeto']);
+                    ?>
+                    <div class="projeto-item" 
+                        style="background-image: url('data:<?= $mime ?>;base64,<?= $base64 ?>')">
+                        <div class="projeto-overlay">
+                            <h3><?= htmlspecialchars($projeto['titulo']) ?></h3>
+                            <p><?= htmlspecialchars($projeto['descricao']) ?></p>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
             </div>
         </section>
-
-        <div class="section section-2024">
-        <h1>2024</h1>
-        <p>Projetos feitos pelos alunos do</p> 
-        <p>SENAI-Taubaté no ano de 2024</p>
-        <a href="#" class="btn">Saiba mais</a>
-    </div>
-
-    <div class="section section-2025">
-        <h1>2025</h1>
-        <p>Projetos feitos pelos alunos do</p> 
-        <p>SENAI-Taubaté no ano de 2025</p>
-        <a href="#" class="btn">Saiba mais</a>
-    </div>
     </main>
+
     <footer>
         <div class="social-bar">
             <a href="https://www.facebook.com/senaisaopaulo"><i class="fab fa-facebook-f"></i></a>
@@ -99,7 +94,7 @@
                     <div class="footer-col">
                         <h4>Professores</h4>
                         <ul>
-                        <li><a href="./prof.php">Wesley Fioreze</a></li>
+                            <li><a href="./prof.php">Wesley Fioreze</a></li>
                             <li><a href="./prof.php">Luis Cardoso</a></li>
                             <li><a href="./prof.php#">Greggori Bossolan</a></li>
                             <li><a href="./prof.php">Gleise Rosa</a></li>
@@ -107,16 +102,13 @@
                         </ul>
                     </div>
                     <div class="footer-col">
-                    <h4>
-        <a href="./login.php" style="color: white; text-decoration: none;">Entrar</a>
-    </h4>
-
+                        <h4><a href="./login.php" style="color: white; text-decoration: none;">Entrar</a></h4>
                     </div>
                 </div>
             </div>
         </div>
         <div class="social-bar">
-        <a>Copyright 2025 © Todos os direitos reservados.</a>
+            <a>Copyright 2025 © Todos os direitos reservados.</a>
         </div>
     </footer>
 </body>

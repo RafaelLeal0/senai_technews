@@ -18,6 +18,7 @@ $professor = $_SESSION['professor'];
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="./css/adm.css">
 </head>
+
 <body>
     <main class="admin-container">
         <h1 class="welcome-message">Bem-vindo administrador: <?= htmlspecialchars($professor['nome']) ?></h1>
@@ -67,26 +68,72 @@ $professor = $_SESSION['professor'];
         </div>
     </div>
 
+    <div id="modal-projeto" class="modal">
+        <div class="modal-conteudo">
+            <span class="fechar">&times;</span>
+            <h2>Publicar Novo Projeto</h2>
+            <form method="POST" action="salvar_projeto.php" enctype="multipart/form-data">
+                <input type="hidden" name="id_professor" value="<?= $_SESSION['professor']['id_professor'] ?>">
+                
+                <div class="form-group">
+                    <label>Título:</label>
+                    <input type="text" name="titulo" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Descrição:</label>
+                    <textarea name="descricao" rows="5" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Imagem do Projeto:</label>
+                    <input type="file" name="imagem" accept="image/*" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Ano do Projeto:</label>
+                    <select name="ano" required>
+                        <option value="2024">2024</option>
+                        <option value="2025">2025</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn-publicar">Publicar Projeto</button>
+            </form>
+        </div>
+    </div>
+
     <script>
-    // Script para controle do modal
-    const modal = document.getElementById('modal-noticia');
-    const btn = document.querySelector('.fa-newspaper').closest('a');
-    const span = document.getElementsByClassName("fechar")[0];
+        // Controle do modal de notícias
+        const modalNoticia = document.getElementById('modal-noticia');
+        const btnNoticia = document.querySelector('.fa-newspaper').closest('a');
 
-    btn.onclick = function(e) {
-        e.preventDefault();
-        modal.style.display = "block";
-    }
+        // Controle do modal de projetos
+        const modalProjeto = document.getElementById('modal-projeto');
+        const btnProjeto = document.querySelector('.fa-upload').closest('a');
 
-    span.onclick = function() {
-        modal.style.display = "none";
-    }
+        // Função genérica para abrir/fechar modais
+        function setupModal(btn, modal) {
+            const span = modal.getElementsByClassName("fechar")[0];
+            
+            btn.onclick = function(e) {
+                e.preventDefault();
+                modal.style.display = "block";
+            }
 
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
+            span.onclick = function() {
+                modal.style.display = "none";
+            }
+
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
         }
-    }
+
+        setupModal(btnNoticia, modalNoticia);
+        setupModal(btnProjeto, modalProjeto);
     </script>
 
     <footer>
@@ -123,11 +170,10 @@ $professor = $_SESSION['professor'];
                     </ul>
                 </div>
                 <div class="footer-col">
-                <h4>
-                    <a href="logout.php" style="color: white; text-decoration: none;">Sair</a>
-                    <a href="cadastro.php" style="color: white; text-decoration: none;">Cadastrar administrador</a>
-                </h4>
-
+                    <h4>
+                        <a href="logout.php" style="color: white; text-decoration: none;">Sair</a>
+                        <a href="cadastro.php" style="color: white; text-decoration: none;">Cadastrar administrador</a>
+                    </h4>
                 </div>
             </div>
         </div>
@@ -135,4 +181,6 @@ $professor = $_SESSION['professor'];
     <div class="social-bar">
     <a>Copyright 2025 © Todos os direitos reservados.</a>
     </div>
-</footer>
+    </footer>
+</body>
+</html>

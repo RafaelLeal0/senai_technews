@@ -1,29 +1,35 @@
 <?php
 session_start();
-require_once 'conexao.php'; // Arquivo que contém a conexão PDO com o banco de dados
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Sanitiza e coleta os dados do POST
-    $titulo = trim($_POST['titulo']);
-    $conteudo = trim($_POST['conteudo']);
-    $categoria = trim($_POST['categoria']);
-    $professor_id = intval($_POST['professor_id']);
-
-    // Verifica se todos os campos obrigatórios estão preenchidos
-    if ($titulo && $conteudo && $categoria && $autor_id) {
-        try {
-            $stmt = $pdo->prepare("INSERT INTO noticias (titulo, conteudo, categoria, professor_id) VALUES (?, ?, ?, ?)");
-            $stmt->execute([$titulo, $conteudo, $categoria, $professor_id]);
-
-            // Redireciona com sucesso
-            header("Location: adm.php?status=sucesso");
-            exit;
-        } catch (PDOException $e) {
-            echo "Erro ao salvar notícia: " . $e->getMessage();
-        }
-    } else {
-        echo "Todos os campos são obrigatórios.";
-    }
-} else {
-    echo "Método inválido.";
+// Verifica se o professor está logado
+if (!isset($_SESSION['professor'])) {
+    header('Location: login.php');
+    exit();
 }
+
+require_once 'conexao.php'; // substitua pelo nome correto do seu arquivo de conexão com o banco
+
+// Obtém os dados do formulário
+$titulo = $_POST['titulo'] ?? '';
+$conteudo = $_POST['conteudo'] ?? '';
+$categoria = $_POST['categoria'] ?? '';
+$id_professor = $_SESSION['professor']['id']; // ou outro nome real
+$data_publicacao = date('Y-m-d H:i:s');
+
+// Verifica se os dados obrigatórios foram preenchidos
+if (empty($titulo) || empty($conteudo) || empty($categoria)) {
+    echo "Preencha todos os campos!";
+    exit();
+}
+
+// Prepara e executa a query de inserção
+$sql = "INSERT INTO noticias (titulo, conteudo, categoria, id_professor, data_publicacao) 
+        VALUES (?, ?, ?, ?, ?)";
+$stmt = $conn->prepare($sql);
+
+if ($stmt->execute([$titulo, $conteudo, $categoria, $id_professor, $data_publicacao])) {
+    echo "<script>alert('Notícia publicada com sucesso!'); window.location.href = 'adm.php';</script>";
+} else {
+    echo "Erro ao salvar a notícia.";
+}
+?>

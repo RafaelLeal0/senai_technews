@@ -1,8 +1,7 @@
 <?php
 session_start();
 
-require_once "conexao.php";
-$pdo = conectarBanco();
+require_once "conexao.php"; // já define a variável $conn globalmente
 
 // Processar formulário de login
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -11,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $codigo_acesso = $_POST['codigo_acesso'] ?? '';
 
     try {
-        $stmt = $pdo->prepare("SELECT * FROM professores WHERE email = ? AND senha = ? AND codigo_acesso = ?");
+        $stmt = $conn->prepare("SELECT * FROM professores WHERE email = ? AND senha = ? AND codigo_acesso = ?");
         $stmt->execute([$email, $senha, $codigo_acesso]);
         $professor = $stmt->fetch();
 
@@ -31,6 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="pt-br">

@@ -1,10 +1,23 @@
+<?php
+require_once 'conexao.php';
+
+// Buscar projetos de 2025
+$projetos2024 = [];
+try {
+    $stmt = $conn->query("SELECT * FROM projetos2024");
+    $projetos2024 = $stmt->fetchAll();
+} catch (PDOException $e) {
+    echo "Erro ao carregar projetos: " . $e->getMessage();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projetos</title>
-    <link rel="stylesheet" href="./css/projetoquatro.css">
+    <link rel="stylesheet" href="./css/projetocinco.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
@@ -15,13 +28,12 @@
 <body>
     <header>
         <div class="container">
-        <a href="index.php">
-  <img src="./img/senai_technews.png" alt="SENAI Logo" class="logo">
-</a>
-
+            <a href="index.php">
+                <img src="./img/senai_technews.png" alt="SENAI Logo" class="logo">
+            </a>
             <nav>
                 <ul class="itens">
-                <li><a href="inicio.php">CURSO</a></li>
+                    <li><a href="inicio.php">CURSO</a></li>
                     <li><a href="senai.php">SENAI TAUBATÉ</a></li> 
                     <li><a href="noticias.php">NOTÍCIAS</a></li>
                     <li><a href="projetos.php">PROJETOS</a></li> 
@@ -30,21 +42,32 @@
         </div>
     </header>
     <main>
-    <section class="projetos-senai">
-        <h2>Projetos de 2024 do SENAI - Taubaté</h2>
-    </section>
-        <div class="section section-2024">
-        <h1>GardenTech</h1>
-        <h2>Projetos feitos pelos alunos: Lanna, Matheus Villar, Murilo Henrique e Rafael Leal</h2> 
-        <h4>Este projeto consistiu no desenvolvimento de um site utilizando HTML e CSS, aliado ao uso da plataforma Arduino.<br> Foi criado um sensor de umidade capaz de medir e exibir, em tempo real,<br> a porcentagem de umidade do solo, proporcionando uma visualização clara e eficiente dos dados coletados.</h4>
-    </div>
-
-    <div class="section section-2025">
-        <h1>GameHub</h1>
-        <h2>Projetos feitos pelos alunos: Andrey Montibeller, Júlia Conconi,<br> Murilo Ferreira, Rafael Leal e Samuel Boaz</h2> 
-        <h4>Esse projeto é uma empresa fictícia que atua na área de games. Seu site é focado em apresentar curiosidades, notícias, plataformas<br> e eventos relacionados ao mundo dos jogos. <br>Busca sempre apresentar dados com fontes confiáveis e seguras para seus clientes.</h4>
-   </div>
+        <!-- Nova seção de projetos 2025 -->
+        <section class="projetos-2024-db">
+            <div class="header-projetos">
+                <h2>2024</h2>
+                <p>Projetos desenvolvidos pelos alunos do SENAI Taubaté</p>
+            </div>
+            
+            <div class="projetos-grid">
+                <?php foreach ($projetos2024 as $projeto): ?>
+                    <?php
+                        $finfo = new finfo(FILEINFO_MIME_TYPE);
+                        $mime = $finfo->buffer($projeto['imagem_projeto']);
+                        $base64 = base64_encode($projeto['imagem_projeto']);
+                    ?>
+                    <div class="projeto-item" 
+                        style="background-image: url('data:<?= $mime ?>;base64,<?= $base64 ?>')">
+                        <div class="projeto-overlay">
+                            <h3><?= htmlspecialchars($projeto['titulo']) ?></h3>
+                            <p><?= htmlspecialchars($projeto['descricao']) ?></p>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        </section>
     </main>
+
     <footer>
         <div class="social-bar">
             <a href="https://www.facebook.com/senaisaopaulo"><i class="fab fa-facebook-f"></i></a>
@@ -71,7 +94,7 @@
                     <div class="footer-col">
                         <h4>Professores</h4>
                         <ul>
-                        <li><a href="./prof.php">Wesley Fioreze</a></li>
+                            <li><a href="./prof.php">Wesley Fioreze</a></li>
                             <li><a href="./prof.php">Luis Cardoso</a></li>
                             <li><a href="./prof.php#">Greggori Bossolan</a></li>
                             <li><a href="./prof.php">Gleise Rosa</a></li>
@@ -79,16 +102,13 @@
                         </ul>
                     </div>
                     <div class="footer-col">
-                    <h4>
-        <a href="./login.php" style="color: white; text-decoration: none;">Entrar</a>
-    </h4>
-
+                        <h4><a href="./login.php" style="color: white; text-decoration: none;">Entrar</a></h4>
                     </div>
                 </div>
             </div>
         </div>
         <div class="social-bar">
-        <a>Copyright 2025 © Todos os direitos reservados.</a>
+            <a>Copyright 2025 © Todos os direitos reservados.</a>
         </div>
     </footer>
 </body>
