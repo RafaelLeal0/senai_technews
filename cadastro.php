@@ -1,6 +1,6 @@
 <?php
 require_once 'conexao.php';
-$pdo = conectarBanco();
+$pdo = $conn;
 
 $mensagem = '';
 $sucesso = false;
