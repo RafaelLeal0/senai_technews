@@ -238,127 +238,138 @@ body {
     background-color: #9a1728;
 }
 
-.footer{
-    background-color: #B91D32;
-      padding: 30px 0;
-  }
-  .footer-col{
-     padding: 0 40px;
-     text-align: left;
-  }
-  .footer-col h4{
-    font-size: 18px;
-    color: #ffffff;
-    text-transform: capitalize;
-    margin-bottom: 35px;
-    font-weight: 700;
-    position: relative;
-      margin-right: 90px;
-  }
-  .footer-col h4::before{
-    content: '';
-    position: absolute;
-    left:0;
-    bottom: -10px;
-    background-color: #ffffff;
-    height: 2px;
-    box-sizing: border-box;
-    width: 60px;
-  }
-  .footer-col ul li:not(:last-child){
-    margin-bottom: 10px;
-  }
-  .footer-col ul {
-      text-align: left;
-      padding: 0;
-      margin: 0;
-  }
-  
-  .footer-col ul li {
-      text-align: left;
-  }
-  
-  .footer-col ul li a{
-    font-size: 16px;
-    text-transform: capitalize;
-    color: #ffffff;
-    text-decoration: none;
-    font-weight: 300;
-    color: #f6f6f6;
-    display: block;
-    transition: all 0.10s ease;
-      text-align: left;
-  }
-  
-  .footer-col ul li a:hover{
-    color: #ffffff;
-    padding-left: 8px;
-  }
-  .footer-col .social-links a{
-    display: inline-block;
-    height: 40px;
-    width: 40px;
-    background-color: rgba(255,255,255,0.2);
-    margin:0 10px 10px 0;
-    text-align: center;
-    line-height: 0px;
-    border-radius: 30px;
-    color: #ffffff;
-    transition: all 0.10s ease;
-  }
-  .footer-col .social-links a:hover{
-    color: #24262b;
-    background-color: #ffffff;
-  }
-  
-.admin-button {
-    background-color: var(--branco) !important;
-    color: var(--vermelho-senai) !important;
-    padding: 12px 25px !important;
-    border-radius: 8px !important;
-    font-weight: 600 !important;
-    display: inline-block !important;
-    border: 2px solid var(--vermelho-senai);
-    transition: all 0.3s ease;
+.footer {
+  background-color: #B91D32;
+  padding: 30px 0;
 }
 
-.admin-button:hover {
-    background-color: var(--vermelho-senai) !important;
-    color: var(--branco) !important;
-    padding-left: 30px !important;
-    padding-right: 30px !important;
+.row {
+  display: flex;
+  flex-wrap: wrap;
 }
 
-/* Responsividade */
-@media(max-width: 767px){
-    .footer-col{
-      width: 50%;
-      margin-bottom: 30px;
-  }
+/* Footer Estilizado */
+.row {
+  display: flex;
+  flex-wrap: wrap;
 }
-@media(max-width: 574px){
-    .footer-col{
-      width: 100%;
-    }
+
+ul {
+  list-style: none;
 }
+
+.footer {
+  background-color: #B91D32;
+  padding: 30px 0;
+}
+
+.footer-col {
+  padding: 0 40px;
+  text-align: left;
+  margin-left: 90px;
+}
+
+.footer-col h4 {
+  font-size: 18px;
+  color: #ffffff;
+  text-transform: capitalize;
+  margin-bottom: 35px;
+  font-weight: 700;
+  position: relative;
+  margin-right: 90px;
+}
+
+.footer-col h4::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  background-color: #ffffff;
+  height: 2px;
+  box-sizing: border-box;
+  width: 60px;
+}
+
+.footer-col ul li:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.footer-col ul {
+  text-align: left;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-col ul li {
+  text-align: left;
+}
+
+.footer-col ul li a {
+  font-size: 16px;
+  text-transform: capitalize;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 300;
+  color: #f6f6f6;
+  display: block;
+  transition: all 0.10s ease;
+  text-align: left;
+}
+
+.footer-col ul li a:hover {
+  color: #ffffff;
+  padding-left: 8px;
+}
+
+.footer-col .social-links a {
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin: 0 10px 10px 0;
+  text-align: center;
+  line-height: 0px;
+  border-radius: 30px;
+  color: #ffffff;
+  transition: all 0.10s ease;
+}
+
+.footer-col .social-links a:hover {
+  color: #24262b;
+  background-color: #ffffff;
+}
+
 .social-bar {
-      background-color: #E30613;
-      text-align: center;
-      padding: 10px 0;
+  background-color: #E30613;
+  text-align: center;
+  padding: 10px 0;
 }
 
 .social-bar a {
-      display: inline-block;
-      color: white;
-      font-size: 20px;
-      margin: 0 10px;
-      transition: 0.3s;
+  display: inline-block;
+  color: white;
+  font-size: 20px;
+  margin: 0 10px;
+  transition: 0.3s;
 }
 
 .social-bar a:hover {
-      color: #f1f1f1;
+  color: #f1f1f1;
 }
 
+/* Responsividade Footer */
+@media(max-width: 767px) {
+  .footer-col {
+    width: 50%;
+    margin-bottom: 30px;
+  }
+}
+
+@media(max-width: 574px) {
+  .footer-col {
+    width: 100%;
+  }
+}
 
 @media (max-width: 992px) {
     .itens {

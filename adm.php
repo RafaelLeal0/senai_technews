@@ -342,10 +342,8 @@ $professor = $_SESSION['professor'];
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h4>
-                        <a href="logout.php" style="color: white; text-decoration: none;">Sair</a>
-                        <a href="cadastro.php" style="color: white; text-decoration: none;">Cadastrar administrador</a>
-                    </h4>
+                        <h4 href="logout.php" style="color: white; text-decoration: none;">Sair</h4>
+                        <h4 href="cadastro.php" style="color: white; text-decoration: none;">Cadastrar administrador</h4>
                 </div>
             </div>
         </div>
