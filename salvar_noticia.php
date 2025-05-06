@@ -1,35 +1,36 @@
 <?php
 session_start();
-
-// Verifica se o professor está logado
 if (!isset($_SESSION['professor'])) {
     header('Location: login.php');
     exit();
 }
+require_once 'conexao.php';
 
-require_once 'conexao.php'; // substitua pelo nome correto do seu arquivo de conexão com o banco
-
-// Obtém os dados do formulário
-$titulo = $_POST['titulo'] ?? '';
-$conteudo = $_POST['conteudo'] ?? '';
-$categoria = $_POST['categoria'] ?? '';
-$id_professor = $_SESSION['professor']['id']; // ou outro nome real
+$titulo        = $_POST['titulo']    ?? '';
+$conteudo      = $_POST['conteudo']  ?? '';
+$categoria     = $_POST['categoria'] ?? '';
+$id_professor  = $_SESSION['professor']['id']; // ou 'id_professor', conforme sua session
 $data_publicacao = date('Y-m-d H:i:s');
 
-// Verifica se os dados obrigatórios foram preenchidos
+// Validação básica
 if (empty($titulo) || empty($conteudo) || empty($categoria)) {
-    echo "Preencha todos os campos!";
+    $_SESSION['flash_error'] = 'Preencha todos os campos!';
+    header('Location: adm.php');
     exit();
 }
 
-// Prepara e executa a query de inserção
-$sql = "INSERT INTO noticias (titulo, conteudo, categoria, id_professor, data_publicacao) 
-        VALUES (?, ?, ?, ?, ?)";
-$stmt = $conn->prepare($sql);
+try {
+    // Insere a notícia
+    $sql = "INSERT INTO noticias 
+              (titulo, conteudo, categoria, id_professor, data_publicacao) 
+            VALUES (?, ?, ?, ?, ?)";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute([$titulo, $conteudo, $categoria, $id_professor, $data_publicacao]);
 
-if ($stmt->execute([$titulo, $conteudo, $categoria, $id_professor, $data_publicacao])) {
-    echo "<script>alert('Notícia publicada com sucesso!'); window.location.href = 'adm.php';</script>";
-} else {
-    echo "Erro ao salvar a notícia.";
+    $_SESSION['flash_success'] = 'Notícia publicada com sucesso!';
+} catch (PDOException $e) {
+    $_SESSION['flash_error'] = 'Erro ao publicar notícia: ' . $e->getMessage();
 }
-?>
+
+header('Location: adm.php');
+exit();

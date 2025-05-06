@@ -1,14 +1,39 @@
 <?php
 session_start();
-
-// Verifica se o usuário está logado
 if (!isset($_SESSION['professor'])) {
     header('Location: login.php');
     exit();
 }
 
+require_once 'conexao.php';
+
+// Busca todas as notícias
+try {
+    $stmtNoticias = $conn->query("
+        SELECT n.*, p.nome AS autor
+        FROM noticias n
+        INNER JOIN professores p ON n.id_professor = p.id_professor
+        ORDER BY data_publicacao DESC
+    ");
+    $noticias = $stmtNoticias->fetchAll();
+} catch (PDOException $e) {
+    die("Erro ao buscar notícias: " . $e->getMessage());
+}
+
+try {
+    $stmtProjetos = $conn->query("
+    SELECT *, 2024 AS ano FROM projetos2024
+    UNION ALL
+    SELECT *, 2025 AS ano FROM projetos2025
+    ORDER BY ano DESC, id_projeto DESC
+");
+    $projetos = $stmtProjetos->fetchAll();
+} catch (PDOException $e) {
+    die("Erro ao buscar projetos: " . $e->getMessage());
+}
 $professor = $_SESSION['professor'];
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -17,6 +42,7 @@ $professor = $_SESSION['professor'];
     <title>Painel Administrativo - SENAI TechNews</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="./css/adm.css">
+    <link rel="icon" type="image/png" href="./img/logo/logotop.png">
 </head>
 
 <body>
@@ -36,13 +62,54 @@ $professor = $_SESSION['professor'];
         </div>
     </main>
 
+    <section id="noticias-admin">
+        <h2>Notícias Cadastradas</h2>
+        <div class="masonry-layout admin-layout">
+            <?php foreach ($noticias as $noticia): ?>
+            <div class="card-noticia">
+                <div class="categoria <?= strtolower(str_replace(' ', '-', $noticia['categoria'])) ?>">
+                <?= htmlspecialchars($noticia['categoria']) ?>
+                </div>
+                <h3><?= htmlspecialchars($noticia['titulo']) ?></h3>
+                <p><?= nl2br(htmlspecialchars($noticia['conteudo'])) ?></p>
+                <div class="rodape-card">
+                <span class="autor"><?= htmlspecialchars($noticia['autor']) ?></span>
+                <span class="data"><?= date('d/m/Y H:i', strtotime($noticia['data_publicacao'])) ?></span>
+                </div>
+                <!-- Botão de excluir -->
+                <button class="btn-delete" data-id="<?= $noticia['id_noticia'] ?>">
+                <i class="fas fa-trash"></i>
+                </button>
+            </div>
+            <?php endforeach; ?>
+        </div>
+    </section>
+
+    <section id="projetos-admin">
+        <h2>Projetos Cadastrados (2024 e 2025)</h2>
+        <div class="masonry-layout admin-layout">
+            <?php foreach ($projetos as $projeto): ?>
+            <div class="card-noticia">
+                <h3><?= htmlspecialchars($projeto['titulo']) ?></h3>
+                <p><?= nl2br(htmlspecialchars($projeto['descricao'])) ?></p>
+                <div class="rodape-card">
+                    <span class="data"><?= htmlspecialchars($projeto['ano']) ?></span>
+                </div>
+                <!-- Botão de excluir projeto -->
+                <button class="btn-delete-projeto" data-id="<?= $projeto['id_projeto'] ?>">
+                    <i class="fas fa-trash"></i>
+                </button>
+            </div>
+            <?php endforeach; ?>
+        </div>
+    </section>
+
     <!-- Adicione antes do footer -->
     <div id="modal-noticia" class="modal">
         <div class="modal-conteudo">
             <span class="fechar">&times;</span>
             <h2>Publicar Nova Notícia</h2>
             <form method="POST" action="salvar_noticia.php">
-                <input type="hidden" name="autor_id" value="<?= $_SESSION['professor']['id_professor'] ?>">
                 
                 <div class="form-group">
                     <label>Título:</label>
@@ -73,7 +140,6 @@ $professor = $_SESSION['professor'];
             <span class="fechar">&times;</span>
             <h2>Publicar Novo Projeto</h2>
             <form method="POST" action="salvar_projeto.php" enctype="multipart/form-data">
-                <input type="hidden" name="id_professor" value="<?= $_SESSION['professor']['id_professor'] ?>">
                 
                 <div class="form-group">
                     <label>Título:</label>
@@ -102,6 +168,36 @@ $professor = $_SESSION['professor'];
             </form>
         </div>
     </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <?php
+        // ... sessão, conexão e queries
+        $flashSuccess = $_SESSION['flash_success'] ?? null;
+        $flashError   = $_SESSION['flash_error']   ?? null;
+        unset($_SESSION['flash_success'], $_SESSION['flash_error']);
+        ?>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <?php if ($flashSuccess): ?>
+        <script>
+        Swal.fire({
+            icon: 'success',
+            title: '<?= addslashes($flashSuccess) ?>',
+            showConfirmButton: false,
+            timer: 2000
+        });
+        </script>
+        <?php endif; ?>
+        <?php if ($flashError): ?>
+        <script>
+        Swal.fire({
+            icon: 'error',
+            title: '<?= addslashes($flashError) ?>'
+        });
+        </script>
+    <?php endif; ?>
+
 
     <script>
         // Controle do modal de notícias
@@ -134,6 +230,82 @@ $professor = $_SESSION['professor'];
 
         setupModal(btnNoticia, modalNoticia);
         setupModal(btnProjeto, modalProjeto);
+
+        document.querySelectorAll('.btn-delete').forEach(btn => {
+        btn.addEventListener('click', () => {
+        const id = btn.dataset.id;
+        Swal.fire({
+            title: 'Tem certeza?',
+            text: "Esta notícia será excluída permanentemente.",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Sim, excluir',
+            cancelButtonText: 'Não, cancelar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+            fetch('delete_noticia.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ id_noticia: id })
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                Swal.fire(
+                    'Excluído!',
+                    'A notícia foi removida com sucesso.',
+                    'success'
+                ).then(() => {
+                    // Recarrega a página para atualizar a lista
+                    location.reload();
+                });
+                } else {
+                Swal.fire('Erro', 'Não foi possível excluir a notícia.', 'error');
+                }
+            })
+            .catch(() => {
+                Swal.fire('Erro', 'Falha na comunicação com o servidor.', 'error');
+            });
+            }
+        });
+        });
+    });
+    document.querySelectorAll('.btn-delete-projeto').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const id = btn.dataset.id;
+            Swal.fire({
+                title: 'Tem certeza?',
+                text: "Este projeto será excluído permanentemente.",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Sim, excluir',
+                cancelButtonText: 'Não, cancelar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    fetch('delete_projeto.php', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ id_projeto: id })
+                    })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.success) {
+                            Swal.fire(
+                                'Excluído!',
+                                'O projeto foi removido com sucesso.',
+                                'success'
+                            ).then(() => location.reload());
+                        } else {
+                            Swal.fire('Erro', 'Não foi possível excluir o projeto.', 'error');
+                        }
+                    })
+                    .catch(() => {
+                        Swal.fire('Erro', 'Falha na comunicação com o servidor.', 'error');
+                    });
+                }
+            });
+        });
+    });
     </script>
 
     <footer>
