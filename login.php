@@ -64,10 +64,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <label>Código de Acesso</label>
             <input type="text" name="codigo_acesso" required placeholder="Insira o código de acesso">
 
-            <div class="forgot-password">
-                <a href="recuperar_senha.php">Esqueceu a senha?</a>
-            </div>
-
             <button type="submit" id="botao-entrar">Entrar</button>
         </form>
     </div>
