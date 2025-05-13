@@ -60,7 +60,16 @@ try {
                         <?= htmlspecialchars($noticia['categoria']) ?>
                     </div>
                     <h3><?= htmlspecialchars($noticia['titulo']) ?></h3>
-                    <p><?= nl2br(htmlspecialchars($noticia['conteudo'])) ?></p>
+                    <!-- Conteúdo com links clicáveis -->
+                    <p><?= 
+                        nl2br(
+                            preg_replace(
+                                '/(https?:\/\/[^\s]+)/',
+                                '<a href="$1" target="_blank">$1</a>',
+                                htmlspecialchars($noticia['conteudo'])
+                            )
+                        ) 
+                    ?></p>
                     <div class="rodape-card">
                         <span class="autor"><?= htmlspecialchars($noticia['autor']) ?></span>
                         <span class="data"><?= date('d/m/Y H:i', strtotime($noticia['data_publicacao'])) ?></span>

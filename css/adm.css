@@ -71,6 +71,20 @@ body {
     margin: 0 auto;
   }
   
+.card-noticia .imagem-projeto {
+  display: block;
+  width: 100%;           /* ocupa toda a largura do card */
+  height: 180px;         /* altura fixa (ajuste conforme seu layout) */
+  object-fit: cover;     /* centraliza e corta a imagem mantendo proporção */
+  border-top-left-radius: 8px;   /* arredonda apenas o topo se quiser */
+  border-top-right-radius: 8px;
+}
+
+/* Se preferir arredondar toda a imagem, mesmo que extrapole o topo */
+.card-noticia .imagem-projeto.full-radius {
+  border-radius: 8px;
+}
+
   .card-noticia {
     background: #fff;
     border-radius: 12px;
@@ -195,6 +209,14 @@ body {
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
+
+.projeto-imagem {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
 
 .fechar {
     color: #aaa;
