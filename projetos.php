@@ -15,13 +15,17 @@
 <body>
     <header>
         <div class="container">
-        <a href="index.php">
-  <img src="./img/senai_technews.png" alt="SENAI Logo" class="logo">
-</a>
-
-            <nav>
+            <a href="index.php">
+                <img src="./img/senai_technews.png" alt="SENAI Logo" class="logo">
+            </a>
+            <div class="menu-icon" id="menuIcon" aria-label="Abrir menu" tabindex="0">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <nav id="mainNav">
                 <ul class="itens">
-                <li><a href="inicio.php">CURSO</a></li>
+                    <li><a href="inicio.php">CURSO</a></li>
                     <li><a href="senai.php">SENAI TAUBATÉ</a></li> 
                     <li><a href="noticias.php">NOTÍCIAS</a></li>
                     <li><a href="projetos.php">PROJETOS</a></li> 
@@ -93,5 +97,19 @@
         <a>Copyright 2025 © Todos os direitos reservados.</a>
         </div>
     </footer>
+    <!-- Script para menu mobile -->
+    <script>
+        const menuIcon = document.getElementById('menuIcon');
+        const nav = document.getElementById('mainNav');
+        menuIcon.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        });
+        // Acessibilidade: fechar ao clicar fora
+        document.addEventListener('click', function(e) {
+            if (!nav.contains(e.target) && !menuIcon.contains(e.target)) {
+                nav.classList.remove('active');
+            }
+        });
+    </script>
 </body>
 </html>
