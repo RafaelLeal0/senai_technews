@@ -3,17 +3,14 @@ require_once 'conexao.php';
 header('Content-Type: application/json');
 
 try {
-  // 1) GET: busca dados atuais para popular o form
   if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id'])) {
     $id = (int) $_GET['id'];
 
-    // Tenta em 2024
     $stmt = $conn->prepare("SELECT id_projeto, titulo, descricao, 2024 AS ano 
                               FROM projetos2024 WHERE id_projeto = ?");
     $stmt->execute([$id]);
     $proj = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    // Se não achou, tenta em 2025
     if (!$proj) {
       $stmt = $conn->prepare("SELECT id_projeto, titulo, descricao, 2025 AS ano 
                                 FROM projetos2025 WHERE id_projeto = ?");
@@ -29,24 +26,27 @@ try {
     exit;
   }
 
-  // 2) POST: aplica o update
-  if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id        = (int) $_POST['id_projeto'];
     $titulo    = trim($_POST['titulo']);
     $descricao = trim($_POST['descricao']);
-    $ano       = isset($_POST['ano']) ? (int) $_POST['ano'] : null;
 
-    if (!$ano || !in_array($ano, [2024,2025])) {
-      throw new Exception("Ano inválido.");
+    $stmt = $conn->prepare("
+        SELECT 'projetos2024' AS tabela FROM projetos2024 WHERE id_projeto = ?
+        UNION ALL
+        SELECT 'projetos2025' AS tabela FROM projetos2025 WHERE id_projeto = ?
+    ");
+    $stmt->execute([$id, $id]);
+    $result = $stmt->fetch();
+
+    if (!$result) {
+        throw new Exception("Projeto não encontrado.");
     }
 
-    // Define a tabela certa
-    $table = ($ano === 2024) ? 'projetos2024' : 'projetos2025';
+    $table = $result['tabela'];
 
-    // Monta o SQL básico
     $sql = "UPDATE $table SET titulo = :titulo, descricao = :descricao";
 
-    // Se veio arquivo de imagem, anexa ao update
     $params = [
       ':titulo'    => $titulo,
       ':descricao' => $descricao,
@@ -71,7 +71,6 @@ try {
     exit;
   }
 
-  // Se chegou aqui, método não suportado
   http_response_code(405);
   echo json_encode(['success'=>false,'message'=>'Método não permitido.']);
 

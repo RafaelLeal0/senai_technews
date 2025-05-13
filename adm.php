@@ -7,7 +7,6 @@ if (!isset($_SESSION['professor'])) {
 
 require_once 'conexao.php';
 
-// Busca todas as notícias
 try {
     $stmtNoticias = $conn->query("
         SELECT n.*, p.nome AS autor
@@ -76,7 +75,7 @@ $professor = $_SESSION['professor'];
                 <span class="autor"><?= htmlspecialchars($noticia['autor']) ?></span>
                 <span class="data"><?= date('d/m/Y H:i', strtotime($noticia['data_publicacao'])) ?></span>
                 </div>
-                <!-- Botão de excluir -->
+
                 <button class="btn-edit-noticia" data-id="<?= $noticia['id_noticia'] ?>">
                     <i class="fas fa-edit"></i>
                 </button>
@@ -97,7 +96,6 @@ $professor = $_SESSION['professor'];
                 
                 <h3><?= htmlspecialchars($projeto['titulo']) ?></h3>
                 <?php if (!empty($projeto['imagem_projeto'])): 
-                    // Detecta o mime e codifica em base64
                     $finfo  = new finfo(FILEINFO_MIME_TYPE);
                     $mime   = $finfo->buffer($projeto['imagem_projeto']);
                     $base64 = base64_encode($projeto['imagem_projeto']);
@@ -133,7 +131,6 @@ $professor = $_SESSION['professor'];
         </div>
     </section>
 
-    <!-- Adicione antes do footer -->
     <div id="modal-noticia" class="modal">
         <div class="modal-conteudo">
             <span class="fechar">&times;</span>
@@ -244,7 +241,7 @@ $professor = $_SESSION['professor'];
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <?php
-        // ... sessão, conexão e queries
+
         $flashSuccess = $_SESSION['flash_success'] ?? null;
         $flashError   = $_SESSION['flash_error']   ?? null;
         unset($_SESSION['flash_success'], $_SESSION['flash_error']);
@@ -352,12 +349,10 @@ $professor = $_SESSION['professor'];
             close.onclick = () => modal.style.display = 'none';
             window.onclick = e => { if (e.target == modal) modal.style.display = 'none'; };
 
-            // Ao clicar no botão de editar
             document.querySelectorAll(buttonSelector).forEach(btn => {
                 btn.onclick = e => {
                     e.preventDefault();
                     const id = btn.dataset.id;
-                    // Busca os dados atuais para popular o form
                     fetch(fetchUrl + '?id=' + id)
                         .then(r => r.json())
                         .then(data => {
@@ -367,7 +362,6 @@ $professor = $_SESSION['professor'];
                 };
             });
 
-            // Ao submeter o form
             form.onsubmit = e => {
                 e.preventDefault();
                 const formData = new FormData(form);
