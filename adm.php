@@ -7,7 +7,6 @@ if (!isset($_SESSION['professor'])) {
 
 require_once 'conexao.php';
 
-// Busca todas as notícias
 try {
     $stmtNoticias = $conn->query("
         SELECT n.*, p.nome AS autor
@@ -76,9 +75,13 @@ $professor = $_SESSION['professor'];
                 <span class="autor"><?= htmlspecialchars($noticia['autor']) ?></span>
                 <span class="data"><?= date('d/m/Y H:i', strtotime($noticia['data_publicacao'])) ?></span>
                 </div>
-                <!-- Botão de excluir -->
+
+                <button class="btn-edit-noticia" data-id="<?= $noticia['id_noticia'] ?>">
+                    <i class="fas fa-edit"></i>
+                </button>
+
                 <button class="btn-delete" data-id="<?= $noticia['id_noticia'] ?>">
-                <i class="fas fa-trash"></i>
+                    <i class="fas fa-trash"></i>
                 </button>
             </div>
             <?php endforeach; ?>
@@ -90,12 +93,36 @@ $professor = $_SESSION['professor'];
         <div class="masonry-layout admin-layout">
             <?php foreach ($projetos as $projeto): ?>
             <div class="card-noticia">
+                
                 <h3><?= htmlspecialchars($projeto['titulo']) ?></h3>
+                <?php if (!empty($projeto['imagem_projeto'])): 
+                    $finfo  = new finfo(FILEINFO_MIME_TYPE);
+                    $mime   = $finfo->buffer($projeto['imagem_projeto']);
+                    $base64 = base64_encode($projeto['imagem_projeto']);
+                ?>
+                    <img 
+                    src="data:<?= $mime ?>;base64,<?= $base64 ?>" 
+                    alt="<?= htmlspecialchars($projeto['titulo']) ?>" 
+                    class="imagem-projeto"
+                    >
+                <?php endif; ?>
+
+                <?php if (!empty($projeto['noticia_titulo']) && !empty($projeto['noticia_conteudo'])): ?>
+                <div class="card-noticia-destaque">
+                    <h4><?= htmlspecialchars($projeto['noticia_titulo']) ?></h4>
+                    <p><?= nl2br(htmlspecialchars($projeto['noticia_conteudo'])) ?></p>
+                </div>
+                <?php endif; ?>
+
                 <p><?= nl2br(htmlspecialchars($projeto['descricao'])) ?></p>
                 <div class="rodape-card">
-                    <span class="data"><?= htmlspecialchars($projeto['ano']) ?></span>
+                    <span class="data">Ano: <?= htmlspecialchars($projeto['ano']) ?></span>
                 </div>
-                <!-- Botão de excluir projeto -->
+
+                <button class="btn-edit-projeto" data-id="<?= $projeto['id_projeto'] ?>">
+                    <i class="fas fa-edit"></i>
+                </button>
+
                 <button class="btn-delete-projeto" data-id="<?= $projeto['id_projeto'] ?>">
                     <i class="fas fa-trash"></i>
                 </button>
@@ -104,7 +131,6 @@ $professor = $_SESSION['professor'];
         </div>
     </section>
 
-    <!-- Adicione antes do footer -->
     <div id="modal-noticia" class="modal">
         <div class="modal-conteudo">
             <span class="fechar">&times;</span>
@@ -170,10 +196,52 @@ $professor = $_SESSION['professor'];
     </div>
 
 
+    <div id="modal-edit-noticia" class="modal">
+        <div class="modal-conteudo">
+            <span class="fechar">&times;</span>
+            <h2>Editar Notícia</h2>
+            <form id="form-edit-noticia">
+            <input type="hidden" name="id_noticia" id="edit-noticia-id">
+            <div class="form-group">
+                <label>Título</label>
+                <input type="text" name="titulo" id="edit-noticia-titulo" required>
+            </div>
+            <div class="form-group">
+                <label>Conteúdo</label>
+                <textarea name="conteudo" id="edit-noticia-conteudo" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="btn-publicar">Salvar</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="modal-edit-projeto" class="modal">
+    <div class="modal-conteudo">
+        <span class="fechar">&times;</span>
+        <h2>Editar Projeto</h2>
+        <form id="form-edit-projeto" enctype="multipart/form-data">
+        <input type="hidden" name="id_projeto" id="edit-projeto-id">
+        <div class="form-group">
+            <label>Título</label>
+            <input type="text" name="titulo" id="edit-projeto-titulo" required>
+        </div>
+        <div class="form-group">
+            <label>Descrição</label>
+            <textarea name="descricao" id="edit-projeto-descricao" rows="4" required></textarea>
+        </div>
+        <div class="form-group">
+            <label>Imagem (substituir)</label>
+            <input type="file" name="imagem" id="edit-projeto-imagem" accept="image/*">
+        </div>
+        <button type="submit" class="btn-publicar">Salvar</button>
+        </form>
+    </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <?php
-        // ... sessão, conexão e queries
+
         $flashSuccess = $_SESSION['flash_success'] ?? null;
         $flashError   = $_SESSION['flash_error']   ?? null;
         unset($_SESSION['flash_success'], $_SESSION['flash_error']);
@@ -212,16 +280,16 @@ $professor = $_SESSION['professor'];
         function setupModal(btn, modal) {
             const span = modal.getElementsByClassName("fechar")[0];
             
-            btn.onclick = function(e) {
+            btn.onclick = function (e) {
                 e.preventDefault();
                 modal.style.display = "block";
             }
 
-            span.onclick = function() {
+            span.onclick = function () {
                 modal.style.display = "none";
             }
 
-            window.onclick = function(event) {
+            window.onclick = function (event) {
                 if (event.target == modal) {
                     modal.style.display = "none";
                 }
@@ -231,81 +299,117 @@ $professor = $_SESSION['professor'];
         setupModal(btnNoticia, modalNoticia);
         setupModal(btnProjeto, modalProjeto);
 
-        document.querySelectorAll('.btn-delete').forEach(btn => {
-        btn.addEventListener('click', () => {
-        const id = btn.dataset.id;
-        Swal.fire({
-            title: 'Tem certeza?',
-            text: "Esta notícia será excluída permanentemente.",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonText: 'Sim, excluir',
-            cancelButtonText: 'Não, cancelar'
-        }).then((result) => {
-            if (result.isConfirmed) {
-            fetch('delete_noticia.php', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ id_noticia: id })
-            })
-            .then(res => res.json())
-            .then(data => {
-                if (data.success) {
-                Swal.fire(
-                    'Excluído!',
-                    'A notícia foi removida com sucesso.',
-                    'success'
-                ).then(() => {
-                    // Recarrega a página para atualizar a lista
-                    location.reload();
-                });
-                } else {
-                Swal.fire('Erro', 'Não foi possível excluir a notícia.', 'error');
-                }
-            })
-            .catch(() => {
-                Swal.fire('Erro', 'Falha na comunicação com o servidor.', 'error');
-            });
-            }
-        });
-        });
-    });
-    document.querySelectorAll('.btn-delete-projeto').forEach(btn => {
-        btn.addEventListener('click', () => {
-            const id = btn.dataset.id;
-            Swal.fire({
-                title: 'Tem certeza?',
-                text: "Este projeto será excluído permanentemente.",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonText: 'Sim, excluir',
-                cancelButtonText: 'Não, cancelar'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    fetch('delete_projeto.php', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ id_projeto: id })
-                    })
-                    .then(res => res.json())
-                    .then(data => {
-                        if (data.success) {
-                            Swal.fire(
-                                'Excluído!',
-                                'O projeto foi removido com sucesso.',
-                                'success'
-                            ).then(() => location.reload());
-                        } else {
-                            Swal.fire('Erro', 'Não foi possível excluir o projeto.', 'error');
+        // Deleção de notícias
+        function setupDelete(buttonClass, deleteUrl, itemType) {
+            document.querySelectorAll(buttonClass).forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const id = btn.dataset.id;
+                    Swal.fire({
+                        title: `Tem certeza?`,
+                        text: `Este ${itemType} será excluído permanentemente.`,
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonText: 'Sim, excluir',
+                        cancelButtonText: 'Não, cancelar'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            fetch(deleteUrl, {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify({ [`id_${itemType}`]: id })
+                            })
+                            .then(res => res.json())
+                            .then(data => {
+                                if (data.success) {
+                                    Swal.fire('Excluído!', `O ${itemType} foi removido com sucesso.`, 'success')
+                                        .then(() => location.reload());
+                                } else {
+                                    Swal.fire('Erro', `Não foi possível excluir o ${itemType}.`, 'error');
+                                }
+                            })
+                            .catch(() => {
+                                Swal.fire('Erro', 'Falha na comunicação com o servidor.', 'error');
+                            });
                         }
-                    })
-                    .catch(() => {
-                        Swal.fire('Erro', 'Falha na comunicação com o servidor.', 'error');
                     });
-                }
+                });
             });
-        });
-    });
+        }
+
+        setupDelete('.btn-delete', 'delete_noticia.php', 'noticia');
+        setupDelete('.btn-delete-projeto', 'delete_projeto.php', 'projeto');
+
+        // Edição de notícias e projetos
+        function setupEdit(buttonSelector, modalId, formId, fetchUrl, fieldsMapper) {
+            const modal = document.getElementById(modalId);
+            const form = document.getElementById(formId);
+            const close = modal.querySelector('.fechar');
+
+            // Fecha modal
+            close.onclick = () => modal.style.display = 'none';
+            window.onclick = e => { if (e.target == modal) modal.style.display = 'none'; };
+
+            document.querySelectorAll(buttonSelector).forEach(btn => {
+                btn.onclick = e => {
+                    e.preventDefault();
+                    const id = btn.dataset.id;
+                    fetch(fetchUrl + '?id=' + id)
+                        .then(r => r.json())
+                        .then(data => {
+                            fieldsMapper(data);
+                            modal.style.display = 'block';
+                        });
+                };
+            });
+
+            form.onsubmit = e => {
+                e.preventDefault();
+                const formData = new FormData(form);
+                fetch(fetchUrl, {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(r => r.json())
+                .then(resp => {
+                    if (resp.success) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: resp.message || 'Atualizado com sucesso!',
+                            timer: 1500,
+                            showConfirmButton: false
+                        }).then(() => location.reload());
+                    } else {
+                        Swal.fire('Erro', resp.message || 'Não foi possível atualizar.', 'error');
+                    }
+                });
+            };
+        }
+
+        // Configura editar notícia
+        setupEdit(
+            '.btn-edit-noticia',
+            'modal-edit-noticia',
+            'form-edit-noticia',
+            'edit_noticia.php',
+            data => {
+                document.getElementById('edit-noticia-id').value = data.id_noticia;
+                document.getElementById('edit-noticia-titulo').value = data.titulo;
+                document.getElementById('edit-noticia-conteudo').value = data.conteudo;
+            }
+        );
+
+        // Configura editar projeto
+        setupEdit(
+            '.btn-edit-projeto',
+            'modal-edit-projeto',
+            'form-edit-projeto',
+            'edit_projeto.php',
+            data => {
+                document.getElementById('edit-projeto-id').value = data.id_projeto;
+                document.getElementById('edit-projeto-titulo').value = data.titulo;
+                document.getElementById('edit-projeto-descricao').value = data.descricao;
+            }
+        );
     </script>
 
     <footer>
@@ -342,8 +446,8 @@ $professor = $_SESSION['professor'];
                     </ul>
                 </div>
                 <div class="footer-col">
-                        <h4 href="logout.php" style="color: white; text-decoration: none;">Sair</h4>
-                        <h4 href="cadastro.php" style="color: white; text-decoration: none;">Cadastrar administrador</h4>
+                        <h4><a href="logout.php" style="color: white; text-decoration: none;">Sair</a></h4>
+                        <h4><a href="cadastro.php" style="color: white; text-decoration: none;">Cadastrar</a></h4>
                 </div>
             </div>
         </div>

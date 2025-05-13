@@ -41,7 +41,12 @@ try {
             <a href="index.php">
                 <img src="./img/senai_technews.png" alt="SENAI Logo" class="logo">
             </a>
-            <nav>
+            <div class="menu-icon" id="menuIcon" aria-label="Abrir menu" tabindex="0">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <nav id="mainNav">
                 <ul class="itens">
                     <li><a href="inicio.php">CURSO</a></li>
                     <li><a href="senai.php">SENAI TAUBATÉ</a></li> 
@@ -60,7 +65,16 @@ try {
                         <?= htmlspecialchars($noticia['categoria']) ?>
                     </div>
                     <h3><?= htmlspecialchars($noticia['titulo']) ?></h3>
-                    <p><?= nl2br(htmlspecialchars($noticia['conteudo'])) ?></p>
+                    <!-- Conteúdo com links clicáveis -->
+                    <p><?= 
+                        nl2br(
+                            preg_replace(
+                                '/(https?:\/\/[^\s]+)/',
+                                '<a href="$1" target="_blank">$1</a>',
+                                htmlspecialchars($noticia['conteudo'])
+                            )
+                        ) 
+                    ?></p>
                     <div class="rodape-card">
                         <span class="autor"><?= htmlspecialchars($noticia['autor']) ?></span>
                         <span class="data"><?= date('d/m/Y H:i', strtotime($noticia['data_publicacao'])) ?></span>
@@ -123,5 +137,19 @@ try {
             <a>Copyright 2025 © Todos os direitos reservados.</a>
         </div>
     </footer>
+    <!-- Script para menu mobile -->
+    <script>
+        const menuIcon = document.getElementById('menuIcon');
+        const nav = document.getElementById('mainNav');
+        menuIcon.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        });
+        // Fecha o menu ao clicar fora
+        document.addEventListener('click', function(e) {
+            if (!nav.contains(e.target) && !menuIcon.contains(e.target)) {
+                nav.classList.remove('active');
+            }
+        });
+    </script>
 </body>
 </html>
