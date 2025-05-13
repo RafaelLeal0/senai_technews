@@ -26,7 +26,6 @@
         <a href="index.php">
   <img src="./img/senai_technews.png" alt="SENAI Logo" class="logo">
 </a>
-
             <nav>
                 <ul class="itens">
                     <li><a href="inicio.php">CURSO</a></li>
@@ -156,5 +155,20 @@ document.addEventListener("DOMContentLoaded", function() {
     checkScroll();
 });
 
+document.addEventListener("DOMContentLoaded", function() {
+    const menuIcon = document.getElementById("menuIcon");
+    const nav = document.querySelector("nav");
 
+    menuIcon.addEventListener("click", function() {
+        nav.classList.toggle("active");
+    });
+
+    menuIcon.addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+            nav.classList.toggle("active");
+        }
+    });
+});
 </script>
+</body>
+</html>
