@@ -523,3 +523,87 @@ main {
         margin-bottom: 5px;
     }
 }
+
+/* Ícone do menu hamburguer para mobile */
+.menu-icon {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    margin-left: 220px;
+    z-index: 1001;
+}
+
+.menu-icon span {
+    height: 4px;
+    width: 28px;
+    background: #cc1c0c;
+    margin: 5px 0;
+    border-radius: 2px;
+    display: block;
+    transition: 0.3s;
+}
+
+@media screen and (max-width: 900px) {
+    nav {
+        position: fixed;
+        top: 0;
+        right: -100vw;
+        width: 70vw;
+        height: 100vh;
+        background: #fff;
+        box-shadow: -2px 0 10px rgba(0,0,0,0.08);
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding-top: 80px;
+        margin-left: 0;
+        transition: right 0.3s;
+        z-index: 1000;
+    }
+    nav.active {
+        right: 0;
+    }
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+        gap: 0;
+    }
+    nav ul li {
+        width: 100%;
+        text-align: left;
+        margin-bottom: 18px;
+    }
+    nav ul li:last-child {
+        margin-bottom: 0;
+    }
+    nav ul li a {
+        width: 100%;
+        padding: 28px 30px;
+        border-bottom: 1px solid #eee;
+        font-size: 1.1rem;
+        display: block;
+    }
+    .menu-icon {
+        display: flex;
+    }
+    .header-links {
+        display: none;
+    }
+    .itens {
+        margin-left: 0;
+    }
+    .container {
+        flex-direction: row;
+        align-items: center;
+    }
+}
+
+/* Garante que o menu-icon só aparece em mobile */
+@media screen and (max-width: 900px) {
+    .menu-icon {
+        display: flex !important;
+    }
+}

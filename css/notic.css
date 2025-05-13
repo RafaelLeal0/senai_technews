@@ -563,8 +563,6 @@ nav ul {
     width: 100%;
   }
 }
-
-/* Estilos de Cards e Conteúdo (mantidos do original) */
 .masonry-container {
   column-count: 3;
   column-gap: 20px;
@@ -606,7 +604,7 @@ nav ul {
     cursor: pointer;
     width: 40px;
     height: 40px;
-    margin-left: 210px;
+    margin-left: 200px;
     z-index: 1001;
 }
 

@@ -16,19 +16,22 @@
     <link rel="icon" type="image/png" href="./img/logo/logotop.png">
 </head>
 <body>
-<header>
+    <header>
         <div class="container">
-        <a href="index.php">
-  <img src="./img/senai_technews.png" alt="SENAI Logo" class="logo">
-</a>
-
-            <nav>
+            <a href="index.php">
+                <img src="./img/senai_technews.png" alt="SENAI Logo" class="logo">
+            </a>
+            <div class="menu-icon" id="menuIcon" aria-label="Abrir menu" tabindex="0">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <nav id="mainNav">
                 <ul class="itens">
                     <li><a href="inicio.php">CURSO</a></li>
                     <li><a href="senai.php">SENAI TAUBATÉ</a></li> 
                     <li><a href="noticias.php">NOTÍCIAS</a></li>
                     <li><a href="projetos.php">PROJETOS</a></li> 
-                
                 </ul>
             </nav>
         </div>
@@ -232,13 +235,24 @@
     </div>
 </footer>
 <script>
-document.addEventListener("DOMContentLoaded", function() {
-    const fadeElements = document.querySelectorAll(".fade-in");
-    fadeElements.forEach(el => {
-        el.style.opacity = "1";
-        el.style.transform = "translateY(0)";
+        const menuIcon = document.getElementById('menuIcon');
+        const nav = document.getElementById('mainNav');
+        menuIcon.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        });
+        // Fecha o menu ao clicar fora
+        document.addEventListener('click', function(e) {
+            if (!nav.contains(e.target) && !menuIcon.contains(e.target)) {
+                nav.classList.remove('active');
+            }
+        });
+        document.addEventListener("DOMContentLoaded", function() {
+        const fadeElements = document.querySelectorAll(".fade-in");
+        fadeElements.forEach(el => {
+            el.style.opacity = "1";
+            el.style.transform = "translateY(0)";
+        });
     });
-});
 </script>
 </body>
 </html>
