@@ -291,6 +291,32 @@ body {
   transform: scale(1.1);
 }
 
+.social-bar {
+  background-color: #E30613;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.social-bar a {
+  display: inline-block;
+  color: white;
+  font-size: 20px;
+  margin: 0 10px;
+  transition: 0.3s;
+}
+
+.social-bar a:hover {
+  color: #f1f1f1;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+
 /* ===== Responsividade ===== */
 @media (max-width: 992px) {
   .admin-actions {
