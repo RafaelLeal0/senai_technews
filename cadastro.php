@@ -43,6 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -55,29 +56,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 </head>
+
 <body>
-<?php if ($sucesso): ?>
-    <script>
-        Swal.fire({
-            title: 'Sucesso!',
-            text: '<?= $mensagem ?>',
-            icon: 'success',
-            confirmButtonText: 'OK',
-            confirmButtonColor: '#B91D32'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                window.location.href = 'adm.php';
-            }
-        });
-    </script>
-<?php endif; ?>
-<div class="left">
+    <?php if ($sucesso): ?>
+        <script>
+            Swal.fire({
+                title: 'Sucesso!',
+                text: '<?= $mensagem ?>',
+                icon: 'success',
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#B91D32'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = 'adm.php';
+                }
+            });
+        </script>
+    <?php endif; ?>
+    <div class="left">
         <h1>CADASTRE-SE NO <br><span>SENAI TECHNEWS</span></h1>
     </div>
     <div class="right">
         <img src="./img/senai_technews.png" class="logo" alt="SENAI Logo">
         <form method="POST" action="">
-            <!-- Corrija o nome do campo do código de acesso -->
             <label>Nome completo</label>
             <input type="text" name="nome" required placeholder="Digite seu nome">
 
@@ -86,7 +87,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <label>Senha</label>
             <input type="password" name="senha" required placeholder="Crie uma senha">
-            
+
             <label>Código de acesso</label>
             <input type="password" name="codigo_acesso" required placeholder="Crie um código">
 
@@ -96,4 +97,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <a href="adm.php" class="back-arrow">&#8592;</a>
 </body>
+
 </html>

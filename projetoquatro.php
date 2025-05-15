@@ -1,7 +1,6 @@
 <?php
 require_once 'conexao.php';
 
-// Buscar projetos de 2025
 $projetos2024 = [];
 try {
     $stmt = $conn->query("SELECT * FROM projetos2024");
@@ -13,6 +12,7 @@ try {
 
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,6 +25,7 @@ try {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="icon" type="image/png" href="./img/logo/logotop.png">
 </head>
+
 <body>
     <header>
         <div class="container">
@@ -34,30 +35,28 @@ try {
             <nav>
                 <ul class="itens">
                     <li><a href="inicio.php">CURSO</a></li>
-                    <li><a href="senai.php">SENAI TAUBATÉ</a></li> 
+                    <li><a href="senai.php">SENAI TAUBATÉ</a></li>
                     <li><a href="noticias.php">NOTÍCIAS</a></li>
-                    <li><a href="projetos.php">PROJETOS</a></li> 
+                    <li><a href="projetos.php">PROJETOS</a></li>
                 </ul>
             </nav>
         </div>
     </header>
     <main>
-        <!-- Nova seção de projetos 2025 -->
         <section class="projetos-2024-db">
             <div class="header-projetos">
                 <h2>2024</h2>
                 <p>Projetos desenvolvidos pelos alunos do SENAI Taubaté</p>
             </div>
-            
+
             <div class="projetos-grid">
                 <?php foreach ($projetos2024 as $projeto): ?>
                     <?php
-                        $finfo = new finfo(FILEINFO_MIME_TYPE);
-                        $mime = $finfo->buffer($projeto['imagem_projeto']);
-                        $base64 = base64_encode($projeto['imagem_projeto']);
+                    $finfo = new finfo(FILEINFO_MIME_TYPE);
+                    $mime = $finfo->buffer($projeto['imagem_projeto']);
+                    $base64 = base64_encode($projeto['imagem_projeto']);
                     ?>
-                    <div class="projeto-item" 
-                        style="background-image: url('data:<?= $mime ?>;base64,<?= $base64 ?>')">
+                    <div class="projeto-item" style="background-image: url('data:<?= $mime ?>;base64,<?= $base64 ?>')">
                         <div class="projeto-overlay">
                             <h3><?= htmlspecialchars($projeto['titulo']) ?></h3>
                             <p><?= htmlspecialchars($projeto['descricao']) ?></p>
@@ -85,7 +84,8 @@ try {
                         <h4>Desenvolvedores</h4>
                         <ul>
                             <li><a href="https://www.linkedin.com/in/andrey-montibeller/">Andrey Montibeller</a></li>
-                            <li><a href="https://www.linkedin.com/in/gustavo-henrique-a538592b7/">Gustavo Henrique</a></li>
+                            <li><a href="https://www.linkedin.com/in/gustavo-henrique-a538592b7/">Gustavo Henrique</a>
+                            </li>
                             <li><a href="https://www.linkedin.com/in/rafael-leal-6569252b8/">Rafael Leal</a></li>
                             <li><a href="https://www.linkedin.com/in/rian-eduardo-9287512b7/">Rian Eduardo</a></li>
                             <li><a href="https://www.linkedin.com/in/samuel-boaz-gon%C3%A7alves/">Samuel Boaz</a></li>
@@ -112,4 +112,5 @@ try {
         </div>
     </footer>
 </body>
+
 </html>

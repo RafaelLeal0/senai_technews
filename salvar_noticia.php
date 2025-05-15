@@ -6,13 +6,12 @@ if (!isset($_SESSION['professor'])) {
 }
 require_once 'conexao.php';
 
-$titulo        = $_POST['titulo']    ?? '';
-$conteudo      = $_POST['conteudo']  ?? '';
-$categoria     = $_POST['categoria'] ?? '';
-$id_professor  = $_SESSION['professor']['id']; // ou 'id_professor', conforme sua session
+$titulo = $_POST['titulo'] ?? '';
+$conteudo = $_POST['conteudo'] ?? '';
+$categoria = $_POST['categoria'] ?? '';
+$id_professor = $_SESSION['professor']['id'];
 $data_publicacao = date('Y-m-d H:i:s');
 
-// Validação básica
 if (empty($titulo) || empty($conteudo) || empty($categoria)) {
     $_SESSION['flash_error'] = 'Preencha todos os campos!';
     header('Location: adm.php');
@@ -20,7 +19,6 @@ if (empty($titulo) || empty($conteudo) || empty($categoria)) {
 }
 
 try {
-    // Insere a notícia
     $sql = "INSERT INTO noticias 
               (titulo, conteudo, categoria, id_professor, data_publicacao) 
             VALUES (?, ?, ?, ?, ?)";

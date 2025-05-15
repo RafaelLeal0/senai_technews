@@ -1,7 +1,6 @@
 <?php
-require_once 'conexao.php'; // Garante que $conn seja definido
+require_once 'conexao.php';
 
-// Verifica se a conexão foi estabelecida
 if (!isset($conn)) {
     die("Erro: Conexão com o banco de dados não foi estabelecida.");
 }
@@ -22,6 +21,7 @@ try {
 
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -49,9 +49,9 @@ try {
             <nav id="mainNav">
                 <ul class="itens">
                     <li><a href="inicio.php">CURSO</a></li>
-                    <li><a href="senai.php">SENAI TAUBATÉ</a></li> 
+                    <li><a href="senai.php">SENAI TAUBATÉ</a></li>
                     <li><a href="noticias.php">NOTÍCIAS</a></li>
-                    <li><a href="projetos.php">PROJETOS</a></li> 
+                    <li><a href="projetos.php">PROJETOS</a></li>
                 </ul>
             </nav>
         </div>
@@ -66,15 +66,17 @@ try {
                     </div>
                     <h3><?= htmlspecialchars($noticia['titulo']) ?></h3>
                     <!-- Conteúdo com links clicáveis -->
-                    <p><?= 
-                        nl2br(
-                            preg_replace(
-                                '/(https?:\/\/[^\s]+)/',
-                                '<a href="$1" target="_blank">$1</a>',
-                                htmlspecialchars($noticia['conteudo'])
+                    <p>
+                        <?=
+                            nl2br(
+                                preg_replace(
+                                    '/(https?:\/\/[^\s]+)/',
+                                    '<a href="$1" target="_blank">$1</a>',
+                                    htmlspecialchars($noticia['conteudo'])
+                                )
                             )
-                        ) 
-                    ?></p>
+                            ?>
+                    </p>
                     <div class="rodape-card">
                         <span class="autor"><?= htmlspecialchars($noticia['autor']) ?></span>
                         <span class="data"><?= date('d/m/Y H:i', strtotime($noticia['data_publicacao'])) ?></span>
@@ -111,7 +113,8 @@ try {
                         <h4>Desenvolvedores</h4>
                         <ul>
                             <li><a href="https://www.linkedin.com/in/andrey-montibeller/">Andrey Montibeller</a></li>
-                            <li><a href="https://www.linkedin.com/in/gustavo-henrique-a538592b7/">Gustavo Henrique</a></li>
+                            <li><a href="https://www.linkedin.com/in/gustavo-henrique-a538592b7/">Gustavo Henrique</a>
+                            </li>
                             <li><a href="https://www.linkedin.com/in/rafael-leal-6569252b8/">Rafael Leal</a></li>
                             <li><a href="https://www.linkedin.com/in/rian-eduardo-9287512b7/">Rian Eduardo</a></li>
                             <li><a href="https://www.linkedin.com/in/samuel-boaz-gon%C3%A7alves/">Samuel Boaz</a></li>
@@ -137,19 +140,18 @@ try {
             <a>Copyright 2025 © Todos os direitos reservados.</a>
         </div>
     </footer>
-    <!-- Script para menu mobile -->
     <script>
         const menuIcon = document.getElementById('menuIcon');
         const nav = document.getElementById('mainNav');
         menuIcon.addEventListener('click', () => {
             nav.classList.toggle('active');
         });
-        // Fecha o menu ao clicar fora
-        document.addEventListener('click', function(e) {
+        document.addEventListener('click', function (e) {
             if (!nav.contains(e.target) && !menuIcon.contains(e.target)) {
                 nav.classList.remove('active');
             }
         });
     </script>
 </body>
+
 </html>

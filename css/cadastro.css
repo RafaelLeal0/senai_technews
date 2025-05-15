@@ -1,68 +1,68 @@
 * {
-    margin: 0; 
-    padding: 0; 
-    box-sizing: border-box; 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-body { 
-    display: flex; 
-    height: 100vh; 
+body {
+    display: flex;
+    height: 100vh;
     font-family: 'Inter', sans-serif;
     position: relative;
 }
 
-.left { 
-    width: 50%; 
-    background: linear-gradient(rgba(66, 66, 66, 0.5), rgba(66, 66, 66, 0.5)), url('../img/senai-image.png') no-repeat center center/cover; 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-    color: white; 
-    text-align: center; 
+.left {
+    width: 50%;
+    background: linear-gradient(rgba(66, 66, 66, 0.5), rgba(66, 66, 66, 0.5)), url('../img/senai-image.png') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
 }
 
-.left h1 { 
-    font-size: 24px; 
+.left h1 {
+    font-size: 24px;
 }
 
-.left span { 
-    color: #C4170C; 
-    font-weight: bold; 
+.left span {
+    color: #C4170C;
+    font-weight: bold;
 }
 
-.right { 
-    width: 50%; 
+.right {
+    width: 50%;
     min-height: 100vh;
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-    background: white; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
     flex-direction: column;
     padding: 20px;
 }
 
-.logo { 
+.logo {
     margin: 0 auto 40px auto;
     width: 220px;
     height: auto;
 }
 
-form { 
-    width: 80%; 
+form {
+    width: 80%;
     max-width: 400px;
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
 
-input { 
+input {
     width: 100%;
-    padding: 10px; 
-    border: 1px solid #800000; 
-    border-radius: 5px; 
+    padding: 10px;
+    border: 1px solid #800000;
+    border-radius: 5px;
 }
 
-label { 
+label {
     margin-bottom: -10px;
 }
 
@@ -83,8 +83,8 @@ label {
     background: #600000;
 }
 
-.error { 
-    color: red; 
+.error {
+    color: red;
 }
 
 .back-arrow {
@@ -110,19 +110,18 @@ label {
         font-size: 20px;
         padding: 0 20px;
     }
-    
+
     .logo {
         width: 180px;
         margin-bottom: 30px;
     }
-    
+
     .back-arrow {
         margin-left: 600px;
         font-size: 26px;
     }
 }
 
-/* Responsividade para dispositivos móveis */
 @media (max-width: 768px) {
     body {
         flex-direction: column;
@@ -158,7 +157,6 @@ label {
     }
 }
 
-/* Ajustes para telas muito pequenas */
 @media (max-width: 480px) {
     .left h1 {
         font-size: 18px;
@@ -168,7 +166,8 @@ label {
         width: 140px;
     }
 
-    input, button {
+    input,
+    button {
         padding: 8px;
     }
 

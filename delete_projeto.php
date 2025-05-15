@@ -11,7 +11,6 @@ if (!isset($data['id_projeto'])) {
 
 $idProjeto = $data['id_projeto'];
 
-// Verifica em qual tabela está o projeto
 try {
     $stmt2024 = $conn->prepare("SELECT * FROM projetos2024 WHERE id_projeto = ?");
     $stmt2024->execute([$idProjeto]);

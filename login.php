@@ -1,9 +1,8 @@
 <?php
 session_start();
 
-require_once "conexao.php"; // já define a variável $conn globalmente
+require_once "conexao.php";
 
-// Processar formulário de login
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'] ?? '';
     $senha = $_POST['senha'] ?? '';
@@ -34,6 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -44,6 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="icon" type="image/png" href="./img/logo/logotop.png">
     <link rel="stylesheet" href="./css/login.css">
 </head>
+
 <body>
     <div class="left">
         <h1>BEM VINDO AO <br><span>SENAI TECHNEWS</span></h1>
@@ -57,17 +58,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <label>Email</label>
             <input type="email" name="email" required placeholder="Coloque seu email">
-            
+
             <label>Senha</label>
             <input type="password" name="senha" required placeholder="Coloque sua senha">
-            
+
             <label>Código de Acesso</label>
             <input type="text" name="codigo_acesso" required placeholder="Insira o código de acesso">
 
             <button type="submit" id="botao-entrar">Entrar</button>
         </form>
     </div>
-    
+
     <a href="index.php" class="back-arrow">&#8592;</a>
 </body>
 </html>
