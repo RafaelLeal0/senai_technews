@@ -32,7 +32,12 @@ try {
             <a href="index.php">
                 <img src="./img/senai_technews.png" alt="SENAI Logo" class="logo">
             </a>
-            <nav>
+            <div class="menu-icon" id="menuIcon" aria-label="Abrir menu" tabindex="0">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <nav id="mainNav">
                 <ul class="itens">
                     <li><a href="inicio.php">CURSO</a></li>
                     <li><a href="senai.php">SENAI TAUBATÉ</a></li>
@@ -111,6 +116,21 @@ try {
             <a>Copyright 2025 © Todos os direitos reservados.</a>
         </div>
     </footer>
+
+    <script>
+        const menuIcon = document.getElementById('menuIcon');
+        const nav = document.getElementById('mainNav');
+        menuIcon.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        });
+        document.addEventListener('click', function (e) {
+            if (!nav.contains(e.target) && !menuIcon.contains(e.target)) {
+                nav.classList.remove('active');
+            }
+        });
+
+    </script>
+
 </body>
 
 </html>

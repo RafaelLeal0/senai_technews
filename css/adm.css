@@ -4,17 +4,36 @@
   --vermelho-senai: #B91D32;
   --cinza-claro: #f5f5f5;
   --branco: #ffffff;
-  --sombra: 0 4px 15px rgba(0, 0, 0, 0.1);
+  --texto-escuro: #333333;
+  --texto-claro: #f6f6f6;
+  --sombra-leve: 0 4px 15px rgba(0, 0, 0, 0.1);
+  --sombra-forte: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
 
 /* ===== Base ===== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 body {
   margin: 0;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Poppins', sans-serif;
   background-color: var(--cinza-claro);
+  color: var(--texto-escuro);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
 }
 
 /* ===== Admin Container ===== */
@@ -55,22 +74,23 @@ body {
 
 /* ===== Masonry Layout ===== */
 .masonry-layout {
-  columns: 3 1fr;
+  column-count: 3;
   column-gap: 2rem;
+  padding: 0 20px;
 }
 .card-noticia {
   background: var(--branco);
   border-radius: 12px;
   margin-bottom: 2rem;
   break-inside: avoid;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+  box-shadow: var(--sombra-leve);
   transition: transform 0.3s, box-shadow 0.3s;
   border: 1px solid #f0f0f0;
   padding: 1.5rem;
 }
 .card-noticia:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(185,29,50,0.15);
+  box-shadow: var(--sombra-forte);
 }
 .card-noticia .imagem-projeto {
   width: 100%;
@@ -91,7 +111,7 @@ body {
   margin-bottom: 1rem;
 }
 .card-noticia h3 {
-  color: #333;
+  color: var(--texto-escuro);
   font-size: 1.4rem;
   margin: 0 0 1rem;
 }
@@ -123,7 +143,7 @@ body {
   border-radius: 20px;
   padding: 50px 30px;
   text-align: center;
-  box-shadow: var(--sombra);
+  box-shadow: var(--sombra-leve);
   transition: all 0.3s;
   display: flex;
   flex-direction: column;
@@ -146,7 +166,7 @@ body {
   transform: scale(1.1);
 }
 .action-card h2 {
-  color: #333;
+  color: var(--texto-escuro);
   font-size: 1.8rem;
   font-weight: 600;
   margin: 0;
@@ -156,8 +176,10 @@ body {
 .modal {
   display: none;
   position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background: rgba(0,0,0,0.5);
   z-index: 1000;
   align-items: center;
@@ -170,15 +192,21 @@ body {
   max-width: 600px;
   border-radius: 10px;
   padding: 20px;
-  box-shadow: var(--sombra);
+  box-shadow: var(--sombra-leve);
   max-height: 90vh;
   overflow-y: auto;
+  /* Center content in desktop */
+  margin: 0 auto;
 }
 .modal-conteudo .fechar {
   font-size: 2rem;
   cursor: pointer;
   color: #aaa;
   float: right;
+  transition: color 0.2s;
+}
+.modal-conteudo .fechar:hover {
+  color: var(--vermelho-senai);
 }
 
 /* ===== Form ===== */
@@ -214,130 +242,404 @@ body {
 }
 
 /* ===== Footer ===== */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .footer {
-  background-color: #B91D32;
-  padding: 30px 5%;
-  color: #f6f6f6;
+    background-color: #B91D32;
+    padding: 30px 0;
+    color: #ffffff;
 }
 
 .footer-col {
-  width: 25%;
-  min-width: 200px;
-  margin-bottom: 30px;
-  text-align: left;
-  padding: 0 20px;
+    padding: 0 40px;
+    text-align: left;
+    width: 25%;
 }
 
 .footer-col h4 {
-  position: relative;
-  margin-bottom: 20px;
-  font-size: 1.2rem;
-  font-weight: 700;
+    font-size: 18px;
+    color: #ffffff;
+    text-transform: capitalize;
+    margin-bottom: 35px;
+    font-weight: 700;
+    position: relative;
+    margin-right: 90px;
 }
 
 .footer-col h4::before {
-  content: '';
-  position: absolute;
-  bottom: -8px;
-  left: 0;
-  width: 60px;
-  height: 2px;
-  background: #fff;
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    background-color: #ffffff;
+    height: 2px;
+    box-sizing: border-box;
+    width: 60px;
 }
 
 .footer-col ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+    color: #f6f6f6;
 }
 
-.footer-col ul li {
-  margin-bottom: 10px;
+.footer-col ul li:not(:last-child) {
+    margin-bottom: 10px;
 }
 
 .footer-col ul li a {
-  display: block;
-  color: #f6f6f6;
-  text-decoration: none;
-  font-size: 0.9rem;
-  transition: padding-left 0.2s;
+    font-size: 16px;
+    text-transform: capitalize;
+    color: #f6f6f6;
+    text-decoration: none;
+    font-weight: 300;
+    display: block;
+    transition: all 0.10s ease;
 }
 
 .footer-col ul li a:hover {
-  padding-left: 8px;
+    color: #ffffff;
+    padding-left: 8px;
 }
 
-/* Social icons */
-.footer .social-links {
-  margin-top: 20px;
+.footer-col .social-links a {
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin: 0 10px 10px 0;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 30px;
+    color: #ffffff;
+    transition: all 0.10s ease;
 }
 
-.footer .social-links a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  margin-right: 10px;
-  background: rgba(255,255,255,0.2);
-  border-radius: 50%;
-  color: #fff;
-  transition: background 0.3s, transform 0.3s;
+.footer-col .social-links a:hover {
+    color: #24262b;
+    background-color: #ffffff;
 }
 
-.footer .social-links a:hover {
-  background: #fff;
-  color: #B91D32;
-  transform: scale(1.1);
+.social-bar {
+    background-color: #E30613;
+    text-align: center;
+    padding: 10px 0;
+    color: #ffffff;
 }
 
-/* ===== Responsividade ===== */
-@media (max-width: 992px) {
-  .admin-actions {
-    grid-template-columns: 1fr;
+.social-bar a {
+    display: inline-block;
+    color: white;
+    font-size: 20px;
+    margin: 0 10px;
+    transition: 0.3s;
+}
+
+.social-bar a:hover {
+    color: #f1f1f1;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@media screen and (max-width: 900px) {
+  nav {
+    position: fixed;
+    top: 0;
+    right: -100vw;
+    width: 70vw;
+    height: 100vh;
+    background: #fff;
+    /* ... */
+    transition: right 0.3s;
+    z-index: 1000;
   }
+  nav.active {
+    right: 0;
+  }
+  .menu-icon {
+    display: flex !important;
+  }
+}
+
+
+@media (max-width: 768px) {
   .masonry-layout {
-    columns: 2 1fr;
+    columns: 2;
   }
+}
+
+@media (max-width: 480px) {
+  .masonry-layout {
+    columns: 1;
+  }
+
+  .card-noticia {
+    padding: 1rem;
+  }
+}
+
+@media(max-width: 767px) {
+  .footer-col {
+    width: 50%;
+    margin-bottom: 30px;
+  }
+}
+
+@media(max-width: 574px) {
+  .footer-col {
+    width: 100%;
+  }
+}
+
+.social-bar {
+  background-color: #E30613;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.social-bar a {
+  display: inline-block;
+  color: white;
+  font-size: 20px;
+  margin: 0 10px;
+  transition: 0.3s;
+}
+
+.social-bar a:hover {
+  color: #f1f1f1;
 }
 
 @media (max-width: 768px) {
-  .container {
+  /* Ajustar container geral para não exceder largura */
+  .admin-container {
+    padding: 20px 10px;
+  }
+
+  /* Reduzir tamanho do texto “Bem-vindo” e espaçamento */
+  .welcome-message {
+    font-size: 2rem;
+    margin-bottom: 40px;
+    line-height: 1.2;
     padding: 0 10px;
-  }
-  .admin-actions {
-    grid-template-columns: 1fr;
-  }
-  .masonry-layout {
-    columns: 1 1fr;
-  }
-  .modal-conteudo {
-    max-width: 100%;
-    padding: 15px;
-  }
-  .action-card {
-    padding: 30px 20px;
-    min-height: auto;
-  }
-    .footer {
     text-align: center;
   }
-  .footer-col {
-    width: 50%;
-    margin: 0 auto 30px;
+
+  /* Remover padding interno extra da grid de Action Cards */
+  .admin-actions {
+    padding: 0;
+    margin: 0 -10px; /* compensa padding dos cards para não gerar overflow */
   }
-  .footer .social-links a {
-    width: 30px;
-    height: 30px;
+
+  /* Garantir que cada action-card ocupe 100% da largura disponível */
+  .action-card {
+    padding: 30px 20px;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0 10px 20px; /* espaçamento horizontal e vertical equilibrado */
+  }
+
+  /* Ajustar títulos internos de cada card para não estourar a largura */
+  .action-card h2 {
+    font-size: 1.6rem;
+    word-wrap: break-word;
+  }
+
+  /* Ajustar ícone para caber sem ultrapassar */
+  .action-card i {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+  }
+}
+
+/* Acima de 768px e até 992px: garantir cards em duas colunas sem overflow */
+@media (min-width: 769px) and (max-width: 992px) {
+  .admin-actions {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0 20px;
+  }
+  .action-card {
+    width: auto;
+    margin: 0;
   }
 }
 
 @media (max-width: 576px) {
-  .footer-col {
+  .logo img {
+    height: 50px;
+  }
+
+  .search-bar input {
+    width: 70%;
+  }
+
+  .footer {
+    padding: 40px 0 20px;
+  }
+
+  .footer-col h4 {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  nav ul {
+    font-size: 14px;
+  }
+
+  .descricao h1 {
+    font-size: 24px;
+  }
+
+  .descricao p {
+    font-size: 16px;
+  }
+
+  .titulo {
+    font-size: 24px;
+  }
+
+  .header-links a {
+    font-size: 14px;
+  }
+
+  .search-bar {
+    flex-direction: column;
+  }
+
+  .search-bar input {
+    width: 100%;
+    max-width: none;
+  }
+
+  .search-bar button {
     width: 100%;
   }
-  .footer .social-links a {
-    width: 25px;
-    height: 25px;
+}
+
+.masonry-container {
+  column-count: 3;
+  column-gap: 20px;
+  margin: 20px 0;
+}
+
+.news-card {
+  break-inside: avoid;
+  margin-bottom: 20px;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.news-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.menu-icon {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  margin-left: 200px;
+  z-index: 1001;
+}
+
+.menu-icon span {
+  height: 4px;
+  width: 28px;
+  background: #cc1c0c;
+  margin: 5px 0;
+  border-radius: 2px;
+  display: block;
+  transition: 0.3s;
+}
+
+@media screen and (max-width: 900px) {
+  nav {
+    position: fixed;
+    top: 0;
+    right: -100vw;
+    width: 70vw;
+    height: 100vh;
+    background: #fff;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.08);
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding-top: 80px;
+    margin-left: 0;
+    transition: right 0.3s;
+    z-index: 1000;
+  }
+
+  nav.active {
+    right: 0;
+  }
+
+  nav ul {
+    flex-direction: column;
+    width: 100%;
+    gap: 0;
+  }
+
+  nav ul li {
+    width: 100%;
+    text-align: left;
+    margin-bottom: 18px;
+  }
+
+  nav ul li:last-child {
+    margin-bottom: 0;
+  }
+
+  nav ul li a {
+    width: 100%;
+    padding: 28px 30px;
+    border-bottom: 1px solid #eee;
+    font-size: 1.1rem;
+    display: block;
+  }
+
+  .menu-icon {
+    display: flex !important;
+  }
+
+  .header-links {
+    display: none;
+  }
+
+  .itens {
+    margin-left: 0;
+  }
+
+  .container {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .menu-icon {
+    display: flex !important;
   }
 }
