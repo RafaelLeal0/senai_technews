@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
       language: 'pt',
       q: termos,
       sortBy: 'relevancy',
-      pageSize: '30'
+      pageSize: '15'
     });
 
     try {
