@@ -5,21 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>SENAI Taubaté</title>
   <link rel="stylesheet" href="<?php echo $css_path; ?>">
-  <link rel="stylesheet" href="./css/senai.css">
+  <link rel="stylesheet" href="../css/senai.css">
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@latest/font/bootstrap-icons.min.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
-
-  <link rel="icon" type="image/png" href="./img/logo/logotop.png"/>
+  <link rel="icon" type="image/png" href="../img/logo/logotop.png"/>
 </head>
 
 <body>
   <header>
     <div class="container">
-      <a href="index.php">
-        <img src="./img/senai_technews.png" alt="SENAI Logo" class="logo"/>
+      <a href="../index.php">
+        <img src="../img/senai_technews.png" alt="SENAI Logo" class="logo"/>
       </a>
       <div class="menu-icon" id="menuIcon" aria-label="Abrir menu" tabindex="0">
         <span></span>
@@ -38,7 +37,7 @@
   </header>
 
   <div class="banner">
-    <img src="./img/bunner_senaitaubate(png).png" alt="Banner" />
+    <img src="../img/bunner_senaitaubate(png).png" alt="Banner" />
   </div>
 
   <main>

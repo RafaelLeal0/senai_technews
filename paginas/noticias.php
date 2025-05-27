@@ -1,24 +1,45 @@
+<?php
+require_once 'conexao.php';
+
+if (!isset($conn)) {
+    die("Erro: Conexão com o banco de dados não foi estabelecida.");
+}
+
+try {
+    $stmt = $conn->query("
+        SELECT n.*, p.nome AS autor
+        FROM noticias n
+        INNER JOIN professores p ON n.id_professor = p.id_professor
+        ORDER BY data_publicacao DESC
+    ");
+
+    $noticias = $stmt->fetchAll();
+} catch (PDOException $e) {
+    die("Erro ao buscar notícias: " . $e->getMessage());
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projetos</title>
-    <link rel="stylesheet" href="./css/projetos.css">
+    <title>Notícias</title>
+    <link rel="stylesheet" href="../css/notic.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@latest/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="icon" type="image/png" href="./img/logo/logotop.png">
+    <link rel="icon" type="image/png" href="../img/logo/logotop.png">
+    <script src="../noticias.js" defer></script>
 </head>
 
 <body>
     <header>
         <div class="container">
-            <a href="index.php">
-                <img src="./img/senai_technews.png" alt="SENAI Logo" class="logo">
+            <a href="../index.php">
+                <img src="../img/senai_technews.png" alt="SENAI Logo" class="logo">
             </a>
             <div class="menu-icon" id="menuIcon" aria-label="Abrir menu" tabindex="0">
                 <span></span>
@@ -35,24 +56,46 @@
             </nav>
         </div>
     </header>
-    <main>
-        <section class="projetos-senai">
-            <h2>Projetos do SENAI - Taubaté</h2>
 
-            <div class="section section-2024">
-                <h1>2024</h1>
-                <p>Projetos feitos pelos alunos do</p>
-                <p>SENAI-Taubaté no ano de 2024</p>
-                <a href="projetoquatro.php" class="btn">Saiba mais</a>
-            </div>
+    <section id="noticias-manuais">
+        <div class="masonry-layout">
+            <?php foreach ($noticias as $noticia): ?>
+                <div class="card-noticia">
+                    <div class="categoria <?= strtolower(str_replace(' ', '-', $noticia['categoria'])) ?>">
+                        <?= htmlspecialchars($noticia['categoria']) ?>
+                    </div>
+                    <h3><?= htmlspecialchars($noticia['titulo']) ?></h3>
+                    <p>
+                        <?=
+                            nl2br(
+                                preg_replace(
+                                    '/(https?:\/\/[^\s]+)/',
+                                    '<a href="$1" target="_blank">$1</a>',
+                                    htmlspecialchars($noticia['conteudo'])
+                                )
+                            )
+                            ?>
+                    </p>
+                    <span class="leia-mais">Leia mais</span>
+                    <div class="rodape-card">
+                        <span class="autor"><?= htmlspecialchars($noticia['autor']) ?></span>
+                        <span class="data"><?= date('d/m/Y H:i', strtotime($noticia['data_publicacao'])) ?></span>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </section>
 
-            <div class="section section-2025">
-                <h1>2025</h1>
-                <p>Projetos feitos pelos alunos do</p>
-                <p>SENAI-Taubaté no ano de 2025</p>
-                <a href="projetocinco.php" class="btn">Saiba mais</a>
-            </div>
-    </main>
+    <div class="container-news">
+        <h1>Notícias em Destaque</h1>
+        <div class="search-bar">
+            <input type="text" id="search-input" placeholder="Buscar notícias...">
+            <button id="search-button"><i class="fas fa-search"></i> Buscar</button>
+        </div>
+        <div class="category-filter"></div>
+        <div class="masonry-container" id="news-container"></div>
+    </div>
+
     <footer>
         <div class="social-bar">
             <a href="https://www.facebook.com/senaisaopaulo"><i class="fab fa-facebook-f"></i></a>
@@ -88,10 +131,7 @@
                         </ul>
                     </div>
                     <div class="footer-col">
-                        <h4>
-                            <a href="./login.php" style="color: white; text-decoration: none;">Entrar</a>
-                        </h4>
-
+                        <h4><a href="./login.php" style="color: white; text-decoration: none;">Entrar</a></h4>
                     </div>
                 </div>
             </div>
@@ -110,6 +150,36 @@
             if (!nav.contains(e.target) && !menuIcon.contains(e.target)) {
                 nav.classList.remove('active');
             }
+        });
+
+        document.querySelectorAll('.card-noticia .leia-mais').forEach(link => {
+            link.addEventListener('click', () => {
+                const p = link.previousElementSibling;
+                p.classList.toggle('expanded');
+                link.textContent = p.classList.contains('expanded') ? 'Leia menos' : 'Leia mais';
+            });
+        });
+          document.addEventListener("DOMContentLoaded", function() {
+            const cards = document.querySelectorAll('.card-noticia');
+
+            cards.forEach(card => {
+            const paragrafo = card.querySelector('p');
+            const leiaMais = card.querySelector('.leia-mais');
+
+            const clone = paragrafo.cloneNode(true);
+            clone.style.maxHeight = 'none';
+            clone.style.position = 'absolute';
+            clone.style.visibility = 'hidden';
+            clone.style.pointerEvents = 'none';
+            clone.style.width = getComputedStyle(paragrafo).width;
+            card.appendChild(clone);
+
+            if (clone.offsetHeight <= paragrafo.offsetHeight) {
+                if (leiaMais) leiaMais.style.display = 'none';
+            }
+
+            card.removeChild(clone);
+            });
         });
     </script>
 </body>

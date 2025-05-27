@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Professores</title>
-    <link rel="stylesheet" href="./css/prof.css">
+    <link rel="stylesheet" href="../css/prof.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
@@ -14,14 +14,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="./img/logo/logotop.png">
+    <link rel="icon" type="image/png" href="../img/logo/logotop.png">
 </head>
 
 <body>
     <header>
         <div class="container">
-            <a href="index.php">
-                <img src="./img/senai_technews.png" alt="SENAI Logo" class="logo">
+            <a href="../index.php">
+                <img src="../img/senai_technews.png" alt="SENAI Logo" class="logo">
             </a>
             <div class="menu-icon" id="menuIcon" aria-label="Abrir menu" tabindex="0">
                 <span></span>
@@ -44,14 +44,14 @@
             <div class="professor">
                 <div class="foto">
                     <div class="prof">
-                        <img src="./img/prof/wesleyfioreze.png" alt="Wesley Fioreze">
+                        <img src="../img/prof/wesleyfioreze.png" alt="Wesley Fioreze">
                     </div>
                     <div class="link">
                         <a href="https://www.linkedin.com/in/wesley-fioreze/" target="_blank">
-                            <img src="./img/logo/logo_linkedin.png" alt="Linkedin">
+                            <img src="../img/logo/logo_linkedin.png" alt="Linkedin">
                         </a>
                         <a href="https://github.com/fiorezewesley" target="_blank">
-                            <img src="./img/logo/logo_git.png" alt="GitHub">
+                            <img src="../img/logo/logo_git.png" alt="GitHub">
                         </a>
                     </div>
                 </div>
@@ -69,15 +69,15 @@
             <div class="professor">
                 <div class="foto">
                     <div class="prof">
-                        <img src="./img/prof/greggori.jpeg" alt="Greggori Bossolan">
+                        <img src="../img/prof/greggori.jpeg" alt="Greggori Bossolan">
                     </div>
                     <div class="link">
                         <a href="https://www.linkedin.com/in/greggori-bossolan-candido-a65993180/" target="_blank">
-                            <img src="./img/logo/logo_linkedin.png" alt="Linkedin">
+                            <img src="../img/logo/logo_linkedin.png" alt="Linkedin">
                         </a>
                         </a>
                         <a href="https://github.com/Greggori" target="_blank">
-                            <img src="./img/logo/logo_git.png" alt="GitHub">
+                            <img src="../img/logo/logo_git.png" alt="GitHub">
                         </a>
                     </div>
                 </div>
@@ -96,14 +96,14 @@
             <div class="professor">
                 <div class="foto">
                     <div class="prof">
-                        <img src="./img/prof/luizcardoso.jpeg" alt="Luiz Cardoso">
+                        <img src="../img/prof/luizcardoso.jpeg" alt="Luiz Cardoso">
                     </div>
                     <div class="link">
                         <a href="https://www.linkedin.com/in/gleise-fabiane-da-silva-rosa-7826b548/" target="_blank">
-                            <img src="./img/logo/logo_linkedin.png" alt="Linkedin">
+                            <img src="../img/logo/logo_linkedin.png" alt="Linkedin">
                         </a>
                         <a href="https://github.com/Cardoso30S" target="_blank">
-                            <img src="./img/logo/logo_git.png" alt="GitHub">
+                            <img src="../img/logo/logo_git.png" alt="GitHub">
                         </a>
                     </div>
                 </div>
@@ -121,14 +121,14 @@
             <div class="professor">
                 <div class="foto">
                     <div class="prof">
-                        <img src="./img/prof/gleise.jpg" alt="Luiz Cardoso">
+                        <img src="../img/prof/gleise.jpg" alt="Luiz Cardoso">
                     </div>
                     <div class="link">
                         <a href="https://www.linkedin.com/in/gleise-fabiane-da-silva-rosa-7826b548/" target="_blank">
-                            <img src="./img/logo/logo_linkedin.png" alt="Linkedin">
+                            <img src="../img/logo/logo_linkedin.png" alt="Linkedin">
                         </a>
                         <a href="https://github.com/Cardoso30S" target="_blank">
-                            <img src="./img/logo/logo_git.png" alt="GitHub">
+                            <img src="../img/logo/logo_git.png" alt="GitHub">
                         </a>
                     </div>
                 </div>
@@ -145,15 +145,15 @@
             <div class="professor">
                 <div class="foto">
                     <div class="prof">
-                        <img src="./img/prof/lucas.jpg" alt="Greggori Bossolan">
+                        <img src="../img/prof/lucas.jpg" alt="Greggori Bossolan">
                     </div>
                     <div class="link">
                         <a href="https://www.linkedin.com/in/lucas10/" target="_blank">
-                            <img src="./img/logo/logo_linkedin.png" alt="Linkedin">
+                            <img src="../img/logo/logo_linkedin.png" alt="Linkedin">
                         </a>
                         </a>
                         <a href="https://github.com/lucasmsdev/lucasmsdev" target="_blank">
-                            <img src="./img/logo/logo_git.png" alt="GitHub">
+                            <img src="../img/logo/logo_git.png" alt="GitHub">
                         </a>
                     </div>
                 </div>

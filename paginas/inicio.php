@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Curso Técnico - Desenvolvimento de Sistemas</title>
-    <link rel="stylesheet" href="./css/ds.css">
+    <link rel="stylesheet" href="../css/ds.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
@@ -14,14 +14,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="./img/logo/logotop.png">
+    <link rel="icon" type="image/png" href="../img/logo/logotop.png">
 </head>
 
 <body>
     <header>
         <div class="container">
-            <a href="index.php">
-                <img src="./img/senai_technews.png" alt="SENAI Logo" class="logo">
+            <a href="../index.php">
+                <img src="../img/senai_technews.png" alt="SENAI Logo" class="logo">
             </a>
             <div class="menu-icon" id="menuIcon" aria-label="Abrir menu" tabindex="0">
                 <span></span>
@@ -39,7 +39,7 @@
         </div>
     </header>
     <div class="banner">
-        <img src="./img/bannerDs.png" alt="">
+        <img src="../img/bannerDs.png" alt="">
     </div>
     <main>
         <h1 class="titulo fade-in">CURSO TÉCNICO DE DESENVOLVIMENTO DE SISTEMAS</h1>
@@ -68,7 +68,7 @@
                 <div class="flip-card">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
-                            <img src="./img/areas/solucaoiot.png" alt="Avatar">
+                            <img src="../img/areas/solucaoiot.png" alt="Avatar">
                         </div>
                         <div class="flip-card-back">
                             <h1>Solução IoT</h1>
@@ -81,7 +81,7 @@
                 <div class="flip-card">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
-                            <img src="./img/areas/dba.png" alt="Avatar">
+                            <img src="../img/areas/dba.png" alt="Avatar">
                         </div>
                         <div class="flip-card-back">
                             <h1>Banco de Dados</h1>
@@ -95,7 +95,7 @@
                 <div class="flip-card">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
-                            <img src="./img/areas/ciberseguranca.png" alt="Avatar">
+                            <img src="../img/areas/ciberseguranca.png" alt="Avatar">
                         </div>
                         <div class="flip-card-back">
                             <h1>Cibersegurança</h1>
@@ -112,7 +112,7 @@
                 <div class="flip-card">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
-                            <img src="./img/areas/backend.png" alt="Avatar">
+                            <img src="../img/areas/backend.png" alt="Avatar">
                         </div>
                         <div class="flip-card-back">
                             <h1>Back-end</h1>
@@ -128,7 +128,7 @@
                 <div class="flip-card">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
-                            <img src="./img/areas/devia.png" alt="Avatar">
+                            <img src="../img/areas/devia.png" alt="Avatar">
                         </div>
                         <div class="flip-card-back">
                             <h1>Dev IA</h1>
@@ -142,7 +142,7 @@
                 <div class="flip-card">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
-                            <img src="./img/areas/frontend.png" alt="Avatar">
+                            <img src="../img/areas/frontend.png" alt="Avatar">
                         </div>
                         <div class="flip-card-back">
                             <h1>Front-end</h1>
@@ -158,7 +158,7 @@
                 <div class="flip-card">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
-                            <img src="./img/areas/pentester.png" alt="Data Science">
+                            <img src="../img/areas/pentester.png" alt="Data Science">
                         </div>
                         <div class="flip-card-back">
                             <h1>Pentester</h1>
@@ -174,7 +174,7 @@
                 <div class="flip-card">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
-                            <img src="./img/areas/mobile.png" alt="Game Development">
+                            <img src="../img/areas/mobile.png" alt="Game Development">
                         </div>
                         <div class="flip-card-back">
                             <h1>Mobile</h1>
@@ -188,7 +188,7 @@
                 <div class="flip-card">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
-                            <img src="./img/areas/qatester.png" alt="Cloud Computing">
+                            <img src="../img/areas/qatester.png" alt="Cloud Computing">
                         </div>
                         <div class="flip-card-back">
                             <h1>QA Tester</h1>

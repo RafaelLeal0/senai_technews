@@ -1,10 +1,10 @@
 <?php
 require_once 'conexao.php';
 
-$projetos2024 = [];
+$projetos2025 = [];
 try {
-    $stmt = $conn->query("SELECT * FROM projetos2024");
-    $projetos2024 = $stmt->fetchAll();
+    $stmt = $conn->query("SELECT * FROM projetos2025");
+    $projetos2025 = $stmt->fetchAll();
 } catch (PDOException $e) {
     echo "Erro ao carregar projetos: " . $e->getMessage();
 }
@@ -17,20 +17,20 @@ try {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projetos</title>
-    <link rel="stylesheet" href="./css/projetocinco.css">
+    <link rel="stylesheet" href="../css/projetocinco.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@latest/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="icon" type="image/png" href="./img/logo/logotop.png">
+    <link rel="icon" type="image/png" href="../img/logo/logotop.png">
 </head>
 
 <body>
     <header>
         <div class="container">
-            <a href="index.php">
-                <img src="./img/senai_technews.png" alt="SENAI Logo" class="logo">
+            <a href="../index.php">
+                <img src="../img/senai_technews.png" alt="SENAI Logo" class="logo">
             </a>
             <div class="menu-icon" id="menuIcon" aria-label="Abrir menu" tabindex="0">
                 <span></span>
@@ -48,14 +48,14 @@ try {
         </div>
     </header>
     <main>
-        <section class="projetos-2024-db">
+        <section class="projetos-2025-db">
             <div class="header-projetos">
-                <h2>2024</h2>
+                <h2>2025</h2>
                 <p>Projetos desenvolvidos pelos alunos do SENAI Taubaté</p>
             </div>
 
             <div class="projetos-grid">
-                <?php foreach ($projetos2024 as $projeto): ?>
+                <?php foreach ($projetos2025 as $projeto): ?>
                     <?php
                     $finfo = new finfo(FILEINFO_MIME_TYPE);
                     $mime = $finfo->buffer($projeto['imagem_projeto']);
@@ -116,7 +116,6 @@ try {
             <a>Copyright 2025 © Todos os direitos reservados.</a>
         </div>
     </footer>
-
     <script>
         const menuIcon = document.getElementById('menuIcon');
         const nav = document.getElementById('mainNav');
@@ -128,9 +127,7 @@ try {
                 nav.classList.remove('active');
             }
         });
-
     </script>
-
 </body>
 
 </html>

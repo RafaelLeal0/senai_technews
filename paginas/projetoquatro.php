@@ -1,21 +1,12 @@
 <?php
 require_once 'conexao.php';
 
-if (!isset($conn)) {
-    die("Erro: Conexão com o banco de dados não foi estabelecida.");
-}
-
+$projetos2024 = [];
 try {
-    $stmt = $conn->query("
-        SELECT n.*, p.nome AS autor
-        FROM noticias n
-        INNER JOIN professores p ON n.id_professor = p.id_professor
-        ORDER BY data_publicacao DESC
-    ");
-
-    $noticias = $stmt->fetchAll();
+    $stmt = $conn->query("SELECT * FROM projetos2024");
+    $projetos2024 = $stmt->fetchAll();
 } catch (PDOException $e) {
-    die("Erro ao buscar notícias: " . $e->getMessage());
+    echo "Erro ao carregar projetos: " . $e->getMessage();
 }
 ?>
 
@@ -25,21 +16,21 @@ try {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Notícias</title>
-    <link rel="stylesheet" href="./css/notic.css">
+    <title>Projetos</title>
+    <link rel="stylesheet" href="../css/projetocinco.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@latest/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="icon" type="image/png" href="./img/logo/logotop.png">
-    <script src="noticias.js" defer></script>
+    <link rel="icon" type="image/png" href="../img/logo/logotop.png">
 </head>
 
 <body>
     <header>
         <div class="container">
-            <a href="index.php">
-                <img src="./img/senai_technews.png" alt="SENAI Logo" class="logo">
+            <a href="../index.php">
+                <img src="../img/senai_technews.png" alt="SENAI Logo" class="logo">
             </a>
             <div class="menu-icon" id="menuIcon" aria-label="Abrir menu" tabindex="0">
                 <span></span>
@@ -56,45 +47,30 @@ try {
             </nav>
         </div>
     </header>
+    <main>
+        <section class="projetos-2024-db">
+            <div class="header-projetos">
+                <h2>2024</h2>
+                <p>Projetos desenvolvidos pelos alunos do SENAI Taubaté</p>
+            </div>
 
-    <section id="noticias-manuais">
-        <div class="masonry-layout">
-            <?php foreach ($noticias as $noticia): ?>
-                <div class="card-noticia">
-                    <div class="categoria <?= strtolower(str_replace(' ', '-', $noticia['categoria'])) ?>">
-                        <?= htmlspecialchars($noticia['categoria']) ?>
+            <div class="projetos-grid">
+                <?php foreach ($projetos2024 as $projeto): ?>
+                    <?php
+                    $finfo = new finfo(FILEINFO_MIME_TYPE);
+                    $mime = $finfo->buffer($projeto['imagem_projeto']);
+                    $base64 = base64_encode($projeto['imagem_projeto']);
+                    ?>
+                    <div class="projeto-item" style="background-image: url('data:<?= $mime ?>;base64,<?= $base64 ?>')">
+                        <div class="projeto-overlay">
+                            <h3><?= htmlspecialchars($projeto['titulo']) ?></h3>
+                            <p><?= htmlspecialchars($projeto['descricao']) ?></p>
+                        </div>
                     </div>
-                    <h3><?= htmlspecialchars($noticia['titulo']) ?></h3>
-                    <p>
-                        <?=
-                            nl2br(
-                                preg_replace(
-                                    '/(https?:\/\/[^\s]+)/',
-                                    '<a href="$1" target="_blank">$1</a>',
-                                    htmlspecialchars($noticia['conteudo'])
-                                )
-                            )
-                            ?>
-                    </p>
-                    <span class="leia-mais">Leia mais</span>
-                    <div class="rodape-card">
-                        <span class="autor"><?= htmlspecialchars($noticia['autor']) ?></span>
-                        <span class="data"><?= date('d/m/Y H:i', strtotime($noticia['data_publicacao'])) ?></span>
-                    </div>
-                </div>
-            <?php endforeach; ?>
-        </div>
-    </section>
-
-    <div class="container-news">
-        <h1>Notícias em Destaque</h1>
-        <div class="search-bar">
-            <input type="text" id="search-input" placeholder="Buscar notícias...">
-            <button id="search-button"><i class="fas fa-search"></i> Buscar</button>
-        </div>
-        <div class="category-filter"></div>
-        <div class="masonry-container" id="news-container"></div>
-    </div>
+                <?php endforeach; ?>
+            </div>
+        </section>
+    </main>
 
     <footer>
         <div class="social-bar">
@@ -140,6 +116,7 @@ try {
             <a>Copyright 2025 © Todos os direitos reservados.</a>
         </div>
     </footer>
+
     <script>
         const menuIcon = document.getElementById('menuIcon');
         const nav = document.getElementById('mainNav');
@@ -152,36 +129,8 @@ try {
             }
         });
 
-        document.querySelectorAll('.card-noticia .leia-mais').forEach(link => {
-            link.addEventListener('click', () => {
-                const p = link.previousElementSibling;
-                p.classList.toggle('expanded');
-                link.textContent = p.classList.contains('expanded') ? 'Leia menos' : 'Leia mais';
-            });
-        });
-          document.addEventListener("DOMContentLoaded", function() {
-            const cards = document.querySelectorAll('.card-noticia');
-
-            cards.forEach(card => {
-            const paragrafo = card.querySelector('p');
-            const leiaMais = card.querySelector('.leia-mais');
-
-            const clone = paragrafo.cloneNode(true);
-            clone.style.maxHeight = 'none';
-            clone.style.position = 'absolute';
-            clone.style.visibility = 'hidden';
-            clone.style.pointerEvents = 'none';
-            clone.style.width = getComputedStyle(paragrafo).width;
-            card.appendChild(clone);
-
-            if (clone.offsetHeight <= paragrafo.offsetHeight) {
-                if (leiaMais) leiaMais.style.display = 'none';
-            }
-
-            card.removeChild(clone);
-            });
-        });
     </script>
+
 </body>
 
 </html>

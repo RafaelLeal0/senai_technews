@@ -1,15 +1,3 @@
-<?php
-require_once 'conexao.php';
-
-$projetos2025 = [];
-try {
-    $stmt = $conn->query("SELECT * FROM projetos2025");
-    $projetos2025 = $stmt->fetchAll();
-} catch (PDOException $e) {
-    echo "Erro ao carregar projetos: " . $e->getMessage();
-}
-?>
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -17,20 +5,20 @@ try {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projetos</title>
-    <link rel="stylesheet" href="./css/projetocinco.css">
+    <link rel="stylesheet" href="../css/projetos.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@latest/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="icon" type="image/png" href="./img/logo/logotop.png">
+    <link rel="icon" type="image/png" href="../img/logo/logotop.png">
 </head>
 
 <body>
     <header>
         <div class="container">
-            <a href="index.php">
-                <img src="./img/senai_technews.png" alt="SENAI Logo" class="logo">
+            <a href="../index.php">
+                <img src="../img/senai_technews.png" alt="SENAI Logo" class="logo">
             </a>
             <div class="menu-icon" id="menuIcon" aria-label="Abrir menu" tabindex="0">
                 <span></span>
@@ -48,30 +36,23 @@ try {
         </div>
     </header>
     <main>
-        <section class="projetos-2025-db">
-            <div class="header-projetos">
-                <h2>2025</h2>
-                <p>Projetos desenvolvidos pelos alunos do SENAI Taubaté</p>
+        <section class="projetos-senai">
+            <h2>Projetos do SENAI - Taubaté</h2>
+
+            <div class="section section-2024">
+                <h1>2024</h1>
+                <p>Projetos feitos pelos alunos do</p>
+                <p>SENAI-Taubaté no ano de 2024</p>
+                <a href="projetoquatro.php" class="btn">Saiba mais</a>
             </div>
 
-            <div class="projetos-grid">
-                <?php foreach ($projetos2025 as $projeto): ?>
-                    <?php
-                    $finfo = new finfo(FILEINFO_MIME_TYPE);
-                    $mime = $finfo->buffer($projeto['imagem_projeto']);
-                    $base64 = base64_encode($projeto['imagem_projeto']);
-                    ?>
-                    <div class="projeto-item" style="background-image: url('data:<?= $mime ?>;base64,<?= $base64 ?>')">
-                        <div class="projeto-overlay">
-                            <h3><?= htmlspecialchars($projeto['titulo']) ?></h3>
-                            <p><?= htmlspecialchars($projeto['descricao']) ?></p>
-                        </div>
-                    </div>
-                <?php endforeach; ?>
+            <div class="section section-2025">
+                <h1>2025</h1>
+                <p>Projetos feitos pelos alunos do</p>
+                <p>SENAI-Taubaté no ano de 2025</p>
+                <a href="projetocinco.php" class="btn">Saiba mais</a>
             </div>
-        </section>
     </main>
-
     <footer>
         <div class="social-bar">
             <a href="https://www.facebook.com/senaisaopaulo"><i class="fab fa-facebook-f"></i></a>
@@ -107,7 +88,10 @@ try {
                         </ul>
                     </div>
                     <div class="footer-col">
-                        <h4><a href="./login.php" style="color: white; text-decoration: none;">Entrar</a></h4>
+                        <h4>
+                            <a href="./login.php" style="color: white; text-decoration: none;">Entrar</a>
+                        </h4>
+
                     </div>
                 </div>
             </div>

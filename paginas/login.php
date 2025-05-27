@@ -41,8 +41,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="./img/logo/logotop.png">
-    <link rel="stylesheet" href="./css/login.css">
+    <link rel="icon" type="image/png" href="../img/logo/logotop.png">
+    <link rel="stylesheet" href="../css/login.css">
 </head>
 
 <body>
@@ -50,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <h1>BEM VINDO AO <br><span>SENAI TECHNEWS</span></h1>
     </div>
     <div class="right">
-        <img src="./img/senai_technews.png" class="logo" alt="SENAI Logo">
+        <img src="../img/senai_technews.png" class="logo" alt="SENAI Logo">
         <form method="POST" action="">
             <?php if (isset($erro)): ?>
                 <div class="erro"><?= $erro ?></div>
@@ -69,6 +69,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </form>
     </div>
 
-    <a href="index.php" class="back-arrow">&#8592;</a>
+    <a href="../index.php" class="back-arrow">&#8592;</a>
 </body>
 </html>

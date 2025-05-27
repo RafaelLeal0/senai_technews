@@ -30,10 +30,10 @@
       </div>
       <nav id="mainNav">
         <ul class="itens">
-          <li><a href="inicio.php">CURSO</a></li>
-          <li><a href="senai.php">SENAI TAUBATÉ</a></li>
-          <li><a href="noticias.php">NOTÍCIAS</a></li>
-          <li><a href="projetos.php">PROJETOS</a></li>
+          <li><a href="./paginas/inicio.php">CURSO</a></li>
+          <li><a href="./paginas/senai.php">SENAI TAUBATÉ</a></li>
+          <li><a href="./paginas/noticias.php">NOTÍCIAS</a></li>
+          <li><a href="./paginas/projetos.php">PROJETOS</a></li>
         </ul>
       </nav>
     </div>
@@ -98,16 +98,16 @@
           <div class="footer-col">
             <h4>Professores</h4>
             <ul>
-              <li><a href="./prof.php">Wesley Fioreze</a></li>
-              <li><a href="./prof.php">Luis Cardoso</a></li>
-              <li><a href="./prof.php#">Greggori Bossolan</a></li>
-              <li><a href="./prof.php">Gleise Rosa</a></li>
-              <li><a href="./prof.php">Lucas Machado</a></li>
+              <li><a href="./paginas/prof.php">Wesley Fioreze</a></li>
+              <li><a href="./paginas/prof.php">Luis Cardoso</a></li>
+              <li><a href="./paginas/prof.php#">Greggori Bossolan</a></li>
+              <li><a href="./paginas/prof.php">Gleise Rosa</a></li>
+              <li><a href="./paginas/prof.php">Lucas Machado</a></li>
             </ul>
           </div>
           <div class="footer-col">
             <h4>
-              <a href="./login.php" style="color: white; text-decoration: none;">Entrar</a>
+              <a href="./paginas/login.php" style="color: white; text-decoration: none;">Entrar</a>
             </h4>
 
           </div>
