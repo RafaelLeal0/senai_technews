@@ -4,12 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>SENAI Taubaté</title>
-
-  <!-- CSS -->
   <link rel="stylesheet" href="<?php echo $css_path; ?>">
   <link rel="stylesheet" href="./css/senai.css">
-
-  <!-- Fonts & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet"/>
@@ -25,15 +21,11 @@
       <a href="index.php">
         <img src="./img/senai_technews.png" alt="SENAI Logo" class="logo"/>
       </a>
-
-      <!-- Ícone “hambúrguer” -->
       <div class="menu-icon" id="menuIcon" aria-label="Abrir menu" tabindex="0">
         <span></span>
         <span></span>
         <span></span>
       </div>
-
-      <!-- Menu lateral -->
       <nav id="mainNav">
         <ul class="itens">
           <li><a href="inicio.php">CURSO</a></li>
@@ -118,16 +110,11 @@
     </div>
   </footer>
 
-  <!-- Botão “Voltar ao topo” -->
   <button id="topBtn"><i class="fa-solid fa-arrow-up"></i></button>
-
-  <!-- JAVASCRIPT: deve ficar dentro do <body>, antes de fechar a tag -->
   <script>
-    // ===== MENU HAMBÚRGUER =====
     const menuIcon = document.getElementById('menuIcon');
     const nav = document.getElementById('mainNav');
 
-    // Ao clicar ou apertar “Enter” no ícone, alterna a classe “active” no <nav>
     menuIcon.addEventListener('click', () => {
       nav.classList.toggle('active');
     });
@@ -137,14 +124,12 @@
       }
     });
 
-    // Se o usuário clicar fora do menu, fecha o sidebar
     document.addEventListener('click', (e) => {
       if (!nav.contains(e.target) && !menuIcon.contains(e.target)) {
         nav.classList.remove('active');
       }
     });
 
-    // ===== ANIMAÇÃO DE “fade-in” PARA .titulo e .descricao =====
     document.addEventListener('DOMContentLoaded', () => {
       const elements = document.querySelectorAll('.descricao, .titulo');
 
@@ -163,7 +148,6 @@
       checkScroll();
     });
 
-    // ===== BOTÃO “VOLTAR AO TOPO” =====
     const topBtn = document.getElementById('topBtn');
     window.addEventListener('scroll', () => {
       if (document.documentElement.scrollTop > 200) {

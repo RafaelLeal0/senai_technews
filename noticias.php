@@ -65,7 +65,6 @@ try {
                         <?= htmlspecialchars($noticia['categoria']) ?>
                     </div>
                     <h3><?= htmlspecialchars($noticia['titulo']) ?></h3>
-                    <!-- Conteúdo com links clicáveis -->
                     <p>
                         <?=
                             nl2br(

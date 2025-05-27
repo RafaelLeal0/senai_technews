@@ -1,4 +1,3 @@
-/* ====== BASE ====== */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
 * {
@@ -31,24 +30,17 @@ img {
   height: auto;
   object-fit: cover;
 }
-
-/* ====== LAYOUT PRINCIPAL ====== */
-
-/* Container geral para largura máxima e centralização */
 .container,
 main.container {
   width: 90%;
   max-width: 1200px;
   margin: 0 auto;
 }
-
-/* Ajustes específicos de margem para main.container */
 main.container {
   margin: 60px auto;
   padding: 0 20px;
 }
 
-/* ====== CABEÇALHO E NAVEGAÇÃO ====== */
 header {
   display: flex;
   justify-content: space-between;
@@ -72,7 +64,6 @@ header .container img {
   height: 70px;
 }
 
-/* Ícone de menu (aparece em telas menores) */
 .menu-icon {
   display: none;
   flex-direction: column;
@@ -94,7 +85,6 @@ header .container img {
   transition: 0.3s;
 }
 
-/* Navegação principal */
 nav {
   display: flex;
   flex-grow: 1;
@@ -136,7 +126,6 @@ nav ul li a:hover::after {
   left: 0;
 }
 
-/* Links extras no cabeçalho (login, cadastro etc.) */
 .header-links {
   display: flex;
   margin-left: auto;
@@ -171,13 +160,11 @@ nav ul li a:hover::after {
   left: 0;
 }
 
-/* Contêiner “itens” (utilizado em algumas seções) */
 .itens {
   margin-left: 200px;
   align-items: center;
 }
 
-/* ====== BANNER E IMAGENS PRINCIPAIS ====== */
 .banner-container {
   background-color: #f8f8f8;
   padding: 30px 0;
@@ -207,7 +194,6 @@ nav ul li a:hover::after {
   }
 }
 
-/* ====== HERO ====== */
 .hero {
   display: flex;
   flex-direction: column;
@@ -248,7 +234,6 @@ nav ul li a:hover::after {
   clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
 }
 
-/* ====== SEÇÃO VERMELHA ====== */
 .section-red {
   background-color: #b91c1c;
   color: #fff;
@@ -276,7 +261,6 @@ nav ul li a:hover::after {
   text-align: justify;
 }
 
-/* ====== INTRO (texto + imagens inclinadas) ====== */
 .intro-section {
   display: flex;
   justify-content: space-between;
@@ -334,7 +318,6 @@ nav ul li a:hover::after {
   box-shadow: 0 16px 36px rgba(0, 0, 0, 0.25);
 }
 
-/* ====== SEÇÃO DE PROFESSORES ====== */
 .professores {
   display: flex;
   flex-direction: column;
@@ -375,7 +358,6 @@ nav ul li a:hover::after {
   text-align: center;
 }
 
-/* ====== CONTEÚDO PRINCIPAL ====== */
 .main-content {
   background-color: #fff;
   padding: 40px;
@@ -406,7 +388,6 @@ nav ul li a:hover::after {
   text-align: justify;
 }
 
-/* ====== SEÇÃO “content” (genérica) ====== */
 .content {
   background-color: #fff;
   padding: 40px;
@@ -427,7 +408,6 @@ nav ul li a:hover::after {
   text-align: justify;
 }
 
-/* ====== SEÇÃO “container1” (destaque cinza) ====== */
 .container1 {
   background-color: #989797;
   color: #fff;
@@ -445,7 +425,6 @@ nav ul li a:hover::after {
   margin-bottom: 40px;
 }
 
-/* Texto interno da seção cinza */
 .content1 {
   max-width: 900px;
   margin: 0 auto;
@@ -457,9 +436,8 @@ nav ul li a:hover::after {
   margin-bottom: 20px;
 }
 
-/* ====== BOTÃO VOLTAR AO TOPO ====== */
 #topBtn {
-  display: none; /* Usar JavaScript para exibir quando rolar a página */
+  display: none;
   position: fixed;
   bottom: 20px;
   right: 20px;
@@ -472,7 +450,6 @@ nav ul li a:hover::after {
   font-size: 20px;
 }
 
-/* ====== RODAPÉ ====== */
 .footer {
   background-color: #B91D32;
   padding: 30px 0;
@@ -520,7 +497,6 @@ nav ul li a:hover::after {
   padding-left: 8px;
 }
 
-/* ícones de redes sociais no rodapé */
 .footer-col .social-links a {
   display: inline-block;
   width: 40px;
@@ -539,7 +515,6 @@ nav ul li a:hover::after {
   color: #24262b;
 }
 
-/* ====== BARRA SOCIAL SUPERIOR ====== */
 .social-bar {
   background-color: #E30613;
   text-align: center;
@@ -558,7 +533,6 @@ nav ul li a:hover::after {
   color: #f1f1f1;
 }
 
-/* ====== ANIMAÇÕES E CLASSES DE APARECER ====== */
 .fade-in,
 .descricao,
 .titulo {
@@ -567,15 +541,11 @@ nav ul li a:hover::after {
   transition: opacity 1s ease-out, transform 1s ease-out;
 }
 
-/* ====== UTILITY: linhas flexíveis e agrupamentos ====== */
 .row {
   display: flex;
   flex-wrap: wrap;
 }
 
-/* ====== MEDIA QUERIES ====== */
-
-/* Até 900px: cabeçalho responsivo e menu mobile */
 @media screen and (max-width: 900px) {
   header {
     flex-direction: row;
@@ -646,7 +616,6 @@ nav ul li a:hover::after {
   }
 }
 
-/* Até 768px: ajustes de fonte, tamanhos de imagem e espaçamentos */
 @media (max-width: 768px) {
   .hero h1 {
     font-size: 1.2rem;
@@ -692,7 +661,6 @@ nav ul li a:hover::after {
   }
 }
 
-/* Até 767px: responsividade do rodapé */
 @media (max-width: 767px) {
   .footer-col {
     width: 50%;
@@ -700,7 +668,6 @@ nav ul li a:hover::after {
   }
 }
 
-/* Até 600px: ocultar imagens grandes para economia de banda */
 @media (max-width: 600px) {
   .banner,
   .banner img,
@@ -713,7 +680,6 @@ nav ul li a:hover::after {
   }
 }
 
-/* Até 574px: responsividade avançada do rodapé */
 @media (max-width: 574px) {
   .footer-col {
     width: 100%;

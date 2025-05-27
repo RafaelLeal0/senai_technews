@@ -4,37 +4,55 @@ require_once 'conexao.php';
 
 $data = json_decode(file_get_contents("php://input"), true);
 
-if (!isset($data['id_projeto'])) {
-    echo json_encode(['success' => false, 'message' => 'ID do projeto não fornecido']);
+if (!isset($data['id_projeto'], $data['ano'])) {
+    echo json_encode([
+        'success' => false,
+        'message' => 'ID do projeto ou ano não fornecido'
+    ]);
     exit;
 }
 
-$idProjeto = $data['id_projeto'];
+$idProjeto = (int) $data['id_projeto'];
+$ano       = (int) $data['ano'];
+
+$tabelasPermitidas = [
+    2024 => 'projetos2024',
+    2025 => 'projetos2025'
+];
+
+if (!array_key_exists($ano, $tabelasPermitidas)) {
+    echo json_encode([
+        'success' => false,
+        'message' => 'Ano inválido'
+    ]);
+    exit;
+}
+
+$tabela = $tabelasPermitidas[$ano];
 
 try {
-    $stmt2024 = $conn->prepare("SELECT * FROM projetos2024 WHERE id_projeto = ?");
-    $stmt2024->execute([$idProjeto]);
+    $sql  = "DELETE FROM {$tabela} WHERE id_projeto = ?";
+    $stmt = $conn->prepare($sql);
 
-    if ($stmt2024->rowCount() > 0) {
-        $stmtDelete = $conn->prepare("DELETE FROM projetos2024 WHERE id_projeto = ?");
-    } else {
-        $stmt2025 = $conn->prepare("SELECT * FROM projetos2025 WHERE id_projeto = ?");
-        $stmt2025->execute([$idProjeto]);
-
-        if ($stmt2025->rowCount() > 0) {
-            $stmtDelete = $conn->prepare("DELETE FROM projetos2025 WHERE id_projeto = ?");
+    if ($stmt->execute([$idProjeto])) {
+        if ($stmt->rowCount() > 0) {
+            echo json_encode(['success' => true]);
         } else {
-            echo json_encode(['success' => false, 'message' => 'Projeto não encontrado']);
-            exit;
+            echo json_encode([
+                'success' => false,
+                'message' => 'Projeto não encontrado no ano informado'
+            ]);
         }
+    } else {
+        echo json_encode([
+            'success' => false,
+            'message' => 'Erro ao executar exclusão'
+        ]);
     }
 
-    if ($stmtDelete->execute([$idProjeto])) {
-        echo json_encode(['success' => true]);
-    } else {
-        echo json_encode(['success' => false, 'message' => 'Erro ao excluir']);
-    }
 } catch (PDOException $e) {
-    echo json_encode(['success' => false, 'message' => $e->getMessage()]);
+    echo json_encode([
+        'success' => false,
+        'message' => 'Erro de banco de dados: ' . $e->getMessage()
+    ]);
 }
-?>

@@ -121,7 +121,7 @@ $professor = $_SESSION['professor'];
                         <i class="fas fa-edit"></i>
                     </button>
 
-                    <button class="btn-delete-projeto" data-id="<?= $projeto['id_projeto'] ?>">
+                    <button class="btn-delete-projeto" data-id="<?= $projeto['id_projeto'] ?>" data-ano="<?= $projeto['ano'] ?>">   
                         <i class="fas fa-trash"></i>
                     </button>
                 </div>
@@ -295,39 +295,45 @@ $professor = $_SESSION['professor'];
         setupModal(btnProjeto, modalProjeto);
 
         function setupDelete(buttonClass, deleteUrl, itemType) {
-            document.querySelectorAll(buttonClass).forEach(btn => {
-                btn.addEventListener('click', () => {
-                    const id = btn.dataset.id;
-                    Swal.fire({
-                        title: `Tem certeza?`,
-                        text: `Este ${itemType} será excluído permanentemente.`,
-                        icon: 'warning',
-                        showCancelButton: true,
-                        confirmButtonText: 'Sim, excluir',
-                        cancelButtonText: 'Não, cancelar'
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            fetch(deleteUrl, {
-                                method: 'POST',
-                                headers: { 'Content-Type': 'application/json' },
-                                body: JSON.stringify({ [`id_${itemType}`]: id })
-                            })
-                                .then(res => res.json())
-                                .then(data => {
-                                    if (data.success) {
-                                        Swal.fire('Excluído!', `O ${itemType} foi removido com sucesso.`, 'success')
-                                            .then(() => location.reload());
-                                    } else {
-                                        Swal.fire('Erro', `Não foi possível excluir o ${itemType}.`, 'error');
-                                    }
-                                })
-                                .catch(() => {
-                                    Swal.fire('Erro', 'Falha na comunicação com o servidor.', 'error');
-                                });
-                        }
-                    });
+        document.querySelectorAll(buttonClass).forEach(btn => {
+            btn.addEventListener('click', () => {
+            const id = btn.dataset.id;
+
+            Swal.fire({
+                title: `Tem certeza?`,
+                text: `Este ${itemType} será excluído permanentemente.`,
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Sim, excluir',
+                cancelButtonText: 'Não, cancelar'
+            }).then((result) => {
+                if (!result.isConfirmed) return;
+
+                const payload = { [`id_${itemType}`]: id };
+                if (itemType === 'projeto') {
+                payload.ano = parseInt(btn.dataset.ano, 10);
+                }
+
+                fetch(deleteUrl, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+                })
+                .then(res => res.json())
+                .then(data => {
+                if (data.success) {
+                    Swal.fire('Excluído!', `O ${itemType} foi removido com sucesso.`, 'success')
+                    .then(() => location.reload());
+                } else {
+                    Swal.fire('Erro', data.message || `Não foi possível excluir o ${itemType}.`, 'error');
+                }
+                })
+                .catch(() => {
+                Swal.fire('Erro', 'Falha na comunicação com o servidor.', 'error');
                 });
             });
+            });
+        });
         }
 
         setupDelete('.btn-delete', 'delete_noticia.php', 'noticia');
