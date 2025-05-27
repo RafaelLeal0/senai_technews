@@ -99,7 +99,7 @@
                         <img src="../img/prof/luizcardoso.jpeg" alt="Luiz Cardoso">
                     </div>
                     <div class="link">
-                        <a href="https://www.linkedin.com/in/gleise-fabiane-da-silva-rosa-7826b548/" target="_blank">
+                        <a href="https://www.linkedin.com/in/luis-felipe-cardos0/" target="_blank">
                             <img src="../img/logo/logo_linkedin.png" alt="Linkedin">
                         </a>
                         <a href="https://github.com/Cardoso30S" target="_blank">
@@ -124,10 +124,10 @@
                         <img src="../img/prof/gleise.jpg" alt="Luiz Cardoso">
                     </div>
                     <div class="link">
-                        <a href="https://www.linkedin.com/in/gleise-fabiane-da-silva-rosa-7826b548/" target="_blank">
+                        <a href="https://www.linkedin.com/in/gleise-rosa-7826b548/" target="_blank">
                             <img src="../img/logo/logo_linkedin.png" alt="Linkedin">
                         </a>
-                        <a href="https://github.com/Cardoso30S" target="_blank">
+                        <a href="https://github.com/" target="_blank">
                             <img src="../img/logo/logo_git.png" alt="GitHub">
                         </a>
                     </div>
