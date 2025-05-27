@@ -277,10 +277,11 @@ header {
 
 .container {
     display: flex;
+    justify-content: space-between;
     align-items: center;
     width: 90%;
     max-width: 1200px;
-    margin: auto;
+    margin: 0 auto;
 }
 
 .container img {
@@ -290,7 +291,7 @@ header {
 
 nav {
     display: flex;
-    flex-grow: 1;
+    /* flex-grow: 1; */
 }
 
 nav ul {
@@ -610,4 +611,81 @@ ul {
 
 .social-bar a:hover {
     color: #f1f1f1;
+}
+
+/* Hamburguinho responsivo */
+.menu-icon {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    margin-left: auto;
+    z-index: 1001;
+}
+
+.menu-icon span {
+    height: 4px;
+    width: 28px;
+    background: #cc1c0c;
+    margin: 5px 0;
+    border-radius: 2px;
+    display: block;
+    transition: 0.3s;
+}
+
+@media screen and (max-width: 900px) {
+    .container {
+        width: 100vw;
+        max-width: 100vw;
+        padding: 0 8px;
+    }
+    .menu-icon {
+        display: flex !important;
+        margin-left: auto;
+    }
+    nav {
+        position: fixed;
+        top: 0;
+        right: -100vw;
+        width: 70vw;
+        height: 100vh;
+        background: #fff;
+        box-shadow: -2px 0 10px rgba(0, 0, 0, 0.08);
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding-top: 80px;
+        transition: right 0.3s;
+        z-index: 1000;
+        display: flex;
+    }
+    nav.active {
+        right: 0;
+    }
+    nav ul {
+        flex-direction: column;
+        gap: 0;
+        width: 100%;
+    }
+    nav ul li {
+        width: 100%;
+        margin-bottom: 18px;
+    }
+    nav ul li:last-child {
+        margin-bottom: 0;
+    }
+    nav ul li a {
+        display: block;
+        width: 100%;
+        padding: 28px 30px;
+        border-bottom: 1px solid #eee;
+        font-size: 1.1rem;
+    }
+    .itens {
+        margin-left: 0;
+        align-items: flex-start;
+    }
 }
