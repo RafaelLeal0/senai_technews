@@ -72,6 +72,7 @@ $professor = $_SESSION['professor'];
                     </div>
                     <h3><?= htmlspecialchars($noticia['titulo']) ?></h3>
                     <p><?= nl2br(htmlspecialchars($noticia['conteudo'])) ?></p>
+                    <span class="leia-mais">Leia mais</span>
                     <div class="rodape-card">
                         <span class="autor"><?= htmlspecialchars($noticia['autor']) ?></span>
                         <span class="data"><?= date('d/m/Y H:i', strtotime($noticia['data_publicacao'])) ?></span>
@@ -406,6 +407,41 @@ $professor = $_SESSION['professor'];
                 document.getElementById('edit-projeto-descricao').value = data.descricao;
             }
         );
+
+        document.querySelectorAll('.card-noticia .leia-mais').forEach(link => {
+            link.addEventListener('click', () => {
+                const p = link.previousElementSibling;
+                p.classList.toggle('expanded');
+                link.textContent = p.classList.contains('expanded') ? 'Leia menos' : 'Leia mais';
+            });
+        });
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const cards = document.querySelectorAll('.card-noticia');
+
+            cards.forEach(card => {
+            const paragrafo = card.querySelector('p');
+            const leiaMais = card.querySelector('.leia-mais');
+
+            // Criar um clone para verificar altura real sem as restrições de CSS
+            const clone = paragrafo.cloneNode(true);
+            clone.style.maxHeight = 'none';
+            clone.style.position = 'absolute';
+            clone.style.visibility = 'hidden';
+            clone.style.pointerEvents = 'none';
+            clone.style.width = getComputedStyle(paragrafo).width;
+            card.appendChild(clone);
+
+            // Comparar altura real com altura visível
+            if (clone.offsetHeight <= paragrafo.offsetHeight) {
+                // Se não ultrapassar, esconder o "leia mais"
+                if (leiaMais) leiaMais.style.display = 'none';
+            }
+
+            // Remover clone
+            card.removeChild(clone);
+            });
+        });
     </script>
 
     <footer>

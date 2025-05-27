@@ -159,15 +159,13 @@ try {
                 link.textContent = p.classList.contains('expanded') ? 'Leia menos' : 'Leia mais';
             });
         });
-
-        document.addEventListener("DOMContentLoaded", function() {
+          document.addEventListener("DOMContentLoaded", function() {
             const cards = document.querySelectorAll('.card-noticia');
 
             cards.forEach(card => {
             const paragrafo = card.querySelector('p');
             const leiaMais = card.querySelector('.leia-mais');
 
-            // Criar um clone para verificar altura real sem as restrições de CSS
             const clone = paragrafo.cloneNode(true);
             clone.style.maxHeight = 'none';
             clone.style.position = 'absolute';
@@ -176,13 +174,10 @@ try {
             clone.style.width = getComputedStyle(paragrafo).width;
             card.appendChild(clone);
 
-            // Comparar altura real com altura visível
             if (clone.offsetHeight <= paragrafo.offsetHeight) {
-                // Se não ultrapassar, esconder o "leia mais"
                 if (leiaMais) leiaMais.style.display = 'none';
             }
 
-            // Remover clone
             card.removeChild(clone);
             });
         });
