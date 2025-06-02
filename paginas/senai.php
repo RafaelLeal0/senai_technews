@@ -28,7 +28,7 @@
       <nav id="mainNav">
         <ul class="itens">
           <li><a href="inicio.php">CURSO</a></li>
-          <li><a href="senai.php">SENAI TAUBATÉ</a></li>
+          <li><a class="active" href="senai.php">SENAI TAUBATÉ</a></li>
           <li><a href="noticias.php">NOTÍCIAS</a></li>
           <li><a href="projetos.php">PROJETOS</a></li>
         </ul>

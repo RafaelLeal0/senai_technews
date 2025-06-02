@@ -341,6 +341,12 @@ nav ul li a:hover {
     font-size: 105%;
 }
 
+nav ul li a.active,
+nav ul li a.active:hover {
+    color: #cc1c0c !important;
+    font-size: 105%;
+}
+
 nav ul li a:hover::after {
     width: 100%;
     left: 0;

@@ -90,6 +90,12 @@ nav ul li a:hover::after {
     left: 0;
 }
 
+nav ul li a.active,
+nav ul li a.active:hover {
+    color: #cc1c0c !important;
+    font-size: 105%;
+}
+
 .header-links {
     display: flex;
     align-items: center;
