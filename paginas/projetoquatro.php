@@ -27,6 +27,9 @@ try {
 </head>
 
 <body>
+        <a href="projetos.php" class="btn-voltar" title="Voltar para Projetos">
+        <i class="bi bi-arrow-left"></i>
+    </a>
     <header>
         <div class="container">
             <a href="../index.php">
@@ -130,6 +133,41 @@ try {
         });
 
     </script>
+    <style>
+                 .btn-voltar {
+     display: inline-flex;
+     align-items: center;
+     gap: 6px;
+     color: #cc1c0c;
+     padding: 10px 18px;
+     border-radius: 30px;
+     text-decoration: none;
+     font-weight: 600;
+     font-size: 2rem;
+     margin: 24px 0 0 24px;
+     transition: background 0.2s;
+     position: absolute;
+     top: 0;
+     left: 0;
+     z-index: 1002;
+     margin-top: 170px;
+     margin-left: 120px;
+ }
+        
+.btn-voltar:hover {
+    background: #a50f09;
+    color: #fff;
+}
+
+@media (max-width: 900px) {
+    .btn-voltar {
+        margin: 16px 0 0 8px;
+        font-size: 2rem;
+        padding: 8px 14px;
+        margin-top: 130px;
+    }
+}
+    </style>
 
 </body>
 

@@ -75,11 +75,11 @@ nav ul li a:hover::after {
     display: none;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-end; /* Alinha as barras à direita */
+    align-items: flex-end; 
     cursor: pointer;
     width: 40px;
     height: 40px;
-    margin-left: auto; /* Empurra para a direita */
+    margin-left: auto; 
     z-index: 1001;
 }
 
@@ -273,7 +273,6 @@ nav ul li a:hover::after {
     width: 100vw;
     max-width: 100vw;
     padding: 0 8px;
-    /* Garante que o menu-icon fique à direita */
   }
 
   .menu-icon {

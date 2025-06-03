@@ -62,7 +62,6 @@ main {
 
 .projetos-2025-db {
     padding: 40px 20px;
-    background: #f5f5f5;
 }
 
 .header-projetos {
@@ -75,7 +74,6 @@ main {
     color: #333;
     margin-bottom: 10px;
 }
-
 .projetos-grid {
     display: flex;
     flex-wrap: wrap;

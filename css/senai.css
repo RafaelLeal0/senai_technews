@@ -5,7 +5,9 @@ body {
     font-family: 'Inter', sans-serif;
     overflow-x: hidden;
 }
-
+.footer-col a {
+    text-decoration: none;
+}
 header {
     display: flex;
     justify-content: space-between;
