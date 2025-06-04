@@ -6,11 +6,10 @@ require_once "conexao.php";
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'] ?? '';
     $senha = $_POST['senha'] ?? '';
-    $codigo_acesso = $_POST['codigo_acesso'] ?? '';
 
     try {
-        $stmt = $conn->prepare("SELECT * FROM professores WHERE email = ? AND senha = ? AND codigo_acesso = ?");
-        $stmt->execute([$email, $senha, $codigo_acesso]);
+        $stmt = $conn->prepare("SELECT * FROM professores WHERE email = ? AND senha = ?");
+        $stmt->execute([$email, $senha]);
         $professor = $stmt->fetch();
 
         if ($professor) {
@@ -61,9 +60,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <label>Senha</label>
             <input type="password" name="senha" required placeholder="Coloque sua senha">
-
-            <label>Código de Acesso</label>
-            <input type="text" name="codigo_acesso" required placeholder="Insira o código de acesso">
 
             <button type="submit" id="botao-entrar">Entrar</button>
         </form>

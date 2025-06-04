@@ -10,21 +10,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $nome = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_STRING);
         $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
         $senha = filter_input(INPUT_POST, 'senha', FILTER_SANITIZE_STRING);
-        $codigo_acesso = filter_input(INPUT_POST, 'codigo_acesso', FILTER_SANITIZE_STRING);
 
-        if (empty($nome) || empty($email) || empty($senha) || empty($codigo_acesso)) {
+        if (empty($nome) || empty($email) || empty($senha)) {
             throw new Exception("Todos os campos são obrigatórios!");
         }
 
         $stmt = $pdo->prepare("INSERT INTO professores 
-                            (nome, email, senha, codigo_acesso) 
-                            VALUES (:nome, :email, :senha, :codigo)");
+                            (nome, email, senha) 
+                            VALUES (:nome, :email, :senha)");
 
         $stmt->execute([
             ':nome' => $nome,
             ':email' => $email,
             ':senha' => $senha,
-            ':codigo' => $codigo_acesso
         ]);
 
         if ($stmt->rowCount() > 0) {
@@ -77,7 +75,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <h1>CADASTRE-SE NO <br><span>SENAI TECHNEWS</span></h1>
     </div>
     <div class="right">
-        <img src="./img/senai_technews.png" class="logo" alt="SENAI Logo">
+        <img src="../img/senai_technews.png" class="logo" alt="SENAI Logo">
         <form method="POST" action="">
             <label>Nome completo</label>
             <input type="text" name="nome" required placeholder="Digite seu nome">
@@ -87,9 +85,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <label>Senha</label>
             <input type="password" name="senha" required placeholder="Crie uma senha">
-
-            <label>Código de acesso</label>
-            <input type="password" name="codigo_acesso" required placeholder="Crie um código">
 
             <button type="submit" id="botao-cadastrar">Cadastrar</button>
         </form>
