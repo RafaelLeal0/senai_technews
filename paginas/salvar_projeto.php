@@ -7,21 +7,40 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit();
 }
 
-$titulo = $_POST['titulo'];
-$descricao = $_POST['descricao'];
-$ano = $_POST['ano'];
+$titulo    = $_POST['titulo']    ?? '';
+$descricao = $_POST['descricao'] ?? '';
+$ano       = $_POST['ano']       ?? '';
 
-$imagem = file_get_contents($_FILES['imagem']['tmp_name']);
+// Validação básica
+if (empty($titulo) || empty($descricao) || empty($ano)) {
+    $_SESSION['flash_error'] = 'Todos os campos são obrigatórios.';
+    header('Location: adm.php');
+    exit();
+}
 
-$tabela = ($ano === '2024') ? 'projetos2024' : 'projetos2025';
+// Aqui montamos dinamicamente o nome da tabela
+$tabela = "projetos{$ano}";
 
 try {
-    $stmt = $conn->prepare("INSERT INTO $tabela (titulo, descricao, imagem_projeto) VALUES (?, ?, ?)");
+    // Opcional: Verifica se a tabela realmente existe
+    $stmtCheck = $conn->query("SHOW TABLES LIKE '{$tabela}'");
+    if ($stmtCheck->rowCount() === 0) {
+        throw new Exception("A tabela {$tabela} não existe.");
+    }
+
+    // Lê o conteúdo bruto do arquivo de imagem
+    $imagem = file_get_contents($_FILES['imagem']['tmp_name']);
+
+    // Prepara e executa o INSERT na tabela correta
+    $sql  = "INSERT INTO `{$tabela}` (titulo, descricao, imagem_projeto) VALUES (?, ?, ?)";
+    $stmt = $conn->prepare($sql);
     $stmt->execute([$titulo, $descricao, $imagem]);
 
-    $_SESSION['flash_success'] = 'Projeto publicado com sucesso!';
+    $_SESSION['flash_success'] = "Projeto publicado com sucesso em {$ano}!";
 } catch (PDOException $e) {
     $_SESSION['flash_error'] = 'Erro ao publicar projeto: ' . $e->getMessage();
+} catch (Exception $e) {
+    $_SESSION['flash_error'] = 'Erro: ' . $e->getMessage();
 }
 
 header('Location: adm.php');

@@ -15,23 +15,22 @@ if (!isset($data['id_projeto'], $data['ano'])) {
 $idProjeto = (int) $data['id_projeto'];
 $ano       = (int) $data['ano'];
 
-$tabelasPermitidas = [
-    2024 => 'projetos2024',
-    2025 => 'projetos2025'
-];
-
-if (!array_key_exists($ano, $tabelasPermitidas)) {
-    echo json_encode([
-        'success' => false,
-        'message' => 'Ano inválido'
-    ]);
-    exit;
-}
-
-$tabela = $tabelasPermitidas[$ano];
+// Monta o nome da tabela dinamicamente
+$tabela = "projetos{$ano}";
 
 try {
-    $sql  = "DELETE FROM {$tabela} WHERE id_projeto = ?";
+    // 1) Verifica se a tabela existe
+    $stmtCheck = $conn->query("SHOW TABLES LIKE '{$tabela}'");
+    if ($stmtCheck->rowCount() === 0) {
+        echo json_encode([
+            'success' => false,
+            'message' => "Sessão/ano {$ano} não existe"
+        ]);
+        exit;
+    }
+
+    // 2) Prepara e executa o DELETE
+    $sql  = "DELETE FROM `{$tabela}` WHERE id_projeto = ?";
     $stmt = $conn->prepare($sql);
 
     if ($stmt->execute([$idProjeto])) {

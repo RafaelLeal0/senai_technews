@@ -7,6 +7,20 @@ if (!isset($_SESSION['professor'])) {
 
 require_once 'conexao.php';
 
+$anosExistentes = [];
+try {
+    $stmtTables = $conn->query("SHOW TABLES LIKE 'projetos____'");
+    $tabelas = $stmtTables->fetchAll(PDO::FETCH_COLUMN, 0); 
+
+    foreach ($tabelas as $tabela) {
+        if (preg_match('/^projetos(\d{4})$/', $tabela, $m)) {
+            $anosExistentes[] = intval($m[1]);
+        }
+    }
+    rsort($anosExistentes, SORT_NUMERIC);
+} catch (PDOException $e) {
+    $anosExistentes = [];
+}
 try {
     $stmtNoticias = $conn->query("
         SELECT n.*, p.nome AS autor
@@ -20,22 +34,48 @@ try {
 }
 
 try {
-    $stmtProjetos = $conn->query("
-    SELECT *, 2024 AS ano FROM projetos2024
-    UNION ALL
-    SELECT *, 2025 AS ano FROM projetos2025
-    ORDER BY ano DESC, id_projeto DESC
-");
-    $projetos = $stmtProjetos->fetchAll();
+    $projetos = [];
+
+    // Para cada ano encontrado em $anosExistentes, faz SELECT nessa tabela
+    foreach ($anosExistentes as $anoSessao) {
+        $tabela = "projetos{$anoSessao}";
+
+        // 1) Verifica se a tabela realmente existe (redundante, pois $anosExistentes já veio de SHOW TABLES)
+        $stmtCheck = $conn->query("SHOW TABLES LIKE '{$tabela}'");
+        if ($stmtCheck->rowCount() === 0) {
+            // se a tabela não existir (por segurança), pula para o próximo ano
+            continue;
+        }
+
+        // 2) Consulta todos os projetos daquela tabela, adicionando a coluna “ano”
+        $sql = "SELECT *, {$anoSessao} AS ano FROM `{$tabela}`";
+        $stmt = $conn->query($sql);
+        $linhas = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        // 3) Junta no array geral
+        if ($linhas) {
+            $projetos = array_merge($projetos, $linhas);
+        }
+    }
+
+    // 4) Ordena o array $projetos por ano DESC e, em caso de empate, por id_projeto DESC
+    usort($projetos, function($a, $b) {
+        if ($a['ano'] === $b['ano']) {
+            return $b['id_projeto'] <=> $a['id_projeto'];
+        }
+        return $b['ano'] <=> $a['ano'];
+    });
+
 } catch (PDOException $e) {
     die("Erro ao buscar projetos: " . $e->getMessage());
 }
+
+
 $professor = $_SESSION['professor'];
 ?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -43,8 +83,22 @@ $professor = $_SESSION['professor'];
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="../css/adm.css">
     <link rel="icon" type="image/png" href="../img/logo/logotop.png">
+    <style>
+        .btn-danger {
+            background-color: #cc1c0c;
+            color: #fff;
+            border: none;
+        }
+        .btn-danger:hover {
+            background-color: #a50f09;
+        }
+        .modal-conteudo hr {
+            margin: 20px 0;
+            border: 0;
+            border-top: 1px solid #ccc;
+        }
+    </style>
 </head>
-
 <body>
     <main class="admin-container">
         <h1 class="welcome-message">Bem-vindo administrador: <?= htmlspecialchars($professor['nome']) ?></h1>
@@ -53,6 +107,11 @@ $professor = $_SESSION['professor'];
             <a href="#" class="action-card">
                 <i class="fas fa-upload"></i>
                 <h2>Fazer upload de projeto</h2>
+            </a>
+
+            <a href="#" class="action-card" id="btn-criar-sessao">
+                <i class="fas fa-folder-plus"></i>
+                <h2>Criar/Excluir Sessão</h2>
             </a>
 
             <a href="#" class="action-card">
@@ -95,15 +154,15 @@ $professor = $_SESSION['professor'];
         <div class="masonry-layout admin-layout">
             <?php foreach ($projetos as $projeto): ?>
                 <div class="card-noticia">
-
                     <h3><?= htmlspecialchars($projeto['titulo']) ?></h3>
                     <?php if (!empty($projeto['imagem_projeto'])):
                         $finfo = new finfo(FILEINFO_MIME_TYPE);
                         $mime = $finfo->buffer($projeto['imagem_projeto']);
                         $base64 = base64_encode($projeto['imagem_projeto']);
-                        ?>
-                        <img src="data:<?= $mime ?>;base64,<?= $base64 ?>" alt="<?= htmlspecialchars($projeto['titulo']) ?>"
-                            class="imagem-projeto">
+                    ?>
+                        <img src="data:<?= $mime ?>;base64,<?= $base64 ?>"
+                             alt="<?= htmlspecialchars($projeto['titulo']) ?>"
+                             class="imagem-projeto">
                     <?php endif; ?>
 
                     <?php if (!empty($projeto['noticia_titulo']) && !empty($projeto['noticia_conteudo'])): ?>
@@ -122,7 +181,9 @@ $professor = $_SESSION['professor'];
                         <i class="fas fa-edit"></i>
                     </button>
 
-                    <button class="btn-delete-projeto" data-id="<?= $projeto['id_projeto'] ?>" data-ano="<?= $projeto['ano'] ?>">   
+                    <button class="btn-delete-projeto"
+                            data-id="<?= $projeto['id_projeto'] ?>"
+                            data-ano="<?= $projeto['ano'] ?>">
                         <i class="fas fa-trash"></i>
                     </button>
                 </div>
@@ -130,12 +191,72 @@ $professor = $_SESSION['professor'];
         </div>
     </section>
 
+    <!-- Modal para Criar e Excluir Sessão -->
+<!-- Modal para Criar e Excluir Sessão -->
+<div id="modal-criar-sessao" class="modal">
+    <div class="modal-conteudo">
+        <span class="fechar">&times;</span>
+
+        <!-- 1) Seção: Criar Nova Sessão -->
+        <h2>Criar Nova Sessão</h2>
+        <form method="POST" action="criar_sessao.php" enctype="multipart/form-data">
+            <div class="form-group">
+                <label>Ano da Sessão:</label>
+                <input type="number"
+                       name="ano_sessao"
+                       min="2000"
+                       max="2100"
+                       step="1"
+                       required
+                       placeholder="Ex.: 2026">
+            </div>
+
+            <div class="form-group">
+                <label>Imagem de Fundo (PNG/JPG):</label>
+                <input type="file"
+                       name="imagem_fundo"
+                       accept="image/png, image/jpeg"
+                       required>
+            </div>
+
+            <button type="submit" class="btn-publicar">Criar Sessão</button>
+        </form>
+
+        <hr>
+
+        <!-- 2) Seção: Excluir Sessão (permanece igual) -->
+        <h2>Excluir Sessão</h2>
+            <?php if (count($anosExistentes) === 0): ?>
+                <p>Não há sessões disponíveis para excluir.</p>
+            <?php else: ?>
+                <form method="POST" action="excluir_sessao.php">
+                    <div class="form-group">
+                        <label>Selecione o ano da sessão a excluir:</label>
+                        <select name="ano_excluir" required>
+                            <option value="" disabled selected>Escolha o ano</option>
+                            <?php foreach ($anosExistentes as $anoSessao): ?>
+                                <option value="<?= htmlspecialchars($anoSessao) ?>">
+                                    <?= htmlspecialchars($anoSessao) ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn-publicar btn-danger">
+                        Excluir Sessão
+                    </button>
+                </form>
+            <?php endif; ?>
+
+        </div>
+    </div>
+
+
+    <!-- Modal para Publicar Nova Notícia -->
     <div id="modal-noticia" class="modal">
         <div class="modal-conteudo">
             <span class="fechar">&times;</span>
             <h2>Publicar Nova Notícia</h2>
             <form method="POST" action="salvar_noticia.php">
-
                 <div class="form-group">
                     <label>Título:</label>
                     <input type="text" name="titulo" required>
@@ -160,12 +281,12 @@ $professor = $_SESSION['professor'];
         </div>
     </div>
 
+    <!-- Modal para Publicar Novo Projeto -->
     <div id="modal-projeto" class="modal">
         <div class="modal-conteudo">
             <span class="fechar">&times;</span>
             <h2>Publicar Novo Projeto</h2>
             <form method="POST" action="salvar_projeto.php" enctype="multipart/form-data">
-
                 <div class="form-group">
                     <label>Título:</label>
                     <input type="text" name="titulo" required>
@@ -181,11 +302,18 @@ $professor = $_SESSION['professor'];
                     <input type="file" name="imagem" accept="image/*" required>
                 </div>
 
-                <div class="form-group">
+                 <div class="form-group">
                     <label>Ano do Projeto:</label>
                     <select name="ano" required>
-                        <option value="2024">2024</option>
-                        <option value="2025">2025</option>
+                        <?php if (count($anosExistentes) === 0): ?>
+                            <option value="" disabled>Não há sessões disponíveis</option>
+                        <?php else: ?>
+                            <?php foreach ($anosExistentes as $anoSessao): ?>
+                                <option value="<?= htmlspecialchars($anoSessao) ?>">
+                                    <?= htmlspecialchars($anoSessao) ?>
+                                </option>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
                     </select>
                 </div>
 
@@ -194,7 +322,7 @@ $professor = $_SESSION['professor'];
         </div>
     </div>
 
-
+    <!-- Modais de edição (notícia e projeto) continuam inalterados -->
     <div id="modal-edit-noticia" class="modal">
         <div class="modal-conteudo">
             <span class="fechar">&times;</span>
@@ -238,111 +366,111 @@ $professor = $_SESSION['professor'];
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
     <?php
-
     $flashSuccess = $_SESSION['flash_success'] ?? null;
-    $flashError = $_SESSION['flash_error'] ?? null;
+    $flashError   = $_SESSION['flash_error']   ?? null;
     unset($_SESSION['flash_success'], $_SESSION['flash_error']);
     ?>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <?php if ($flashSuccess): ?>
-        <script>
+    <script>
+        if ("<?= $flashSuccess ?>") {
             Swal.fire({
                 icon: 'success',
                 title: '<?= addslashes($flashSuccess) ?>',
                 showConfirmButton: false,
                 timer: 2000
             });
-        </script>
-    <?php endif; ?>
-    <?php if ($flashError): ?>
-        <script>
+        }
+        if ("<?= $flashError ?>") {
             Swal.fire({
                 icon: 'error',
                 title: '<?= addslashes($flashError) ?>'
             });
-        </script>
-    <?php endif; ?>
-
+        }
+    </script>
 
     <script>
-        const modalNoticia = document.getElementById('modal-noticia');
-        const btnNoticia = document.querySelector('.fa-newspaper').closest('a');
-
-        const modalProjeto = document.getElementById('modal-projeto');
-        const btnProjeto = document.querySelector('.fa-upload').closest('a');
-
+        // Reaproveitando a função setupModal para todos os modais
         function setupModal(btn, modal) {
             const span = modal.getElementsByClassName("fechar")[0];
 
             btn.onclick = function (e) {
                 e.preventDefault();
                 modal.style.display = "block";
-            }
-
+            };
             span.onclick = function () {
                 modal.style.display = "none";
-            }
-
+            };
             window.onclick = function (event) {
                 if (event.target == modal) {
                     modal.style.display = "none";
                 }
-            }
+            };
         }
+
+        // Configura os botões que abrem cada modal
+        const btnNoticia      = document.querySelector('.fa-newspaper').closest('a');
+        const modalNoticia    = document.getElementById('modal-noticia');
+
+        const btnProjeto      = document.querySelector('.fa-upload').closest('a');
+        const modalProjeto    = document.getElementById('modal-projeto');
+
+        const btnCriarSessao  = document.getElementById('btn-criar-sessao');
+        const modalCriarSessao= document.getElementById('modal-criar-sessao');
 
         setupModal(btnNoticia, modalNoticia);
         setupModal(btnProjeto, modalProjeto);
+        setupModal(btnCriarSessao, modalCriarSessao);
 
+        // Função genérica para excluir (notícia/projeto) via SweetAlert (mantida igual)
         function setupDelete(buttonClass, deleteUrl, itemType) {
-        document.querySelectorAll(buttonClass).forEach(btn => {
-            btn.addEventListener('click', () => {
-            const id = btn.dataset.id;
+            document.querySelectorAll(buttonClass).forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const id = btn.dataset.id;
 
-            Swal.fire({
-                title: `Tem certeza?`,
-                text: `Este ${itemType} será excluído permanentemente.`,
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonText: 'Sim, excluir',
-                cancelButtonText: 'Não, cancelar'
-            }).then((result) => {
-                if (!result.isConfirmed) return;
+                    Swal.fire({
+                        title: `Tem certeza?`,
+                        text: `Este ${itemType} será excluído permanentemente.`,
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonText: 'Sim, excluir',
+                        cancelButtonText: 'Não, cancelar'
+                    }).then((result) => {
+                        if (!result.isConfirmed) return;
 
-                const payload = { [`id_${itemType}`]: id };
-                if (itemType === 'projeto') {
-                payload.ano = parseInt(btn.dataset.ano, 10);
-                }
+                        const payload = { [`id_${itemType}`]: id };
+                        if (itemType === 'projeto') {
+                            payload.ano = parseInt(btn.dataset.ano, 10);
+                        }
 
-                fetch(deleteUrl, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payload)
-                })
-                .then(res => res.json())
-                .then(data => {
-                if (data.success) {
-                    Swal.fire('Excluído!', `O ${itemType} foi removido com sucesso.`, 'success')
-                    .then(() => location.reload());
-                } else {
-                    Swal.fire('Erro', data.message || `Não foi possível excluir o ${itemType}.`, 'error');
-                }
-                })
-                .catch(() => {
-                Swal.fire('Erro', 'Falha na comunicação com o servidor.', 'error');
+                        fetch(deleteUrl, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(payload)
+                        })
+                        .then(res => res.json())
+                        .then(data => {
+                            if (data.success) {
+                                Swal.fire('Excluído!', `O ${itemType} foi removido com sucesso.`, 'success')
+                                     .then(() => location.reload());
+                            } else {
+                                Swal.fire('Erro', data.message || `Não foi possível excluir o ${itemType}.`, 'error');
+                            }
+                        })
+                        .catch(() => {
+                            Swal.fire('Erro', 'Falha na comunicação com o servidor.', 'error');
+                        });
+                    });
                 });
             });
-            });
-        });
         }
 
         setupDelete('.btn-delete', 'delete_noticia.php', 'noticia');
         setupDelete('.btn-delete-projeto', 'delete_projeto.php', 'projeto');
 
+        // Função genérica de edição (mantida igual)
         function setupEdit(buttonSelector, modalId, formId, fetchUrl, fieldsMapper) {
             const modal = document.getElementById(modalId);
-            const form = document.getElementById(formId);
+            const form  = document.getElementById(formId);
             const close = modal.querySelector('.fechar');
 
             close.onclick = () => modal.style.display = 'none';
@@ -368,19 +496,19 @@ $professor = $_SESSION['professor'];
                     method: 'POST',
                     body: formData
                 })
-                    .then(r => r.json())
-                    .then(resp => {
-                        if (resp.success) {
-                            Swal.fire({
-                                icon: 'success',
-                                title: resp.message || 'Atualizado com sucesso!',
-                                timer: 1500,
-                                showConfirmButton: false
-                            }).then(() => location.reload());
-                        } else {
-                            Swal.fire('Erro', resp.message || 'Não foi possível atualizar.', 'error');
-                        }
-                    });
+                .then(r => r.json())
+                .then(resp => {
+                    if (resp.success) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: resp.message || 'Atualizado com sucesso!',
+                            timer: 1500,
+                            showConfirmButton: false
+                        }).then(() => location.reload());
+                    } else {
+                        Swal.fire('Erro', resp.message || 'Não foi possível atualizar.', 'error');
+                    }
+                });
             };
         }
 
@@ -390,9 +518,9 @@ $professor = $_SESSION['professor'];
             'form-edit-noticia',
             'edit_noticia.php',
             data => {
-                document.getElementById('edit-noticia-id').value = data.id_noticia;
+                document.getElementById('edit-noticia-id').value      = data.id_noticia;
                 document.getElementById('edit-noticia-titulo').value = data.titulo;
-                document.getElementById('edit-noticia-conteudo').value = data.conteudo;
+                document.getElementById('edit-noticia-conteudo').value= data.conteudo;
             }
         );
 
@@ -402,12 +530,13 @@ $professor = $_SESSION['professor'];
             'form-edit-projeto',
             'edit_projeto.php',
             data => {
-                document.getElementById('edit-projeto-id').value = data.id_projeto;
-                document.getElementById('edit-projeto-titulo').value = data.titulo;
-                document.getElementById('edit-projeto-descricao').value = data.descricao;
+                document.getElementById('edit-projeto-id').value       = data.id_projeto;
+                document.getElementById('edit-projeto-titulo').value   = data.titulo;
+                document.getElementById('edit-projeto-descricao').value= data.descricao;
             }
         );
 
+        // “Leia mais / Leia menos” (mantido igual)
         document.querySelectorAll('.card-noticia .leia-mais').forEach(link => {
             link.addEventListener('click', () => {
                 const p = link.previousElementSibling;
@@ -416,30 +545,26 @@ $professor = $_SESSION['professor'];
             });
         });
 
+        // Ajuste para ocultar “Leia mais” se texto não for maior que limite (mantido igual)
         document.addEventListener("DOMContentLoaded", function() {
             const cards = document.querySelectorAll('.card-noticia');
-
             cards.forEach(card => {
-            const paragrafo = card.querySelector('p');
-            const leiaMais = card.querySelector('.leia-mais');
+                const paragrafo = card.querySelector('p');
+                const leiaMais   = card.querySelector('.leia-mais');
+                const clone      = paragrafo.cloneNode(true);
 
-            // Criar um clone para verificar altura real sem as restrições de CSS
-            const clone = paragrafo.cloneNode(true);
-            clone.style.maxHeight = 'none';
-            clone.style.position = 'absolute';
-            clone.style.visibility = 'hidden';
-            clone.style.pointerEvents = 'none';
-            clone.style.width = getComputedStyle(paragrafo).width;
-            card.appendChild(clone);
+                clone.style.maxHeight    = 'none';
+                clone.style.position     = 'absolute';
+                clone.style.visibility   = 'hidden';
+                clone.style.pointerEvents= 'none';
+                clone.style.width        = getComputedStyle(paragrafo).width;
+                card.appendChild(clone);
 
-            // Comparar altura real com altura visível
-            if (clone.offsetHeight <= paragrafo.offsetHeight) {
-                // Se não ultrapassar, esconder o "leia mais"
-                if (leiaMais) leiaMais.style.display = 'none';
-            }
+                if (clone.offsetHeight <= paragrafo.offsetHeight) {
+                    if (leiaMais) leiaMais.style.display = 'none';
+                }
 
-            // Remover clone
-            card.removeChild(clone);
+                card.removeChild(clone);
             });
         });
     </script>
@@ -461,11 +586,10 @@ $professor = $_SESSION['professor'];
                         <h4>Desenvolvedores</h4>
                         <ul>
                             <li><a href="https://www.linkedin.com/in/andrey-montibeller/">Andrey Montibeller</a></li>
-                            <li><a href="https://www.linkedin.com/in/gustavo-henrique-a538592b7/">Gustavo Henrique</a>
-                            </li>
+                            <li><a href="https://www.linkedin.com/in/gustavo-henrique-a538592b7/">Gustavo Henrique</a></li>
                             <li><a href="https://www.linkedin.com/in/rafael-leal-6569252b8/">Rafael Leal</a></li>
                             <li><a href="https://www.linkedin.com/in/rian-eduardo-9287512b7/">Rian Eduardo</a></li>
-                            <li><a href="https://www.linkedin.com/in/samuel-boaz-gon%C3%A7alves/">Samuel Boaz</a></li>
+                            <li><a href="https://www.linkedin.com/in/samuel-boaz-gon%c3%a7alves/">Samuel Boaz</a></li>
                         </ul>
                     </div>
                     <div class="footer-col">
@@ -490,5 +614,4 @@ $professor = $_SESSION['professor'];
         </div>
     </footer>
 </body>
-
 </html>

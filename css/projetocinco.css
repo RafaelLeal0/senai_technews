@@ -581,6 +581,10 @@ ul {
     background-color: #ffffff;
 }
 
+footer .social-bar span {
+  color: #fff;
+}
+
 @media(max-width: 767px) {
     .footer-col {
         width: 50%;

@@ -1,3 +1,24 @@
+<?php
+require_once 'conexao.php';
+
+// 1) Busca tabelas de sessão
+try {
+    $stmt = $conn->query("SHOW TABLES LIKE 'projetos____'");
+    $tabelas = $stmt->fetchAll(PDO::FETCH_COLUMN, 0);
+} catch (PDOException $e) {
+    die("Erro ao listar sessões de projetos: " . $e->getMessage());
+}
+
+// 2) Extrai apenas os anos (sufixos) e ordena decrescente
+$anos = [];
+foreach ($tabelas as $tabela) {
+    if (preg_match('/^projetos(\d{4})$/', $tabela, $m)) {
+        $anos[] = intval($m[1]);
+    }
+}
+rsort($anos, SORT_NUMERIC);
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -35,23 +56,35 @@
             </nav>
         </div>
     </header>
-    <main>
+      <main>
         <section class="projetos-senai">
             <h2>Projetos do SENAI - Taubaté</h2>
 
-            <div class="section section-2024">
-                <h1>2024</h1>
-                <p>Projetos feitos pelos alunos do</p>
-                <p>SENAI-Taubaté no ano de 2024</p>
-                <a href="projetoquatro.php" class="btn">Saiba mais</a>
-            </div>
+            <?php foreach ($anos as $ano): ?>
+                <?php
+                    // 3) Monta caminho esperado da imagem de fundo
+                    $imgJpg = "../img/sessoes/sessao{$ano}.jpg";
+                    $imgPng = "../img/sessoes/sessao{$ano}.png";
+                    $bgUrl  = "";
 
-            <div class="section section-2025">
-                <h1>2025</h1>
-                <p>Projetos feitos pelos alunos do</p>
-                <p>SENAI-Taubaté no ano de 2025</p>
-                <a href="projetocinco.php" class="btn">Saiba mais</a>
-            </div>
+                    if (file_exists($imgJpg)) {
+                        $bgUrl = $imgJpg;
+                    } elseif (file_exists($imgPng)) {
+                        $bgUrl = $imgPng;
+                    }
+                    // (Se precisar suportar .gif, faca o mesmo: sessao{ano}.gif)
+                ?>
+                <div class="section section-<?= htmlspecialchars($ano) ?>"
+                     <?php if ($bgUrl !== ""): ?>
+                         style="background-image: url('<?= htmlspecialchars($bgUrl) ?>')"
+                     <?php endif ?>>
+                    <h1><?= htmlspecialchars($ano) ?></h1>
+                    <p>Projetos feitos pelos alunos do</p>
+                    <p>SENAI-Taubaté no ano de <?= htmlspecialchars($ano) ?></p>
+                    <a href="projeto<?= htmlspecialchars($ano) ?>.php" class="btn">Saiba mais</a>
+                </div>
+            <?php endforeach; ?>
+        </section>
     </main>
     <footer>
         <div class="social-bar">
