@@ -150,7 +150,7 @@ $professor = $_SESSION['professor'];
     </section>
 
     <section id="projetos-admin">
-        <h2>Projetos Cadastrados (2024 e 2025)</h2>
+        <h2>Projetos Cadastrados</h2>
         <div class="masonry-layout admin-layout">
             <?php foreach ($projetos as $projeto): ?>
                 <div class="card-noticia">
@@ -177,7 +177,7 @@ $professor = $_SESSION['professor'];
                         <span class="data">Ano: <?= htmlspecialchars($projeto['ano']) ?></span>
                     </div>
 
-                    <button class="btn-edit-projeto" data-id="<?= $projeto['id_projeto'] ?>">
+                    <button class="btn-edit-projeto" data-id="<?= $projeto['id_projeto'] ?>" data-ano="<?= $projeto['ano'] ?>">
                         <i class="fas fa-edit"></i>
                     </button>
 
@@ -389,185 +389,147 @@ $professor = $_SESSION['professor'];
     </script>
 
     <script>
-        // Reaproveitando a função setupModal para todos os modais
         function setupModal(btn, modal) {
             const span = modal.getElementsByClassName("fechar")[0];
-
-            btn.onclick = function (e) {
+            btn.addEventListener("click", e => {
                 e.preventDefault();
                 modal.style.display = "block";
-            };
-            span.onclick = function () {
+            });
+            span.addEventListener("click", () => {
                 modal.style.display = "none";
-            };
-            window.onclick = function (event) {
-                if (event.target == modal) {
-                    modal.style.display = "none";
-                }
-            };
+            });
+            window.addEventListener("click", e => {
+                if (e.target === modal) modal.style.display = "none";
+            });
         }
 
-        // Configura os botões que abrem cada modal
-        const btnNoticia      = document.querySelector('.fa-newspaper').closest('a');
-        const modalNoticia    = document.getElementById('modal-noticia');
-
-        const btnProjeto      = document.querySelector('.fa-upload').closest('a');
-        const modalProjeto    = document.getElementById('modal-projeto');
-
-        const btnCriarSessao  = document.getElementById('btn-criar-sessao');
-        const modalCriarSessao= document.getElementById('modal-criar-sessao');
+        const btnNoticia = document.querySelector(".fa-newspaper").closest("a");
+        const modalNoticia = document.getElementById("modal-noticia");
+        const btnProjeto = document.querySelector(".fa-upload").closest("a");
+        const modalProjeto = document.getElementById("modal-projeto");
+        const btnCriarSessao = document.getElementById("btn-criar-sessao");
+        const modalCriarSessao = document.getElementById("modal-criar-sessao");
 
         setupModal(btnNoticia, modalNoticia);
         setupModal(btnProjeto, modalProjeto);
         setupModal(btnCriarSessao, modalCriarSessao);
 
-        // Função genérica para excluir (notícia/projeto) via SweetAlert (mantida igual)
         function setupDelete(buttonClass, deleteUrl, itemType) {
             document.querySelectorAll(buttonClass).forEach(btn => {
-                btn.addEventListener('click', () => {
+                btn.addEventListener("click", () => {
                     const id = btn.dataset.id;
-
                     Swal.fire({
-                        title: `Tem certeza?`,
+                        title: "Tem certeza?",
                         text: `Este ${itemType} será excluído permanentemente.`,
-                        icon: 'warning',
+                        icon: "warning",
                         showCancelButton: true,
-                        confirmButtonText: 'Sim, excluir',
-                        cancelButtonText: 'Não, cancelar'
-                    }).then((result) => {
+                        confirmButtonText: "Sim, excluir",
+                        cancelButtonText: "Não, cancelar"
+                    }).then(result => {
                         if (!result.isConfirmed) return;
-
                         const payload = { [`id_${itemType}`]: id };
-                        if (itemType === 'projeto') {
-                            payload.ano = parseInt(btn.dataset.ano, 10);
-                        }
-
+                        if (itemType === "projeto") payload.ano = parseInt(btn.dataset.ano, 10);
                         fetch(deleteUrl, {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
+                            method: "POST",
+                            headers: { "Content-Type": "application/json" },
                             body: JSON.stringify(payload)
                         })
                         .then(res => res.json())
                         .then(data => {
-                            if (data.success) {
-                                Swal.fire('Excluído!', `O ${itemType} foi removido com sucesso.`, 'success')
-                                     .then(() => location.reload());
-                            } else {
-                                Swal.fire('Erro', data.message || `Não foi possível excluir o ${itemType}.`, 'error');
-                            }
+                            if (data.success) Swal.fire("Excluído!", `O ${itemType} foi removido com sucesso.`, "success").then(() => location.reload());
+                            else Swal.fire("Erro", data.message || `Não foi possível excluir o ${itemType}.`, "error");
                         })
-                        .catch(() => {
-                            Swal.fire('Erro', 'Falha na comunicação com o servidor.', 'error');
-                        });
+                        .catch(() => Swal.fire("Erro", "Falha na comunicação com o servidor.", "error"));
                     });
                 });
             });
         }
 
-        setupDelete('.btn-delete', 'delete_noticia.php', 'noticia');
-        setupDelete('.btn-delete-projeto', 'delete_projeto.php', 'projeto');
+        setupDelete(".btn-delete", "delete_noticia.php", "noticia");
+        setupDelete(".btn-delete-projeto", "delete_projeto.php", "projeto");
 
-        // Função genérica de edição (mantida igual)
         function setupEdit(buttonSelector, modalId, formId, fetchUrl, fieldsMapper) {
             const modal = document.getElementById(modalId);
-            const form  = document.getElementById(formId);
-            const close = modal.querySelector('.fechar');
-
-            close.onclick = () => modal.style.display = 'none';
-            window.onclick = e => { if (e.target == modal) modal.style.display = 'none'; };
-
+            const form = document.getElementById(formId);
+            const close = modal.querySelector(".fechar");
+            close.addEventListener("click", () => modal.style.display = "none");
+            window.addEventListener("click", e => {
+                if (e.target === modal) modal.style.display = "none";
+            });
             document.querySelectorAll(buttonSelector).forEach(btn => {
-                btn.onclick = e => {
+                btn.addEventListener("click", e => {
                     e.preventDefault();
                     const id = btn.dataset.id;
-                    fetch(fetchUrl + '?id=' + id)
+                    const ano = btn.dataset.ano;
+                    fetch(`${fetchUrl}?id=${id}&ano=${ano}`)
                         .then(r => r.json())
                         .then(data => {
                             fieldsMapper(data);
-                            modal.style.display = 'block';
+                            modal.style.display = "block";
                         });
-                };
+                });
             });
-
-            form.onsubmit = e => {
+            form.addEventListener("submit", e => {
                 e.preventDefault();
                 const formData = new FormData(form);
-                fetch(fetchUrl, {
-                    method: 'POST',
-                    body: formData
-                })
+                fetch(fetchUrl, { method: "POST", body: formData })
                 .then(r => r.json())
                 .then(resp => {
-                    if (resp.success) {
-                        Swal.fire({
-                            icon: 'success',
-                            title: resp.message || 'Atualizado com sucesso!',
-                            timer: 1500,
-                            showConfirmButton: false
-                        }).then(() => location.reload());
-                    } else {
-                        Swal.fire('Erro', resp.message || 'Não foi possível atualizar.', 'error');
-                    }
-                });
-            };
+                    if (resp.success) Swal.fire({ icon: "success", title: resp.message, timer: 1500, showConfirmButton: false }).then(() => location.reload());
+                    else Swal.fire("Erro", resp.message, "error");
+                })
+                .catch(() => Swal.fire("Erro", "Falha na comunicação com o servidor.", "error"));
+            });
         }
 
         setupEdit(
-            '.btn-edit-noticia',
-            'modal-edit-noticia',
-            'form-edit-noticia',
-            'edit_noticia.php',
+            ".btn-edit-noticia",
+            "modal-edit-noticia",
+            "form-edit-noticia",
+            "edit_noticia.php",
             data => {
-                document.getElementById('edit-noticia-id').value      = data.id_noticia;
-                document.getElementById('edit-noticia-titulo').value = data.titulo;
-                document.getElementById('edit-noticia-conteudo').value= data.conteudo;
+                document.getElementById("edit-noticia-id").value = data.id_noticia;
+                document.getElementById("edit-noticia-titulo").value = data.titulo;
+                document.getElementById("edit-noticia-conteudo").value = data.conteudo;
             }
         );
 
         setupEdit(
-            '.btn-edit-projeto',
-            'modal-edit-projeto',
-            'form-edit-projeto',
-            'edit_projeto.php',
+            ".btn-edit-projeto",
+            "modal-edit-projeto",
+            "form-edit-projeto",
+            "edit_projeto.php",
             data => {
-                document.getElementById('edit-projeto-id').value       = data.id_projeto;
-                document.getElementById('edit-projeto-titulo').value   = data.titulo;
-                document.getElementById('edit-projeto-descricao').value= data.descricao;
+                document.getElementById("edit-projeto-id").value = data.id_projeto;
+                document.getElementById("edit-projeto-titulo").value = data.titulo;
+                document.getElementById("edit-projeto-descricao").value = data.descricao;
             }
         );
 
-        // “Leia mais / Leia menos” (mantido igual)
-        document.querySelectorAll('.card-noticia .leia-mais').forEach(link => {
-            link.addEventListener('click', () => {
+        document.querySelectorAll(".card-noticia .leia-mais").forEach(link => {
+            link.addEventListener("click", () => {
                 const p = link.previousElementSibling;
-                p.classList.toggle('expanded');
-                link.textContent = p.classList.contains('expanded') ? 'Leia menos' : 'Leia mais';
+                p.classList.toggle("expanded");
+                link.textContent = p.classList.contains("expanded") ? "Leia menos" : "Leia mais";
             });
         });
 
-        // Ajuste para ocultar “Leia mais” se texto não for maior que limite (mantido igual)
-        document.addEventListener("DOMContentLoaded", function() {
-            const cards = document.querySelectorAll('.card-noticia');
-            cards.forEach(card => {
-                const paragrafo = card.querySelector('p');
-                const leiaMais   = card.querySelector('.leia-mais');
-                const clone      = paragrafo.cloneNode(true);
-
-                clone.style.maxHeight    = 'none';
-                clone.style.position     = 'absolute';
-                clone.style.visibility   = 'hidden';
-                clone.style.pointerEvents= 'none';
-                clone.style.width        = getComputedStyle(paragrafo).width;
+        document.addEventListener("DOMContentLoaded", () => {
+            document.querySelectorAll(".card-noticia").forEach(card => {
+                const p = card.querySelector("p");
+                const leiaMais = card.querySelector(".leia-mais");
+                const clone = p.cloneNode(true);
+                clone.style.maxHeight = "none";
+                clone.style.position = "absolute";
+                clone.style.visibility = "hidden";
+                clone.style.pointerEvents = "none";
+                clone.style.width = getComputedStyle(p).width;
                 card.appendChild(clone);
-
-                if (clone.offsetHeight <= paragrafo.offsetHeight) {
-                    if (leiaMais) leiaMais.style.display = 'none';
-                }
-
+                if (clone.offsetHeight <= p.offsetHeight && leiaMais) leiaMais.style.display = "none";
                 card.removeChild(clone);
             });
         });
-    </script>
+</script>
 
     <footer>
         <div class="social-bar">

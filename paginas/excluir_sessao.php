@@ -19,8 +19,7 @@ $tabela = "projetos{$anoExcluir}";
 
 try {
     // 1) Verifica se a tabela existe
-    $sqlCheck = "SHOW TABLES LIKE '{$tabela}'";
-    $stmtCheck = $conn->query($sqlCheck);
+    $stmtCheck = $conn->query("SHOW TABLES LIKE '{$tabela}'");
     if ($stmtCheck->rowCount() === 0) {
         $_SESSION['flash_error'] = "A sessão {$anoExcluir} não existe.";
         header('Location: adm.php');
@@ -28,8 +27,7 @@ try {
     }
 
     // 2) Dropa a tabela
-    $sqlDrop = "DROP TABLE `{$tabela}`;";
-    $conn->exec($sqlDrop);
+    $conn->exec("DROP TABLE `{$tabela}`");
 
     // 3) Remove o arquivo PHP correspondente, se existir
     $arquivoPhp = __DIR__ . "/projeto{$anoExcluir}.php";
@@ -41,6 +39,14 @@ try {
     $arquivoCss = __DIR__ . "/../css/projeto{$anoExcluir}.css";
     if (file_exists($arquivoCss)) {
         unlink($arquivoCss);
+    }
+
+    // 5) Remove a(s) imagem(ns) da sessão, procurando em img/sessoes/
+    $pastaImg = __DIR__ . "/../img/sessoes/";
+    foreach (glob($pastaImg . "sessao{$anoExcluir}.*") as $img) {
+        if (is_file($img)) {
+            unlink($img);
+        }
     }
 
     $_SESSION['flash_success'] = "Sessão (ano {$anoExcluir}) excluída com sucesso!";
